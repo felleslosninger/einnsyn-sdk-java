@@ -7,7 +7,7 @@ This repository contains the Java SDK for the eInnsyn API, which allows develope
 - [Installation](#installation)
 - [Usage](#usage)
   - [Initialize the Client](#initialize-the-client)
-  - [Build and Save a Saksmappe](#build-and-save-a-saksmappe)
+  - [Build and save a Saksmappe](#build-and-save-a-saksmappe)
   - [Add a Journalpost to a Saksmappe](#add-a-journalpost-to-a-saksmappe)
   - [Delete a Saksmappe](#delete-a-saksmappe)
   - [Get a Saksmappe](#get-a-saksmappe)
@@ -51,7 +51,7 @@ EInnsynClient advancedClient = new EInnsynClient(b -> b
 );
 ```
 
-### Build and Save a Saksmappe
+### Build and save a Saksmappe
 Using pre-built objects:
 ```java
 // Add Arkiv
