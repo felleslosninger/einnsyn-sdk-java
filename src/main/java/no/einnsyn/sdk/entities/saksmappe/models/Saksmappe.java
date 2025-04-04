@@ -3,10 +3,8 @@
 
 package no.einnsyn.sdk.entities.saksmappe.models;
 
-import java.util.List;
 import no.einnsyn.sdk.common.expandablefield.ExpandableField;
 import no.einnsyn.sdk.entities.enhet.models.Enhet;
-import no.einnsyn.sdk.entities.journalpost.models.Journalpost;
 import no.einnsyn.sdk.entities.mappe.models.Mappe;
 
 /** Saksmappe */
@@ -20,8 +18,6 @@ public class Saksmappe extends Mappe {
   protected String saksnummer;
 
   protected String saksdato;
-
-  protected List<ExpandableField<Journalpost>> journalpost;
 
   /** A code for the administrative Enhet associated with this Saksmappe. */
   protected String administrativEnhet;
@@ -51,10 +47,6 @@ public class Saksmappe extends Mappe {
 
   public String getSaksdato() {
     return saksdato;
-  }
-
-  public List<ExpandableField<Journalpost>> getJournalpost() {
-    return journalpost;
   }
 
   /** A code for the administrative Enhet associated with this Saksmappe. */

@@ -19,10 +19,12 @@ public class SaksmappeRequest extends MappeRequest {
 
   protected Integer sakssekvensnummer;
 
-  protected String saksnummer;
-
   protected String saksdato;
 
+  /**
+   * A list of journalposts associated with this Saksmappe. This is write-only, reads should use the
+   * separate `journalpost` endpoint.
+   */
   protected List<ExpandableField<JournalpostRequest>> journalpost;
 
   /** A code for the administrative Enhet associated with this Saksmappe. */
@@ -42,7 +44,6 @@ public class SaksmappeRequest extends MappeRequest {
       ExpandableField<KlasseRequest> klasse,
       Integer saksaar,
       Integer sakssekvensnummer,
-      String saksnummer,
       String saksdato,
       List<ExpandableField<JournalpostRequest>> journalpost,
       String administrativEnhet) {
@@ -60,7 +61,6 @@ public class SaksmappeRequest extends MappeRequest {
         klasse);
     this.saksaar = saksaar;
     this.sakssekvensnummer = sakssekvensnummer;
-    this.saksnummer = saksnummer;
     this.saksdato = saksdato;
     this.journalpost = journalpost;
     this.administrativEnhet = administrativEnhet;
@@ -74,14 +74,14 @@ public class SaksmappeRequest extends MappeRequest {
     return sakssekvensnummer;
   }
 
-  public String getSaksnummer() {
-    return saksnummer;
-  }
-
   public String getSaksdato() {
     return saksdato;
   }
 
+  /**
+   * A list of journalposts associated with this Saksmappe. This is write-only, reads should use the
+   * separate `journalpost` endpoint.
+   */
   public List<ExpandableField<JournalpostRequest>> getJournalpost() {
     return journalpost;
   }
@@ -148,10 +148,12 @@ public class SaksmappeRequest extends MappeRequest {
 
     protected Integer sakssekvensnummer;
 
-    protected String saksnummer;
-
     protected String saksdato;
 
+    /**
+     * A list of journalposts associated with this Saksmappe. This is write-only, reads should use
+     * the separate `journalpost` endpoint.
+     */
     protected List<ExpandableField<JournalpostRequest>> journalpost;
 
     /** A code for the administrative Enhet associated with this Saksmappe. */
@@ -231,14 +233,14 @@ public class SaksmappeRequest extends MappeRequest {
       return sakssekvensnummer;
     }
 
-    public String getSaksnummer() {
-      return saksnummer;
-    }
-
     public String getSaksdato() {
       return saksdato;
     }
 
+    /**
+     * A list of journalposts associated with this Saksmappe. This is write-only, reads should use
+     * the separate `journalpost` endpoint.
+     */
     public List<ExpandableField<JournalpostRequest>> getJournalpost() {
       return journalpost;
     }
@@ -351,22 +353,25 @@ public class SaksmappeRequest extends MappeRequest {
       return this;
     }
 
-    public Builder saksnummer(String saksnummer) {
-      this.saksnummer = saksnummer;
-      return this;
-    }
-
     public Builder saksdato(String saksdato) {
       this.saksdato = saksdato;
       return this;
     }
 
+    /**
+     * A list of journalposts associated with this Saksmappe. This is write-only, reads should use
+     * the separate `journalpost` endpoint.
+     */
     public Builder journalpost(List<JournalpostRequest> journalpost) {
       this.journalpost =
           journalpost.stream().map(ExpandableField::new).collect(Collectors.toList());
       return this;
     }
 
+    /**
+     * A list of journalposts associated with this Saksmappe. This is write-only, reads should use
+     * the separate `journalpost` endpoint.
+     */
     public Builder addJournalpost(JournalpostRequest journalpost) {
       if (this.journalpost == null) {
         this.journalpost = new ArrayList<>();
@@ -375,6 +380,10 @@ public class SaksmappeRequest extends MappeRequest {
       return this;
     }
 
+    /**
+     * A list of journalposts associated with this Saksmappe. This is write-only, reads should use
+     * the separate `journalpost` endpoint.
+     */
     public Builder addJournalpost(
         Function<JournalpostRequest.Builder, JournalpostRequest.Builder> builderFunction) {
       if (this.journalpost == null) {
@@ -385,6 +394,10 @@ public class SaksmappeRequest extends MappeRequest {
       return this;
     }
 
+    /**
+     * A list of journalposts associated with this Saksmappe. This is write-only, reads should use
+     * the separate `journalpost` endpoint.
+     */
     public Builder addJournalpost(String id) {
       if (this.journalpost == null) {
         this.journalpost = new ArrayList<>();
@@ -414,7 +427,6 @@ public class SaksmappeRequest extends MappeRequest {
           this.klasse,
           this.saksaar,
           this.sakssekvensnummer,
-          this.saksnummer,
           this.saksdato,
           this.journalpost,
           this.administrativEnhet);
