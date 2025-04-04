@@ -426,6 +426,39 @@ public class MoetesakOperations extends ApiEntityOperations<Moetesak, MoetesakRe
         type);
   }
 
+  public Dokumentbeskrivelse deleteDokumentbeskrivelse(String id, String dokumentbeskrivelseId)
+      throws EInnsynException {
+    String url = "/moetesak/" + id + "/dokumentbeskrivelse/" + dokumentbeskrivelseId;
+    ApiRequestMethod method = ApiRequestMethod.DELETE;
+    Type type = new TypeToken<Dokumentbeskrivelse>() {}.getType();
+    return requester.request(method, url, null, null, null, type);
+  }
+
+  public Dokumentbeskrivelse deleteDokumentbeskrivelse(
+      String id, String dokumentbeskrivelseId, EInnsynOptions options) throws EInnsynException {
+    String url = "/moetesak/" + id + "/dokumentbeskrivelse/" + dokumentbeskrivelseId;
+    ApiRequestMethod method = ApiRequestMethod.DELETE;
+    Type type = new TypeToken<Dokumentbeskrivelse>() {}.getType();
+    return requester.request(method, url, null, null, options, type);
+  }
+
+  public Dokumentbeskrivelse deleteDokumentbeskrivelse(
+      String id,
+      String dokumentbeskrivelseId,
+      Function<EInnsynOptions.Builder, EInnsynOptions.Builder> optionsBuilderFunction)
+      throws EInnsynException {
+    String url = "/moetesak/" + id + "/dokumentbeskrivelse/" + dokumentbeskrivelseId;
+    ApiRequestMethod method = ApiRequestMethod.DELETE;
+    Type type = new TypeToken<Dokumentbeskrivelse>() {}.getType();
+    return requester.request(
+        method,
+        url,
+        null,
+        null,
+        optionsBuilderFunction.apply(new EInnsynOptions.Builder()).build(),
+        type);
+  }
+
   public Utredning getUtredning(String id) throws EInnsynException {
     String url = "/moetesak/" + id + "/utredning";
     ApiRequestMethod method = ApiRequestMethod.GET;
