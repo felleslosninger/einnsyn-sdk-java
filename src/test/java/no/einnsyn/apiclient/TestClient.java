@@ -8,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Iterator;
-import java.util.List;
 import no.einnsyn.sdk.EInnsynClient;
 import no.einnsyn.sdk.common.exceptions.models.NotFoundException;
 import no.einnsyn.sdk.common.exceptions.models.ValidationException;
@@ -19,6 +18,7 @@ import no.einnsyn.sdk.entities.arkiv.models.Arkiv;
 import no.einnsyn.sdk.entities.arkivdel.ArkivdelOperations;
 import no.einnsyn.sdk.entities.arkivdel.models.Arkivdel;
 import no.einnsyn.sdk.entities.arkivdel.models.SortOrderEnum;
+import no.einnsyn.sdk.entities.enhet.models.Enhet;
 import no.einnsyn.sdk.entities.journalpost.models.Journalpost;
 import no.einnsyn.sdk.entities.journalpost.models.JournalposttypeEnum;
 import no.einnsyn.sdk.entities.saksmappe.models.Saksmappe;
@@ -114,7 +114,6 @@ class TestClient {
 
     Saksmappe saksmappeGET = client.saksmappe().get(saksmappeResponse.getId());
     assertNotNull(saksmappeGET);
-    assertNotNull(saksmappeGET.getJournalpost());
 
     // Delete saksmappe
     Saksmappe saksmappeDELETE = client.saksmappe().delete(saksmappeResponse.getId());
@@ -148,18 +147,18 @@ class TestClient {
 
     Saksmappe saksmappe = client.saksmappe().get(saksmappeResponse.getId());
     assertNotNull(saksmappe);
-    assertNotNull(saksmappe.getJournalpost());
 
-    List<ExpandableField<Journalpost>> journalpostList = saksmappe.getJournalpost();
-    assertEquals(1, journalpostList.size());
-    ExpandableField<Journalpost> journalpostField = journalpostList.get(0);
+    PaginatedList<Journalpost> journalpostList =
+        client.saksmappe().listJournalpost(saksmappe.getId());
+    assertEquals(1, journalpostList.getItems().size());
+    Journalpost journalpostField = journalpostList.getItems().get(0);
     assertNotNull(journalpostField.getId());
-    assertNull(journalpostField.getExpanded());
 
-    // Expand journalpost
-    journalpostField.expand();
-    assertNotNull(journalpostField.getExpanded());
-    assertEquals(journalpostField.getId(), journalpostField.getExpanded().getId());
+    // Expand arkiv
+    ExpandableField<Enhet> journalenhet = saksmappe.getJournalenhet();
+    assertNull(journalenhet.getExpanded());
+    journalenhet.expand();
+    assertNotNull(journalenhet.getExpanded());
 
     // Delete saksmappe
     Saksmappe saksmappeDELETE = client.saksmappe().delete(saksmappeResponse.getId());
