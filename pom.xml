@@ -4,7 +4,7 @@
 
   <groupId>no.einnsyn</groupId>
   <artifactId>sdk</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.1</version>
 
   <properties>
     <maven.compiler.release>11</maven.compiler.release>
@@ -74,7 +74,7 @@
   <scm>
     <developerConnection>scm:git:git@github.com:felleslosninger/einnsyn-sdk-java.git
     </developerConnection>
-    <tag>sdk-1.0.0</tag>
+    <tag>sdk-1.0.1</tag>
   </scm>
 
 </project>
