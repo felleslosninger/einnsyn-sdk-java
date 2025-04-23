@@ -65,6 +65,9 @@ public class FilterParameters {
   /** The Journalenhet to filter the result set by. */
   protected String journalenhet;
 
+  /** Match documents with (or without) fulltext. */
+  protected Boolean fulltext;
+
   public FilterParameters(
       String query,
       List<String> administrativEnhet,
@@ -80,7 +83,8 @@ public class FilterParameters {
       List<EntityEnum> entity,
       List<String> ids,
       List<String> externalIds,
-      String journalenhet) {
+      String journalenhet,
+      Boolean fulltext) {
     super();
     this.query = query;
     this.administrativEnhet = administrativEnhet;
@@ -97,6 +101,7 @@ public class FilterParameters {
     this.ids = ids;
     this.externalIds = externalIds;
     this.journalenhet = journalenhet;
+    this.fulltext = fulltext;
   }
 
   /**
@@ -186,6 +191,11 @@ public class FilterParameters {
     return journalenhet;
   }
 
+  /** Match documents with (or without) fulltext. */
+  public Boolean getFulltext() {
+    return fulltext;
+  }
+
   public static Builder builder() {
     return new Builder();
   }
@@ -253,6 +263,9 @@ public class FilterParameters {
 
     /** The Journalenhet to filter the result set by. */
     protected String journalenhet;
+
+    /** Match documents with (or without) fulltext. */
+    protected Boolean fulltext;
 
     /**
      * A query string to filter by. Quotes can be used to search for exact matches or phrases. Words
@@ -341,6 +354,11 @@ public class FilterParameters {
     /** The Journalenhet to filter the result set by. */
     public String getJournalenhet() {
       return journalenhet;
+    }
+
+    /** Match documents with (or without) fulltext. */
+    public Boolean getFulltext() {
+      return fulltext;
     }
 
     /**
@@ -521,6 +539,12 @@ public class FilterParameters {
       return this;
     }
 
+    /** Match documents with (or without) fulltext. */
+    public Builder fulltext(Boolean fulltext) {
+      this.fulltext = fulltext;
+      return this;
+    }
+
     public FilterParameters build() {
       return new FilterParameters(
           this.query,
@@ -537,7 +561,8 @@ public class FilterParameters {
           this.entity,
           this.ids,
           this.externalIds,
-          this.journalenhet);
+          this.journalenhet,
+          this.fulltext);
     }
   }
 }

@@ -65,6 +65,9 @@ public class SearchParameters {
   /** The Journalenhet to filter the result set by. */
   protected String journalenhet;
 
+  /** Match documents with (or without) fulltext. */
+  protected Boolean fulltext;
+
   /** Specifies which fields in the response should be expanded. */
   protected List<String> expand;
 
@@ -108,6 +111,7 @@ public class SearchParameters {
       List<String> ids,
       List<String> externalIds,
       String journalenhet,
+      Boolean fulltext,
       List<String> expand,
       Integer limit,
       SortOrderEnum sortOrder,
@@ -130,6 +134,7 @@ public class SearchParameters {
     this.ids = ids;
     this.externalIds = externalIds;
     this.journalenhet = journalenhet;
+    this.fulltext = fulltext;
     this.expand = expand;
     this.limit = limit;
     this.sortOrder = sortOrder;
@@ -223,6 +228,11 @@ public class SearchParameters {
   /** The Journalenhet to filter the result set by. */
   public String getJournalenhet() {
     return journalenhet;
+  }
+
+  /** Match documents with (or without) fulltext. */
+  public Boolean getFulltext() {
+    return fulltext;
   }
 
   /** Specifies which fields in the response should be expanded. */
@@ -331,6 +341,9 @@ public class SearchParameters {
 
     /** The Journalenhet to filter the result set by. */
     protected String journalenhet;
+
+    /** Match documents with (or without) fulltext. */
+    protected Boolean fulltext;
 
     /** Specifies which fields in the response should be expanded. */
     protected List<String> expand;
@@ -446,6 +459,11 @@ public class SearchParameters {
     /** The Journalenhet to filter the result set by. */
     public String getJournalenhet() {
       return journalenhet;
+    }
+
+    /** Match documents with (or without) fulltext. */
+    public Boolean getFulltext() {
+      return fulltext;
     }
 
     /** Specifies which fields in the response should be expanded. */
@@ -665,6 +683,12 @@ public class SearchParameters {
       return this;
     }
 
+    /** Match documents with (or without) fulltext. */
+    public Builder fulltext(Boolean fulltext) {
+      this.fulltext = fulltext;
+      return this;
+    }
+
     /** Specifies which fields in the response should be expanded. */
     public Builder expand(List<String> expand) {
       this.expand = expand;
@@ -760,6 +784,7 @@ public class SearchParameters {
           this.ids,
           this.externalIds,
           this.journalenhet,
+          this.fulltext,
           this.expand,
           this.limit,
           this.sortOrder,

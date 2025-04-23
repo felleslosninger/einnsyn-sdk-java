@@ -65,6 +65,9 @@ public class StatisticsParameters {
   /** The Journalenhet to filter the result set by. */
   protected String journalenhet;
 
+  /** Match documents with (or without) fulltext. */
+  protected Boolean fulltext;
+
   protected String aggregateFrom;
 
   protected String aggregateTo;
@@ -85,6 +88,7 @@ public class StatisticsParameters {
       List<String> ids,
       List<String> externalIds,
       String journalenhet,
+      Boolean fulltext,
       String aggregateFrom,
       String aggregateTo) {
     super();
@@ -103,6 +107,7 @@ public class StatisticsParameters {
     this.ids = ids;
     this.externalIds = externalIds;
     this.journalenhet = journalenhet;
+    this.fulltext = fulltext;
     this.aggregateFrom = aggregateFrom;
     this.aggregateTo = aggregateTo;
   }
@@ -194,6 +199,11 @@ public class StatisticsParameters {
     return journalenhet;
   }
 
+  /** Match documents with (or without) fulltext. */
+  public Boolean getFulltext() {
+    return fulltext;
+  }
+
   public String getAggregateFrom() {
     return aggregateFrom;
   }
@@ -269,6 +279,9 @@ public class StatisticsParameters {
 
     /** The Journalenhet to filter the result set by. */
     protected String journalenhet;
+
+    /** Match documents with (or without) fulltext. */
+    protected Boolean fulltext;
 
     protected String aggregateFrom;
 
@@ -361,6 +374,11 @@ public class StatisticsParameters {
     /** The Journalenhet to filter the result set by. */
     public String getJournalenhet() {
       return journalenhet;
+    }
+
+    /** Match documents with (or without) fulltext. */
+    public Boolean getFulltext() {
+      return fulltext;
     }
 
     public String getAggregateFrom() {
@@ -549,6 +567,12 @@ public class StatisticsParameters {
       return this;
     }
 
+    /** Match documents with (or without) fulltext. */
+    public Builder fulltext(Boolean fulltext) {
+      this.fulltext = fulltext;
+      return this;
+    }
+
     public Builder aggregateFrom(String aggregateFrom) {
       this.aggregateFrom = aggregateFrom;
       return this;
@@ -576,6 +600,7 @@ public class StatisticsParameters {
           this.ids,
           this.externalIds,
           this.journalenhet,
+          this.fulltext,
           this.aggregateFrom,
           this.aggregateTo);
     }
