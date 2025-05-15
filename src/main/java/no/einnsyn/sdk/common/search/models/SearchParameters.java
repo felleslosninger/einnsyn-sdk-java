@@ -47,6 +47,27 @@ public class SearchParameters {
   /** Filter by the date of a meeting. */
   protected String moetedatoAfter;
 
+  /** Filter by saksaar */
+  protected List<String> saksaar;
+
+  /** Filter by sakssekvensnummer */
+  protected List<String> sakssekvensnummer;
+
+  /** Filter by saksnummer */
+  protected List<String> saksnummer;
+
+  /** Filter by journalpostnummer */
+  protected List<String> journalpostnummer;
+
+  /** Filter by journalsekvensnummer */
+  protected List<String> journalsekvensnummer;
+
+  /** Filter by moetesaksaar */
+  protected List<String> moetesaksaar;
+
+  /** Filter by moetesakssekvensnummer */
+  protected List<String> moetesakssekvensnummer;
+
   /** Filter by the entity type. */
   protected List<EntityEnum> entity;
 
@@ -107,6 +128,13 @@ public class SearchParameters {
       String oppdatertDatoAfter,
       String moetedatoBefore,
       String moetedatoAfter,
+      List<String> saksaar,
+      List<String> sakssekvensnummer,
+      List<String> saksnummer,
+      List<String> journalpostnummer,
+      List<String> journalsekvensnummer,
+      List<String> moetesaksaar,
+      List<String> moetesakssekvensnummer,
       List<EntityEnum> entity,
       List<String> ids,
       List<String> externalIds,
@@ -130,6 +158,13 @@ public class SearchParameters {
     this.oppdatertDatoAfter = oppdatertDatoAfter;
     this.moetedatoBefore = moetedatoBefore;
     this.moetedatoAfter = moetedatoAfter;
+    this.saksaar = saksaar;
+    this.sakssekvensnummer = sakssekvensnummer;
+    this.saksnummer = saksnummer;
+    this.journalpostnummer = journalpostnummer;
+    this.journalsekvensnummer = journalsekvensnummer;
+    this.moetesaksaar = moetesaksaar;
+    this.moetesakssekvensnummer = moetesakssekvensnummer;
     this.entity = entity;
     this.ids = ids;
     this.externalIds = externalIds;
@@ -202,6 +237,41 @@ public class SearchParameters {
   /** Filter by the date of a meeting. */
   public String getMoetedatoAfter() {
     return moetedatoAfter;
+  }
+
+  /** Filter by saksaar */
+  public List<String> getSaksaar() {
+    return saksaar;
+  }
+
+  /** Filter by sakssekvensnummer */
+  public List<String> getSakssekvensnummer() {
+    return sakssekvensnummer;
+  }
+
+  /** Filter by saksnummer */
+  public List<String> getSaksnummer() {
+    return saksnummer;
+  }
+
+  /** Filter by journalpostnummer */
+  public List<String> getJournalpostnummer() {
+    return journalpostnummer;
+  }
+
+  /** Filter by journalsekvensnummer */
+  public List<String> getJournalsekvensnummer() {
+    return journalsekvensnummer;
+  }
+
+  /** Filter by moetesaksaar */
+  public List<String> getMoetesaksaar() {
+    return moetesaksaar;
+  }
+
+  /** Filter by moetesakssekvensnummer */
+  public List<String> getMoetesakssekvensnummer() {
+    return moetesakssekvensnummer;
   }
 
   /** Filter by the entity type. */
@@ -324,6 +394,27 @@ public class SearchParameters {
     /** Filter by the date of a meeting. */
     protected String moetedatoAfter;
 
+    /** Filter by saksaar */
+    protected List<String> saksaar;
+
+    /** Filter by sakssekvensnummer */
+    protected List<String> sakssekvensnummer;
+
+    /** Filter by saksnummer */
+    protected List<String> saksnummer;
+
+    /** Filter by journalpostnummer */
+    protected List<String> journalpostnummer;
+
+    /** Filter by journalsekvensnummer */
+    protected List<String> journalsekvensnummer;
+
+    /** Filter by moetesaksaar */
+    protected List<String> moetesaksaar;
+
+    /** Filter by moetesakssekvensnummer */
+    protected List<String> moetesakssekvensnummer;
+
     /** Filter by the entity type. */
     protected List<EntityEnum> entity;
 
@@ -433,6 +524,41 @@ public class SearchParameters {
     /** Filter by the date of a meeting. */
     public String getMoetedatoAfter() {
       return moetedatoAfter;
+    }
+
+    /** Filter by saksaar */
+    public List<String> getSaksaar() {
+      return saksaar;
+    }
+
+    /** Filter by sakssekvensnummer */
+    public List<String> getSakssekvensnummer() {
+      return sakssekvensnummer;
+    }
+
+    /** Filter by saksnummer */
+    public List<String> getSaksnummer() {
+      return saksnummer;
+    }
+
+    /** Filter by journalpostnummer */
+    public List<String> getJournalpostnummer() {
+      return journalpostnummer;
+    }
+
+    /** Filter by journalsekvensnummer */
+    public List<String> getJournalsekvensnummer() {
+      return journalsekvensnummer;
+    }
+
+    /** Filter by moetesaksaar */
+    public List<String> getMoetesaksaar() {
+      return moetesaksaar;
+    }
+
+    /** Filter by moetesakssekvensnummer */
+    public List<String> getMoetesakssekvensnummer() {
+      return moetesakssekvensnummer;
     }
 
     /** Filter by the entity type. */
@@ -620,6 +746,111 @@ public class SearchParameters {
       return this;
     }
 
+    /** Filter by saksaar */
+    public Builder saksaar(List<String> saksaar) {
+      this.saksaar = saksaar;
+      return this;
+    }
+
+    /** Filter by saksaar */
+    public Builder addSaksaar(String saksaar) {
+      if (this.saksaar == null) {
+        this.saksaar = new ArrayList<>();
+      }
+      this.saksaar.add(saksaar);
+      return this;
+    }
+
+    /** Filter by sakssekvensnummer */
+    public Builder sakssekvensnummer(List<String> sakssekvensnummer) {
+      this.sakssekvensnummer = sakssekvensnummer;
+      return this;
+    }
+
+    /** Filter by sakssekvensnummer */
+    public Builder addSakssekvensnummer(String sakssekvensnummer) {
+      if (this.sakssekvensnummer == null) {
+        this.sakssekvensnummer = new ArrayList<>();
+      }
+      this.sakssekvensnummer.add(sakssekvensnummer);
+      return this;
+    }
+
+    /** Filter by saksnummer */
+    public Builder saksnummer(List<String> saksnummer) {
+      this.saksnummer = saksnummer;
+      return this;
+    }
+
+    /** Filter by saksnummer */
+    public Builder addSaksnummer(String saksnummer) {
+      if (this.saksnummer == null) {
+        this.saksnummer = new ArrayList<>();
+      }
+      this.saksnummer.add(saksnummer);
+      return this;
+    }
+
+    /** Filter by journalpostnummer */
+    public Builder journalpostnummer(List<String> journalpostnummer) {
+      this.journalpostnummer = journalpostnummer;
+      return this;
+    }
+
+    /** Filter by journalpostnummer */
+    public Builder addJournalpostnummer(String journalpostnummer) {
+      if (this.journalpostnummer == null) {
+        this.journalpostnummer = new ArrayList<>();
+      }
+      this.journalpostnummer.add(journalpostnummer);
+      return this;
+    }
+
+    /** Filter by journalsekvensnummer */
+    public Builder journalsekvensnummer(List<String> journalsekvensnummer) {
+      this.journalsekvensnummer = journalsekvensnummer;
+      return this;
+    }
+
+    /** Filter by journalsekvensnummer */
+    public Builder addJournalsekvensnummer(String journalsekvensnummer) {
+      if (this.journalsekvensnummer == null) {
+        this.journalsekvensnummer = new ArrayList<>();
+      }
+      this.journalsekvensnummer.add(journalsekvensnummer);
+      return this;
+    }
+
+    /** Filter by moetesaksaar */
+    public Builder moetesaksaar(List<String> moetesaksaar) {
+      this.moetesaksaar = moetesaksaar;
+      return this;
+    }
+
+    /** Filter by moetesaksaar */
+    public Builder addMoetesaksaar(String moetesaksaar) {
+      if (this.moetesaksaar == null) {
+        this.moetesaksaar = new ArrayList<>();
+      }
+      this.moetesaksaar.add(moetesaksaar);
+      return this;
+    }
+
+    /** Filter by moetesakssekvensnummer */
+    public Builder moetesakssekvensnummer(List<String> moetesakssekvensnummer) {
+      this.moetesakssekvensnummer = moetesakssekvensnummer;
+      return this;
+    }
+
+    /** Filter by moetesakssekvensnummer */
+    public Builder addMoetesakssekvensnummer(String moetesakssekvensnummer) {
+      if (this.moetesakssekvensnummer == null) {
+        this.moetesakssekvensnummer = new ArrayList<>();
+      }
+      this.moetesakssekvensnummer.add(moetesakssekvensnummer);
+      return this;
+    }
+
     /** Filter by the entity type. */
     public Builder entity(List<EntityEnum> entity) {
       this.entity = entity;
@@ -780,6 +1011,13 @@ public class SearchParameters {
           this.oppdatertDatoAfter,
           this.moetedatoBefore,
           this.moetedatoAfter,
+          this.saksaar,
+          this.sakssekvensnummer,
+          this.saksnummer,
+          this.journalpostnummer,
+          this.journalsekvensnummer,
+          this.moetesaksaar,
+          this.moetesakssekvensnummer,
           this.entity,
           this.ids,
           this.externalIds,
