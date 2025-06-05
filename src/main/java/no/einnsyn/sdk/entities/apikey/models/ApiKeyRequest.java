@@ -6,6 +6,7 @@ package no.einnsyn.sdk.entities.apikey.models;
 import java.util.function.Function;
 import no.einnsyn.sdk.common.expandablefield.ExpandableField;
 import no.einnsyn.sdk.entities.base.models.BaseRequest;
+import no.einnsyn.sdk.entities.bruker.models.BrukerRequest;
 import no.einnsyn.sdk.entities.enhet.models.EnhetRequest;
 
 /** An API key used to authenticate requests to the eInnsyn API. */
@@ -16,14 +17,30 @@ public class ApiKeyRequest extends BaseRequest {
    */
   protected String name;
 
-  /** The Enhet that requests using this key will be associated with. */
+  /** An Enhet that requests using this key will be associated with. */
   protected ExpandableField<EnhetRequest> enhet;
 
+  /** A Bruker that requests using this key will be associated with. */
+  protected ExpandableField<BrukerRequest> bruker;
+
+  /**
+   * Specifies the expiration date of the API key. If this is set, the key will not be usable after
+   * this date.
+   */
+  protected String expiresAt;
+
   public ApiKeyRequest(
-      String externalId, String accessibleAfter, String name, ExpandableField<EnhetRequest> enhet) {
+      String externalId,
+      String accessibleAfter,
+      String name,
+      ExpandableField<EnhetRequest> enhet,
+      ExpandableField<BrukerRequest> bruker,
+      String expiresAt) {
     super(externalId, accessibleAfter);
     this.name = name;
     this.enhet = enhet;
+    this.bruker = bruker;
+    this.expiresAt = expiresAt;
   }
 
   /**
@@ -34,9 +51,22 @@ public class ApiKeyRequest extends BaseRequest {
     return name;
   }
 
-  /** The Enhet that requests using this key will be associated with. */
+  /** An Enhet that requests using this key will be associated with. */
   public ExpandableField<EnhetRequest> getEnhet() {
     return enhet;
+  }
+
+  /** A Bruker that requests using this key will be associated with. */
+  public ExpandableField<BrukerRequest> getBruker() {
+    return bruker;
+  }
+
+  /**
+   * Specifies the expiration date of the API key. If this is set, the key will not be usable after
+   * this date.
+   */
+  public String getExpiresAt() {
+    return expiresAt;
   }
 
   public static Builder builder() {
@@ -63,8 +93,17 @@ public class ApiKeyRequest extends BaseRequest {
      */
     protected String name;
 
-    /** The Enhet that requests using this key will be associated with. */
+    /** An Enhet that requests using this key will be associated with. */
     protected ExpandableField<EnhetRequest> enhet;
+
+    /** A Bruker that requests using this key will be associated with. */
+    protected ExpandableField<BrukerRequest> bruker;
+
+    /**
+     * Specifies the expiration date of the API key. If this is set, the key will not be usable
+     * after this date.
+     */
+    protected String expiresAt;
 
     /**
      * An external ID for the resource. This is similar to "systemId", but will be used for legacy
@@ -87,9 +126,22 @@ public class ApiKeyRequest extends BaseRequest {
       return name;
     }
 
-    /** The Enhet that requests using this key will be associated with. */
+    /** An Enhet that requests using this key will be associated with. */
     public ExpandableField<EnhetRequest> getEnhet() {
       return enhet;
+    }
+
+    /** A Bruker that requests using this key will be associated with. */
+    public ExpandableField<BrukerRequest> getBruker() {
+      return bruker;
+    }
+
+    /**
+     * Specifies the expiration date of the API key. If this is set, the key will not be usable
+     * after this date.
+     */
+    public String getExpiresAt() {
+      return expiresAt;
     }
 
     /**
@@ -116,20 +168,47 @@ public class ApiKeyRequest extends BaseRequest {
       return this;
     }
 
-    /** The Enhet that requests using this key will be associated with. */
+    /** An Enhet that requests using this key will be associated with. */
     public Builder enhet(EnhetRequest enhet) {
       this.enhet = new ExpandableField<>(enhet);
       return this;
     }
 
-    /** The Enhet that requests using this key will be associated with. */
+    /** An Enhet that requests using this key will be associated with. */
     public Builder enhet(String id) {
       this.enhet = new ExpandableField<>(id);
       return this;
     }
 
+    /** A Bruker that requests using this key will be associated with. */
+    public Builder bruker(BrukerRequest bruker) {
+      this.bruker = new ExpandableField<>(bruker);
+      return this;
+    }
+
+    /** A Bruker that requests using this key will be associated with. */
+    public Builder bruker(String id) {
+      this.bruker = new ExpandableField<>(id);
+      return this;
+    }
+
+    /**
+     * Specifies the expiration date of the API key. If this is set, the key will not be usable
+     * after this date.
+     */
+    public Builder expiresAt(String expiresAt) {
+      this.expiresAt = expiresAt;
+      return this;
+    }
+
     public ApiKeyRequest build() {
-      return new ApiKeyRequest(this.externalId, this.accessibleAfter, this.name, this.enhet);
+      return new ApiKeyRequest(
+          this.externalId,
+          this.accessibleAfter,
+          this.name,
+          this.enhet,
+          this.bruker,
+          this.expiresAt);
     }
   }
 }
