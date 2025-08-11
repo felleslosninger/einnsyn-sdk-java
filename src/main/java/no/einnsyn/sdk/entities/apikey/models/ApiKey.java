@@ -5,6 +5,7 @@ package no.einnsyn.sdk.entities.apikey.models;
 
 import no.einnsyn.sdk.common.expandablefield.ExpandableField;
 import no.einnsyn.sdk.entities.base.models.Base;
+import no.einnsyn.sdk.entities.bruker.models.Bruker;
 import no.einnsyn.sdk.entities.enhet.models.Enhet;
 
 /** An API key used to authenticate requests to the eInnsyn API. */
@@ -23,8 +24,17 @@ public class ApiKey extends Base {
    */
   protected String secretKey;
 
-  /** The Enhet that requests using this key will be associated with. */
+  /** An Enhet that requests using this key will be associated with. */
   protected ExpandableField<Enhet> enhet;
+
+  /** A Bruker that requests using this key will be associated with. */
+  protected ExpandableField<Bruker> bruker;
+
+  /**
+   * Specifies the expiration date of the API key. If this is set, the key will not be usable after
+   * this date.
+   */
+  protected String expiresAt;
 
   public String getEntity() {
     return entity;
@@ -46,8 +56,21 @@ public class ApiKey extends Base {
     return secretKey;
   }
 
-  /** The Enhet that requests using this key will be associated with. */
+  /** An Enhet that requests using this key will be associated with. */
   public ExpandableField<Enhet> getEnhet() {
     return enhet;
+  }
+
+  /** A Bruker that requests using this key will be associated with. */
+  public ExpandableField<Bruker> getBruker() {
+    return bruker;
+  }
+
+  /**
+   * Specifies the expiration date of the API key. If this is set, the key will not be usable after
+   * this date.
+   */
+  public String getExpiresAt() {
+    return expiresAt;
   }
 }
