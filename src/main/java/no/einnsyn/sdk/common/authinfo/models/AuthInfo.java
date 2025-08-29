@@ -5,7 +5,7 @@ package no.einnsyn.sdk.common.authinfo.models;
 
 import java.util.function.Function;
 
-public class AuthInfoResponse {
+public class AuthInfo {
   protected final String entity = "AuthInfo";
 
   protected AuthTypeEnum authType;
@@ -18,7 +18,7 @@ public class AuthInfoResponse {
 
   protected String email;
 
-  public AuthInfoResponse() {
+  public AuthInfo() {
     super();
   }
 
@@ -50,14 +50,14 @@ public class AuthInfoResponse {
     return new Builder();
   }
 
-  public static AuthInfoResponse of(Function<Builder, Builder> builderFunction) {
+  public static AuthInfo of(Function<Builder, Builder> builderFunction) {
     return builderFunction.apply(new Builder()).build();
   }
 
   public static class Builder {
 
-    public AuthInfoResponse build() {
-      return new AuthInfoResponse();
+    public AuthInfo build() {
+      return new AuthInfo();
     }
   }
 }
