@@ -3,6 +3,7 @@
 
 package no.einnsyn.sdk;
 
+import no.einnsyn.sdk.common.authinfo.AuthInfoOperations;
 import no.einnsyn.sdk.common.search.SearchOperations;
 import no.einnsyn.sdk.common.statistics.StatisticsOperations;
 import no.einnsyn.sdk.entities.apikey.ApiKeyOperations;
@@ -160,5 +161,9 @@ public class EInnsynClientBase {
 
   public StatisticsOperations statistics() {
     return new StatisticsOperations(this.requester);
+  }
+
+  public AuthInfoOperations authinfo() {
+    return new AuthInfoOperations(this.requester);
   }
 }

@@ -30,22 +30,22 @@ public class StatisticsParameters {
   protected List<String> excludeAdministrativEnhetExact;
 
   /** Filter by the published date of the document. */
-  protected String publisertDatoBefore;
+  protected String publisertDatoFrom;
 
   /** Filter by the published date of the document. */
-  protected String publisertDatoAfter;
+  protected String publisertDatoTo;
 
   /** Filter by the updated date of the document. */
-  protected String oppdatertDatoBefore;
+  protected String oppdatertDatoFrom;
 
   /** Filter by the updated date of the document. */
-  protected String oppdatertDatoAfter;
+  protected String oppdatertDatoTo;
 
   /** Filter by the date of a meeting. */
-  protected String moetedatoBefore;
+  protected String moetedatoFrom;
 
   /** Filter by the date of a meeting. */
-  protected String moetedatoAfter;
+  protected String moetedatoTo;
 
   /** Filter by saksaar */
   protected List<String> saksaar;
@@ -67,6 +67,9 @@ public class StatisticsParameters {
 
   /** Filter by moetesakssekvensnummer */
   protected List<String> moetesakssekvensnummer;
+
+  /** Filter by journalposttype */
+  protected List<JournalposttypeEnum> journalposttype;
 
   /** Filter by the entity type. */
   protected List<EntityEnum> entity;
@@ -99,12 +102,12 @@ public class StatisticsParameters {
       List<String> administrativEnhetExact,
       List<String> excludeAdministrativEnhet,
       List<String> excludeAdministrativEnhetExact,
-      String publisertDatoBefore,
-      String publisertDatoAfter,
-      String oppdatertDatoBefore,
-      String oppdatertDatoAfter,
-      String moetedatoBefore,
-      String moetedatoAfter,
+      String publisertDatoFrom,
+      String publisertDatoTo,
+      String oppdatertDatoFrom,
+      String oppdatertDatoTo,
+      String moetedatoFrom,
+      String moetedatoTo,
       List<String> saksaar,
       List<String> sakssekvensnummer,
       List<String> saksnummer,
@@ -112,6 +115,7 @@ public class StatisticsParameters {
       List<String> journalsekvensnummer,
       List<String> moetesaksaar,
       List<String> moetesakssekvensnummer,
+      List<JournalposttypeEnum> journalposttype,
       List<EntityEnum> entity,
       List<String> ids,
       List<String> externalIds,
@@ -125,12 +129,12 @@ public class StatisticsParameters {
     this.administrativEnhetExact = administrativEnhetExact;
     this.excludeAdministrativEnhet = excludeAdministrativEnhet;
     this.excludeAdministrativEnhetExact = excludeAdministrativEnhetExact;
-    this.publisertDatoBefore = publisertDatoBefore;
-    this.publisertDatoAfter = publisertDatoAfter;
-    this.oppdatertDatoBefore = oppdatertDatoBefore;
-    this.oppdatertDatoAfter = oppdatertDatoAfter;
-    this.moetedatoBefore = moetedatoBefore;
-    this.moetedatoAfter = moetedatoAfter;
+    this.publisertDatoFrom = publisertDatoFrom;
+    this.publisertDatoTo = publisertDatoTo;
+    this.oppdatertDatoFrom = oppdatertDatoFrom;
+    this.oppdatertDatoTo = oppdatertDatoTo;
+    this.moetedatoFrom = moetedatoFrom;
+    this.moetedatoTo = moetedatoTo;
     this.saksaar = saksaar;
     this.sakssekvensnummer = sakssekvensnummer;
     this.saksnummer = saksnummer;
@@ -138,6 +142,7 @@ public class StatisticsParameters {
     this.journalsekvensnummer = journalsekvensnummer;
     this.moetesaksaar = moetesaksaar;
     this.moetesakssekvensnummer = moetesakssekvensnummer;
+    this.journalposttype = journalposttype;
     this.entity = entity;
     this.ids = ids;
     this.externalIds = externalIds;
@@ -179,33 +184,33 @@ public class StatisticsParameters {
   }
 
   /** Filter by the published date of the document. */
-  public String getPublisertDatoBefore() {
-    return publisertDatoBefore;
+  public String getPublisertDatoFrom() {
+    return publisertDatoFrom;
   }
 
   /** Filter by the published date of the document. */
-  public String getPublisertDatoAfter() {
-    return publisertDatoAfter;
+  public String getPublisertDatoTo() {
+    return publisertDatoTo;
   }
 
   /** Filter by the updated date of the document. */
-  public String getOppdatertDatoBefore() {
-    return oppdatertDatoBefore;
+  public String getOppdatertDatoFrom() {
+    return oppdatertDatoFrom;
   }
 
   /** Filter by the updated date of the document. */
-  public String getOppdatertDatoAfter() {
-    return oppdatertDatoAfter;
+  public String getOppdatertDatoTo() {
+    return oppdatertDatoTo;
   }
 
   /** Filter by the date of a meeting. */
-  public String getMoetedatoBefore() {
-    return moetedatoBefore;
+  public String getMoetedatoFrom() {
+    return moetedatoFrom;
   }
 
   /** Filter by the date of a meeting. */
-  public String getMoetedatoAfter() {
-    return moetedatoAfter;
+  public String getMoetedatoTo() {
+    return moetedatoTo;
   }
 
   /** Filter by saksaar */
@@ -241,6 +246,11 @@ public class StatisticsParameters {
   /** Filter by moetesakssekvensnummer */
   public List<String> getMoetesakssekvensnummer() {
     return moetesakssekvensnummer;
+  }
+
+  /** Filter by journalposttype */
+  public List<JournalposttypeEnum> getJournalposttype() {
+    return journalposttype;
   }
 
   /** Filter by the entity type. */
@@ -315,22 +325,22 @@ public class StatisticsParameters {
     protected List<String> excludeAdministrativEnhetExact;
 
     /** Filter by the published date of the document. */
-    protected String publisertDatoBefore;
+    protected String publisertDatoFrom;
 
     /** Filter by the published date of the document. */
-    protected String publisertDatoAfter;
+    protected String publisertDatoTo;
 
     /** Filter by the updated date of the document. */
-    protected String oppdatertDatoBefore;
+    protected String oppdatertDatoFrom;
 
     /** Filter by the updated date of the document. */
-    protected String oppdatertDatoAfter;
+    protected String oppdatertDatoTo;
 
     /** Filter by the date of a meeting. */
-    protected String moetedatoBefore;
+    protected String moetedatoFrom;
 
     /** Filter by the date of a meeting. */
-    protected String moetedatoAfter;
+    protected String moetedatoTo;
 
     /** Filter by saksaar */
     protected List<String> saksaar;
@@ -352,6 +362,9 @@ public class StatisticsParameters {
 
     /** Filter by moetesakssekvensnummer */
     protected List<String> moetesakssekvensnummer;
+
+    /** Filter by journalposttype */
+    protected List<JournalposttypeEnum> journalposttype;
 
     /** Filter by the entity type. */
     protected List<EntityEnum> entity;
@@ -412,33 +425,33 @@ public class StatisticsParameters {
     }
 
     /** Filter by the published date of the document. */
-    public String getPublisertDatoBefore() {
-      return publisertDatoBefore;
+    public String getPublisertDatoFrom() {
+      return publisertDatoFrom;
     }
 
     /** Filter by the published date of the document. */
-    public String getPublisertDatoAfter() {
-      return publisertDatoAfter;
+    public String getPublisertDatoTo() {
+      return publisertDatoTo;
     }
 
     /** Filter by the updated date of the document. */
-    public String getOppdatertDatoBefore() {
-      return oppdatertDatoBefore;
+    public String getOppdatertDatoFrom() {
+      return oppdatertDatoFrom;
     }
 
     /** Filter by the updated date of the document. */
-    public String getOppdatertDatoAfter() {
-      return oppdatertDatoAfter;
+    public String getOppdatertDatoTo() {
+      return oppdatertDatoTo;
     }
 
     /** Filter by the date of a meeting. */
-    public String getMoetedatoBefore() {
-      return moetedatoBefore;
+    public String getMoetedatoFrom() {
+      return moetedatoFrom;
     }
 
     /** Filter by the date of a meeting. */
-    public String getMoetedatoAfter() {
-      return moetedatoAfter;
+    public String getMoetedatoTo() {
+      return moetedatoTo;
     }
 
     /** Filter by saksaar */
@@ -474,6 +487,11 @@ public class StatisticsParameters {
     /** Filter by moetesakssekvensnummer */
     public List<String> getMoetesakssekvensnummer() {
       return moetesakssekvensnummer;
+    }
+
+    /** Filter by journalposttype */
+    public List<JournalposttypeEnum> getJournalposttype() {
+      return journalposttype;
     }
 
     /** Filter by the entity type. */
@@ -595,38 +613,38 @@ public class StatisticsParameters {
     }
 
     /** Filter by the published date of the document. */
-    public Builder publisertDatoBefore(String publisertDatoBefore) {
-      this.publisertDatoBefore = publisertDatoBefore;
+    public Builder publisertDatoFrom(String publisertDatoFrom) {
+      this.publisertDatoFrom = publisertDatoFrom;
       return this;
     }
 
     /** Filter by the published date of the document. */
-    public Builder publisertDatoAfter(String publisertDatoAfter) {
-      this.publisertDatoAfter = publisertDatoAfter;
+    public Builder publisertDatoTo(String publisertDatoTo) {
+      this.publisertDatoTo = publisertDatoTo;
       return this;
     }
 
     /** Filter by the updated date of the document. */
-    public Builder oppdatertDatoBefore(String oppdatertDatoBefore) {
-      this.oppdatertDatoBefore = oppdatertDatoBefore;
+    public Builder oppdatertDatoFrom(String oppdatertDatoFrom) {
+      this.oppdatertDatoFrom = oppdatertDatoFrom;
       return this;
     }
 
     /** Filter by the updated date of the document. */
-    public Builder oppdatertDatoAfter(String oppdatertDatoAfter) {
-      this.oppdatertDatoAfter = oppdatertDatoAfter;
+    public Builder oppdatertDatoTo(String oppdatertDatoTo) {
+      this.oppdatertDatoTo = oppdatertDatoTo;
       return this;
     }
 
     /** Filter by the date of a meeting. */
-    public Builder moetedatoBefore(String moetedatoBefore) {
-      this.moetedatoBefore = moetedatoBefore;
+    public Builder moetedatoFrom(String moetedatoFrom) {
+      this.moetedatoFrom = moetedatoFrom;
       return this;
     }
 
     /** Filter by the date of a meeting. */
-    public Builder moetedatoAfter(String moetedatoAfter) {
-      this.moetedatoAfter = moetedatoAfter;
+    public Builder moetedatoTo(String moetedatoTo) {
+      this.moetedatoTo = moetedatoTo;
       return this;
     }
 
@@ -735,6 +753,21 @@ public class StatisticsParameters {
       return this;
     }
 
+    /** Filter by journalposttype */
+    public Builder journalposttype(List<JournalposttypeEnum> journalposttype) {
+      this.journalposttype = journalposttype;
+      return this;
+    }
+
+    /** Filter by journalposttype */
+    public Builder addJournalposttype(JournalposttypeEnum journalposttype) {
+      if (this.journalposttype == null) {
+        this.journalposttype = new ArrayList<>();
+      }
+      this.journalposttype.add(journalposttype);
+      return this;
+    }
+
     /** Filter by the entity type. */
     public Builder entity(List<EntityEnum> entity) {
       this.entity = entity;
@@ -821,12 +854,12 @@ public class StatisticsParameters {
           this.administrativEnhetExact,
           this.excludeAdministrativEnhet,
           this.excludeAdministrativEnhetExact,
-          this.publisertDatoBefore,
-          this.publisertDatoAfter,
-          this.oppdatertDatoBefore,
-          this.oppdatertDatoAfter,
-          this.moetedatoBefore,
-          this.moetedatoAfter,
+          this.publisertDatoFrom,
+          this.publisertDatoTo,
+          this.oppdatertDatoFrom,
+          this.oppdatertDatoTo,
+          this.moetedatoFrom,
+          this.moetedatoTo,
           this.saksaar,
           this.sakssekvensnummer,
           this.saksnummer,
@@ -834,6 +867,7 @@ public class StatisticsParameters {
           this.journalsekvensnummer,
           this.moetesaksaar,
           this.moetesakssekvensnummer,
+          this.journalposttype,
           this.entity,
           this.ids,
           this.externalIds,
