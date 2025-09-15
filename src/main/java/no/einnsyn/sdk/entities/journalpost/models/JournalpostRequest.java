@@ -12,6 +12,7 @@ import no.einnsyn.sdk.entities.dokumentbeskrivelse.models.DokumentbeskrivelseReq
 import no.einnsyn.sdk.entities.enhet.models.EnhetRequest;
 import no.einnsyn.sdk.entities.korrespondansepart.models.KorrespondansepartRequest;
 import no.einnsyn.sdk.entities.registrering.models.RegistreringRequest;
+import no.einnsyn.sdk.entities.saksmappe.models.SaksmappeRequest;
 import no.einnsyn.sdk.entities.skjerming.models.SkjermingRequest;
 
 /** Journalpost */
@@ -38,6 +39,8 @@ public class JournalpostRequest extends RegistreringRequest {
 
   protected ExpandableField<EnhetRequest> administrativEnhetObjekt;
 
+  protected ExpandableField<SaksmappeRequest> saksmappe;
+
   public JournalpostRequest(
       String externalId,
       String accessibleAfter,
@@ -61,7 +64,8 @@ public class JournalpostRequest extends RegistreringRequest {
       String legacyJournalposttype,
       List<String> legacyFoelgsakenReferanse,
       String administrativEnhet,
-      ExpandableField<EnhetRequest> administrativEnhetObjekt) {
+      ExpandableField<EnhetRequest> administrativEnhetObjekt,
+      ExpandableField<SaksmappeRequest> saksmappe) {
     super(
         externalId,
         accessibleAfter,
@@ -86,6 +90,7 @@ public class JournalpostRequest extends RegistreringRequest {
     this.legacyFoelgsakenReferanse = legacyFoelgsakenReferanse;
     this.administrativEnhet = administrativEnhet;
     this.administrativEnhetObjekt = administrativEnhetObjekt;
+    this.saksmappe = saksmappe;
   }
 
   public Integer getJournalaar() {
@@ -130,6 +135,10 @@ public class JournalpostRequest extends RegistreringRequest {
 
   public ExpandableField<EnhetRequest> getAdministrativEnhetObjekt() {
     return administrativEnhetObjekt;
+  }
+
+  public ExpandableField<SaksmappeRequest> getSaksmappe() {
+    return saksmappe;
   }
 
   public static Builder builder() {
@@ -208,6 +217,8 @@ public class JournalpostRequest extends RegistreringRequest {
     protected String administrativEnhet;
 
     protected ExpandableField<EnhetRequest> administrativEnhetObjekt;
+
+    protected ExpandableField<SaksmappeRequest> saksmappe;
 
     /**
      * An external ID for the resource. This is similar to "systemId", but will be used for legacy
@@ -321,6 +332,10 @@ public class JournalpostRequest extends RegistreringRequest {
 
     public ExpandableField<EnhetRequest> getAdministrativEnhetObjekt() {
       return administrativEnhetObjekt;
+    }
+
+    public ExpandableField<SaksmappeRequest> getSaksmappe() {
+      return saksmappe;
     }
 
     /**
@@ -554,6 +569,16 @@ public class JournalpostRequest extends RegistreringRequest {
       return this;
     }
 
+    public Builder saksmappe(SaksmappeRequest saksmappe) {
+      this.saksmappe = new ExpandableField<>(saksmappe);
+      return this;
+    }
+
+    public Builder saksmappe(String id) {
+      this.saksmappe = new ExpandableField<>(id);
+      return this;
+    }
+
     public JournalpostRequest build() {
       return new JournalpostRequest(
           this.externalId,
@@ -578,7 +603,8 @@ public class JournalpostRequest extends RegistreringRequest {
           this.legacyJournalposttype,
           this.legacyFoelgsakenReferanse,
           this.administrativEnhet,
-          this.administrativEnhetObjekt);
+          this.administrativEnhetObjekt,
+          this.saksmappe);
     }
   }
 }
