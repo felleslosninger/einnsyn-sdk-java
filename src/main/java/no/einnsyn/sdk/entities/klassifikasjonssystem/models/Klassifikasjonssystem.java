@@ -7,10 +7,11 @@ import no.einnsyn.sdk.common.expandablefield.ExpandableField;
 import no.einnsyn.sdk.entities.arkivbase.models.ArkivBase;
 import no.einnsyn.sdk.entities.arkivdel.models.Arkivdel;
 
-/** Klassifikasjonssystem */
+/** Represents a classification system used to organize and retrieve cases and documents. */
 public class Klassifikasjonssystem extends ArkivBase {
   protected final String entity = "Klassifikasjonssystem";
 
+  /** The title of the classification system. */
   protected String tittel;
 
   /** The parent arkivdel. */
@@ -20,6 +21,7 @@ public class Klassifikasjonssystem extends ArkivBase {
     return entity;
   }
 
+  /** The title of the classification system. */
   public String getTittel() {
     return tittel;
   }

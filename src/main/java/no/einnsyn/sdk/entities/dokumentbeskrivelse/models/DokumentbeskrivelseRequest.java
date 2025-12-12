@@ -12,7 +12,10 @@ import no.einnsyn.sdk.entities.arkivbase.models.ArkivBaseRequest;
 import no.einnsyn.sdk.entities.dokumentobjekt.models.DokumentobjektRequest;
 import no.einnsyn.sdk.entities.enhet.models.EnhetRequest;
 
-/** Dokumentbeskrivelse */
+/**
+ * Represents the metadata for a document. It is connected to a registry entry and describes a
+ * single document.
+ */
 public class DokumentbeskrivelseRequest extends ArkivBaseRequest {
   /** The title of the document, with sensitive information redacted. */
   protected String tittel;
@@ -20,12 +23,19 @@ public class DokumentbeskrivelseRequest extends ArkivBaseRequest {
   /** The title of the document, with sensitive information included. */
   protected String tittelSensitiv;
 
+  /** The document number within the parent registry entry. */
   protected Integer dokumentnummer;
 
+  /** The type of document (e.g., 'letter', 'invoice'). */
   protected String dokumenttype;
 
+  /**
+   * Describes the document's role in relation to the registry entry (e.g., 'main document',
+   * 'attachment').
+   */
   protected String tilknyttetRegistreringSom;
 
+  /** The associated electronic document(s). */
   protected List<ExpandableField<DokumentobjektRequest>> dokumentobjekt;
 
   public DokumentbeskrivelseRequest(
@@ -58,18 +68,25 @@ public class DokumentbeskrivelseRequest extends ArkivBaseRequest {
     return tittelSensitiv;
   }
 
+  /** The document number within the parent registry entry. */
   public Integer getDokumentnummer() {
     return dokumentnummer;
   }
 
+  /** The type of document (e.g., 'letter', 'invoice'). */
   public String getDokumenttype() {
     return dokumenttype;
   }
 
+  /**
+   * Describes the document's role in relation to the registry entry (e.g., 'main document',
+   * 'attachment').
+   */
   public String getTilknyttetRegistreringSom() {
     return tilknyttetRegistreringSom;
   }
 
+  /** The associated electronic document(s). */
   public List<ExpandableField<DokumentobjektRequest>> getDokumentobjekt() {
     return dokumentobjekt;
   }
@@ -108,12 +125,19 @@ public class DokumentbeskrivelseRequest extends ArkivBaseRequest {
     /** The title of the document, with sensitive information included. */
     protected String tittelSensitiv;
 
+    /** The document number within the parent registry entry. */
     protected Integer dokumentnummer;
 
+    /** The type of document (e.g., 'letter', 'invoice'). */
     protected String dokumenttype;
 
+    /**
+     * Describes the document's role in relation to the registry entry (e.g., 'main document',
+     * 'attachment').
+     */
     protected String tilknyttetRegistreringSom;
 
+    /** The associated electronic document(s). */
     protected List<ExpandableField<DokumentobjektRequest>> dokumentobjekt;
 
     /**
@@ -153,18 +177,25 @@ public class DokumentbeskrivelseRequest extends ArkivBaseRequest {
       return tittelSensitiv;
     }
 
+    /** The document number within the parent registry entry. */
     public Integer getDokumentnummer() {
       return dokumentnummer;
     }
 
+    /** The type of document (e.g., 'letter', 'invoice'). */
     public String getDokumenttype() {
       return dokumenttype;
     }
 
+    /**
+     * Describes the document's role in relation to the registry entry (e.g., 'main document',
+     * 'attachment').
+     */
     public String getTilknyttetRegistreringSom() {
       return tilknyttetRegistreringSom;
     }
 
+    /** The associated electronic document(s). */
     public List<ExpandableField<DokumentobjektRequest>> getDokumentobjekt() {
       return dokumentobjekt;
     }
@@ -222,27 +253,35 @@ public class DokumentbeskrivelseRequest extends ArkivBaseRequest {
       return this;
     }
 
+    /** The document number within the parent registry entry. */
     public Builder dokumentnummer(Integer dokumentnummer) {
       this.dokumentnummer = dokumentnummer;
       return this;
     }
 
+    /** The type of document (e.g., 'letter', 'invoice'). */
     public Builder dokumenttype(String dokumenttype) {
       this.dokumenttype = dokumenttype;
       return this;
     }
 
+    /**
+     * Describes the document's role in relation to the registry entry (e.g., 'main document',
+     * 'attachment').
+     */
     public Builder tilknyttetRegistreringSom(String tilknyttetRegistreringSom) {
       this.tilknyttetRegistreringSom = tilknyttetRegistreringSom;
       return this;
     }
 
+    /** The associated electronic document(s). */
     public Builder dokumentobjekt(List<DokumentobjektRequest> dokumentobjekt) {
       this.dokumentobjekt =
           dokumentobjekt.stream().map(ExpandableField::new).collect(Collectors.toList());
       return this;
     }
 
+    /** The associated electronic document(s). */
     public Builder addDokumentobjekt(DokumentobjektRequest dokumentobjekt) {
       if (this.dokumentobjekt == null) {
         this.dokumentobjekt = new ArrayList<>();
@@ -251,6 +290,7 @@ public class DokumentbeskrivelseRequest extends ArkivBaseRequest {
       return this;
     }
 
+    /** The associated electronic document(s). */
     public Builder addDokumentobjekt(
         Function<DokumentobjektRequest.Builder, DokumentobjektRequest.Builder> builderFunction) {
       if (this.dokumentobjekt == null) {
@@ -262,6 +302,7 @@ public class DokumentbeskrivelseRequest extends ArkivBaseRequest {
       return this;
     }
 
+    /** The associated electronic document(s). */
     public Builder addDokumentobjekt(String id) {
       if (this.dokumentobjekt == null) {
         this.dokumentobjekt = new ArrayList<>();

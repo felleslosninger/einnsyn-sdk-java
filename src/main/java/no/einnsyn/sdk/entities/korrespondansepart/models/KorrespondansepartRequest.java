@@ -8,7 +8,7 @@ import no.einnsyn.sdk.common.expandablefield.ExpandableField;
 import no.einnsyn.sdk.entities.arkivbase.models.ArkivBaseRequest;
 import no.einnsyn.sdk.entities.enhet.models.EnhetRequest;
 
-/** Korrespondansepart */
+/** Represents a correspondent, which is a sender or recipient of a document. */
 public class KorrespondansepartRequest extends ArkivBaseRequest {
   /** The name of the Korrespondansepart, with sensitive parts redacted. */
   protected String korrespondansepartNavn;
@@ -16,14 +16,19 @@ public class KorrespondansepartRequest extends ArkivBaseRequest {
   /** The name of the Korrespondansepart, with all parts included. */
   protected String korrespondansepartNavnSensitiv;
 
+  /** The type of correspondent (e.g., 'sender', 'recipient'). */
   protected String korrespondanseparttype;
 
+  /** The case officer associated with this correspondent. */
   protected String saksbehandler;
 
+  /** The email address of the correspondent. */
   protected String epostadresse;
 
+  /** The postal code of the correspondent. */
   protected String postnummer;
 
+  /** Indicates if the correspondent is the data controller. */
   protected Boolean erBehandlingsansvarlig;
 
   /** The code for the administrative Enhet associated with this Korrespondansepart. */
@@ -63,22 +68,27 @@ public class KorrespondansepartRequest extends ArkivBaseRequest {
     return korrespondansepartNavnSensitiv;
   }
 
+  /** The type of correspondent (e.g., 'sender', 'recipient'). */
   public String getKorrespondanseparttype() {
     return korrespondanseparttype;
   }
 
+  /** The case officer associated with this correspondent. */
   public String getSaksbehandler() {
     return saksbehandler;
   }
 
+  /** The email address of the correspondent. */
   public String getEpostadresse() {
     return epostadresse;
   }
 
+  /** The postal code of the correspondent. */
   public String getPostnummer() {
     return postnummer;
   }
 
+  /** Indicates if the correspondent is the data controller. */
   public Boolean getErBehandlingsansvarlig() {
     return erBehandlingsansvarlig;
   }
@@ -122,14 +132,19 @@ public class KorrespondansepartRequest extends ArkivBaseRequest {
     /** The name of the Korrespondansepart, with all parts included. */
     protected String korrespondansepartNavnSensitiv;
 
+    /** The type of correspondent (e.g., 'sender', 'recipient'). */
     protected String korrespondanseparttype;
 
+    /** The case officer associated with this correspondent. */
     protected String saksbehandler;
 
+    /** The email address of the correspondent. */
     protected String epostadresse;
 
+    /** The postal code of the correspondent. */
     protected String postnummer;
 
+    /** Indicates if the correspondent is the data controller. */
     protected Boolean erBehandlingsansvarlig;
 
     /** The code for the administrative Enhet associated with this Korrespondansepart. */
@@ -172,22 +187,27 @@ public class KorrespondansepartRequest extends ArkivBaseRequest {
       return korrespondansepartNavnSensitiv;
     }
 
+    /** The type of correspondent (e.g., 'sender', 'recipient'). */
     public String getKorrespondanseparttype() {
       return korrespondanseparttype;
     }
 
+    /** The case officer associated with this correspondent. */
     public String getSaksbehandler() {
       return saksbehandler;
     }
 
+    /** The email address of the correspondent. */
     public String getEpostadresse() {
       return epostadresse;
     }
 
+    /** The postal code of the correspondent. */
     public String getPostnummer() {
       return postnummer;
     }
 
+    /** Indicates if the correspondent is the data controller. */
     public Boolean getErBehandlingsansvarlig() {
       return erBehandlingsansvarlig;
     }
@@ -250,26 +270,31 @@ public class KorrespondansepartRequest extends ArkivBaseRequest {
       return this;
     }
 
+    /** The type of correspondent (e.g., 'sender', 'recipient'). */
     public Builder korrespondanseparttype(String korrespondanseparttype) {
       this.korrespondanseparttype = korrespondanseparttype;
       return this;
     }
 
+    /** The case officer associated with this correspondent. */
     public Builder saksbehandler(String saksbehandler) {
       this.saksbehandler = saksbehandler;
       return this;
     }
 
+    /** The email address of the correspondent. */
     public Builder epostadresse(String epostadresse) {
       this.epostadresse = epostadresse;
       return this;
     }
 
+    /** The postal code of the correspondent. */
     public Builder postnummer(String postnummer) {
       this.postnummer = postnummer;
       return this;
     }
 
+    /** Indicates if the correspondent is the data controller. */
     public Builder erBehandlingsansvarlig(Boolean erBehandlingsansvarlig) {
       this.erBehandlingsansvarlig = erBehandlingsansvarlig;
       return this;

@@ -9,7 +9,7 @@ import no.einnsyn.sdk.entities.bruker.models.Bruker;
 import no.einnsyn.sdk.entities.moetemappe.models.Moetemappe;
 import no.einnsyn.sdk.entities.saksmappe.models.Saksmappe;
 
-/** LagretSak */
+/** Represents a case file (Saksmappe or Moetemappe) that a user has saved for quick access. */
 public class LagretSak extends Base {
   protected final String entity = "LagretSak";
 

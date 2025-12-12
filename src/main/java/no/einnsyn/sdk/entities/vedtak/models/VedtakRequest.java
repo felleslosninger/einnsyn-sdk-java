@@ -15,16 +15,21 @@ import no.einnsyn.sdk.entities.enhet.models.EnhetRequest;
 import no.einnsyn.sdk.entities.moetesaksbeskrivelse.models.MoetesaksbeskrivelseRequest;
 import no.einnsyn.sdk.entities.votering.models.VoteringRequest;
 
-/** Vedtak */
+/** Represents a decision made in a meeting case. */
 public class VedtakRequest extends ArkivBaseRequest {
+  /** The text of the decision. */
   protected ExpandableField<MoetesaksbeskrivelseRequest> vedtakstekst;
 
+  /** The voting results related to the decision. */
   protected List<ExpandableField<VoteringRequest>> votering;
 
+  /** The protocol of proceedings for the decision. */
   protected ExpandableField<BehandlingsprotokollRequest> behandlingsprotokoll;
 
+  /** The document containing the decision. */
   protected List<ExpandableField<DokumentbeskrivelseRequest>> vedtaksdokument;
 
+  /** The date the decision was made. */
   protected String dato;
 
   public VedtakRequest(
@@ -45,22 +50,27 @@ public class VedtakRequest extends ArkivBaseRequest {
     this.dato = dato;
   }
 
+  /** The text of the decision. */
   public ExpandableField<MoetesaksbeskrivelseRequest> getVedtakstekst() {
     return vedtakstekst;
   }
 
+  /** The voting results related to the decision. */
   public List<ExpandableField<VoteringRequest>> getVotering() {
     return votering;
   }
 
+  /** The protocol of proceedings for the decision. */
   public ExpandableField<BehandlingsprotokollRequest> getBehandlingsprotokoll() {
     return behandlingsprotokoll;
   }
 
+  /** The document containing the decision. */
   public List<ExpandableField<DokumentbeskrivelseRequest>> getVedtaksdokument() {
     return vedtaksdokument;
   }
 
+  /** The date the decision was made. */
   public String getDato() {
     return dato;
   }
@@ -93,14 +103,19 @@ public class VedtakRequest extends ArkivBaseRequest {
      */
     protected ExpandableField<EnhetRequest> journalenhet;
 
+    /** The text of the decision. */
     protected ExpandableField<MoetesaksbeskrivelseRequest> vedtakstekst;
 
+    /** The voting results related to the decision. */
     protected List<ExpandableField<VoteringRequest>> votering;
 
+    /** The protocol of proceedings for the decision. */
     protected ExpandableField<BehandlingsprotokollRequest> behandlingsprotokoll;
 
+    /** The document containing the decision. */
     protected List<ExpandableField<DokumentbeskrivelseRequest>> vedtaksdokument;
 
+    /** The date the decision was made. */
     protected String dato;
 
     /**
@@ -130,22 +145,27 @@ public class VedtakRequest extends ArkivBaseRequest {
       return journalenhet;
     }
 
+    /** The text of the decision. */
     public ExpandableField<MoetesaksbeskrivelseRequest> getVedtakstekst() {
       return vedtakstekst;
     }
 
+    /** The voting results related to the decision. */
     public List<ExpandableField<VoteringRequest>> getVotering() {
       return votering;
     }
 
+    /** The protocol of proceedings for the decision. */
     public ExpandableField<BehandlingsprotokollRequest> getBehandlingsprotokoll() {
       return behandlingsprotokoll;
     }
 
+    /** The document containing the decision. */
     public List<ExpandableField<DokumentbeskrivelseRequest>> getVedtaksdokument() {
       return vedtaksdokument;
     }
 
+    /** The date the decision was made. */
     public String getDato() {
       return dato;
     }
@@ -191,21 +211,25 @@ public class VedtakRequest extends ArkivBaseRequest {
       return this;
     }
 
+    /** The text of the decision. */
     public Builder vedtakstekst(MoetesaksbeskrivelseRequest vedtakstekst) {
       this.vedtakstekst = new ExpandableField<>(vedtakstekst);
       return this;
     }
 
+    /** The text of the decision. */
     public Builder vedtakstekst(String id) {
       this.vedtakstekst = new ExpandableField<>(id);
       return this;
     }
 
+    /** The voting results related to the decision. */
     public Builder votering(List<VoteringRequest> votering) {
       this.votering = votering.stream().map(ExpandableField::new).collect(Collectors.toList());
       return this;
     }
 
+    /** The voting results related to the decision. */
     public Builder addVotering(VoteringRequest votering) {
       if (this.votering == null) {
         this.votering = new ArrayList<>();
@@ -214,6 +238,7 @@ public class VedtakRequest extends ArkivBaseRequest {
       return this;
     }
 
+    /** The voting results related to the decision. */
     public Builder addVotering(
         Function<VoteringRequest.Builder, VoteringRequest.Builder> builderFunction) {
       if (this.votering == null) {
@@ -224,6 +249,7 @@ public class VedtakRequest extends ArkivBaseRequest {
       return this;
     }
 
+    /** The voting results related to the decision. */
     public Builder addVotering(String id) {
       if (this.votering == null) {
         this.votering = new ArrayList<>();
@@ -232,22 +258,26 @@ public class VedtakRequest extends ArkivBaseRequest {
       return this;
     }
 
+    /** The protocol of proceedings for the decision. */
     public Builder behandlingsprotokoll(BehandlingsprotokollRequest behandlingsprotokoll) {
       this.behandlingsprotokoll = new ExpandableField<>(behandlingsprotokoll);
       return this;
     }
 
+    /** The protocol of proceedings for the decision. */
     public Builder behandlingsprotokoll(String id) {
       this.behandlingsprotokoll = new ExpandableField<>(id);
       return this;
     }
 
+    /** The document containing the decision. */
     public Builder vedtaksdokument(List<DokumentbeskrivelseRequest> vedtaksdokument) {
       this.vedtaksdokument =
           vedtaksdokument.stream().map(ExpandableField::new).collect(Collectors.toList());
       return this;
     }
 
+    /** The document containing the decision. */
     public Builder addVedtaksdokument(DokumentbeskrivelseRequest vedtaksdokument) {
       if (this.vedtaksdokument == null) {
         this.vedtaksdokument = new ArrayList<>();
@@ -256,6 +286,7 @@ public class VedtakRequest extends ArkivBaseRequest {
       return this;
     }
 
+    /** The document containing the decision. */
     public Builder addVedtaksdokument(
         Function<DokumentbeskrivelseRequest.Builder, DokumentbeskrivelseRequest.Builder>
             builderFunction) {
@@ -268,6 +299,7 @@ public class VedtakRequest extends ArkivBaseRequest {
       return this;
     }
 
+    /** The document containing the decision. */
     public Builder addVedtaksdokument(String id) {
       if (this.vedtaksdokument == null) {
         this.vedtaksdokument = new ArrayList<>();
@@ -276,6 +308,7 @@ public class VedtakRequest extends ArkivBaseRequest {
       return this;
     }
 
+    /** The date the decision was made. */
     public Builder dato(String dato) {
       this.dato = dato;
       return this;

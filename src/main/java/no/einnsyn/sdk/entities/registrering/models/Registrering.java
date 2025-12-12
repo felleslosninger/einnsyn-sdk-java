@@ -10,8 +10,14 @@ import no.einnsyn.sdk.entities.dokumentbeskrivelse.models.Dokumentbeskrivelse;
 import no.einnsyn.sdk.entities.enhet.models.Enhet;
 import no.einnsyn.sdk.entities.korrespondansepart.models.Korrespondansepart;
 
-/** Registrering */
+/**
+ * An abstract base model for registry entries, such as journal entries (Journalpost) and
+ * meeting-related entries (Moetesak, Moetedokument).
+ */
 public class Registrering extends ArkivBase {
+  /** A URL-friendly unique slug for the resource. */
+  protected String slug;
+
   /** The title of the resource, with sensitive information redacted. */
   protected String offentligTittel;
 
@@ -38,6 +44,11 @@ public class Registrering extends ArkivBase {
 
   /** The administrative unit that has been handed the responsibility for this resource. */
   protected ExpandableField<Enhet> avhendetTil;
+
+  /** A URL-friendly unique slug for the resource. */
+  public String getSlug() {
+    return slug;
+  }
 
   /** The title of the resource, with sensitive information redacted. */
   public String getOffentligTittel() {

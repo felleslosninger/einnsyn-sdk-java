@@ -8,8 +8,9 @@ import no.einnsyn.sdk.common.expandablefield.ExpandableField;
 import no.einnsyn.sdk.entities.arkivbase.models.ArkivBaseRequest;
 import no.einnsyn.sdk.entities.enhet.models.EnhetRequest;
 
-/** Klassifikasjonssystem */
+/** Represents a classification system used to organize and retrieve cases and documents. */
 public class KlassifikasjonssystemRequest extends ArkivBaseRequest {
+  /** The title of the classification system. */
   protected String tittel;
 
   public KlassifikasjonssystemRequest(
@@ -22,6 +23,7 @@ public class KlassifikasjonssystemRequest extends ArkivBaseRequest {
     this.tittel = tittel;
   }
 
+  /** The title of the classification system. */
   public String getTittel() {
     return tittel;
   }
@@ -54,6 +56,7 @@ public class KlassifikasjonssystemRequest extends ArkivBaseRequest {
      */
     protected ExpandableField<EnhetRequest> journalenhet;
 
+    /** The title of the classification system. */
     protected String tittel;
 
     /**
@@ -83,6 +86,7 @@ public class KlassifikasjonssystemRequest extends ArkivBaseRequest {
       return journalenhet;
     }
 
+    /** The title of the classification system. */
     public String getTittel() {
       return tittel;
     }
@@ -128,6 +132,7 @@ public class KlassifikasjonssystemRequest extends ArkivBaseRequest {
       return this;
     }
 
+    /** The title of the classification system. */
     public Builder tittel(String tittel) {
       this.tittel = tittel;
       return this;

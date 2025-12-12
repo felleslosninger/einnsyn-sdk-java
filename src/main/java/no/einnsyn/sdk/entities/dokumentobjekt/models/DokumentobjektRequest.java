@@ -9,15 +9,24 @@ import no.einnsyn.sdk.entities.arkivbase.models.ArkivBaseRequest;
 import no.einnsyn.sdk.entities.dokumentbeskrivelse.models.DokumentbeskrivelseRequest;
 import no.einnsyn.sdk.entities.enhet.models.EnhetRequest;
 
+/**
+ * Represents an electronic document or file. It contains information needed to locate and render
+ * the document.
+ */
 public class DokumentobjektRequest extends ArkivBaseRequest {
+  /** A reference (URL) to the document file. */
   protected String referanseDokumentfil;
 
+  /** The file format of the document (e.g., 'PDF/A'). */
   protected String format;
 
+  /** The checksum of the document file, for integrity verification. */
   protected String sjekksum;
 
+  /** The algorithm used to calculate the checksum (e.g., 'SHA-256'). */
   protected String sjekksumAlgoritme;
 
+  /** The document description this object belongs to. */
   protected ExpandableField<DokumentbeskrivelseRequest> dokumentbeskrivelse;
 
   public DokumentobjektRequest(
@@ -38,22 +47,27 @@ public class DokumentobjektRequest extends ArkivBaseRequest {
     this.dokumentbeskrivelse = dokumentbeskrivelse;
   }
 
+  /** A reference (URL) to the document file. */
   public String getReferanseDokumentfil() {
     return referanseDokumentfil;
   }
 
+  /** The file format of the document (e.g., 'PDF/A'). */
   public String getFormat() {
     return format;
   }
 
+  /** The checksum of the document file, for integrity verification. */
   public String getSjekksum() {
     return sjekksum;
   }
 
+  /** The algorithm used to calculate the checksum (e.g., 'SHA-256'). */
   public String getSjekksumAlgoritme() {
     return sjekksumAlgoritme;
   }
 
+  /** The document description this object belongs to. */
   public ExpandableField<DokumentbeskrivelseRequest> getDokumentbeskrivelse() {
     return dokumentbeskrivelse;
   }
@@ -86,14 +100,19 @@ public class DokumentobjektRequest extends ArkivBaseRequest {
      */
     protected ExpandableField<EnhetRequest> journalenhet;
 
+    /** A reference (URL) to the document file. */
     protected String referanseDokumentfil;
 
+    /** The file format of the document (e.g., 'PDF/A'). */
     protected String format;
 
+    /** The checksum of the document file, for integrity verification. */
     protected String sjekksum;
 
+    /** The algorithm used to calculate the checksum (e.g., 'SHA-256'). */
     protected String sjekksumAlgoritme;
 
+    /** The document description this object belongs to. */
     protected ExpandableField<DokumentbeskrivelseRequest> dokumentbeskrivelse;
 
     /**
@@ -123,22 +142,27 @@ public class DokumentobjektRequest extends ArkivBaseRequest {
       return journalenhet;
     }
 
+    /** A reference (URL) to the document file. */
     public String getReferanseDokumentfil() {
       return referanseDokumentfil;
     }
 
+    /** The file format of the document (e.g., 'PDF/A'). */
     public String getFormat() {
       return format;
     }
 
+    /** The checksum of the document file, for integrity verification. */
     public String getSjekksum() {
       return sjekksum;
     }
 
+    /** The algorithm used to calculate the checksum (e.g., 'SHA-256'). */
     public String getSjekksumAlgoritme() {
       return sjekksumAlgoritme;
     }
 
+    /** The document description this object belongs to. */
     public ExpandableField<DokumentbeskrivelseRequest> getDokumentbeskrivelse() {
       return dokumentbeskrivelse;
     }
@@ -184,31 +208,37 @@ public class DokumentobjektRequest extends ArkivBaseRequest {
       return this;
     }
 
+    /** A reference (URL) to the document file. */
     public Builder referanseDokumentfil(String referanseDokumentfil) {
       this.referanseDokumentfil = referanseDokumentfil;
       return this;
     }
 
+    /** The file format of the document (e.g., 'PDF/A'). */
     public Builder format(String format) {
       this.format = format;
       return this;
     }
 
+    /** The checksum of the document file, for integrity verification. */
     public Builder sjekksum(String sjekksum) {
       this.sjekksum = sjekksum;
       return this;
     }
 
+    /** The algorithm used to calculate the checksum (e.g., 'SHA-256'). */
     public Builder sjekksumAlgoritme(String sjekksumAlgoritme) {
       this.sjekksumAlgoritme = sjekksumAlgoritme;
       return this;
     }
 
+    /** The document description this object belongs to. */
     public Builder dokumentbeskrivelse(DokumentbeskrivelseRequest dokumentbeskrivelse) {
       this.dokumentbeskrivelse = new ExpandableField<>(dokumentbeskrivelse);
       return this;
     }
 
+    /** The document description this object belongs to. */
     public Builder dokumentbeskrivelse(String id) {
       this.dokumentbeskrivelse = new ExpandableField<>(id);
       return this;

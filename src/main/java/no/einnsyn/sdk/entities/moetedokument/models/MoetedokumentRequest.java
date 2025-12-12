@@ -14,14 +14,18 @@ import no.einnsyn.sdk.entities.korrespondansepart.models.KorrespondansepartReque
 import no.einnsyn.sdk.entities.moetemappe.models.MoetemappeRequest;
 import no.einnsyn.sdk.entities.registrering.models.RegistreringRequest;
 
-/** Moetedokument */
+/** Represents a document related to a meeting, such as an agenda or minutes. */
 public class MoetedokumentRequest extends RegistreringRequest {
+  /** The type of meeting document (e.g., 'Agenda', 'Minutes'). */
   protected String moetedokumenttype;
 
+  /** The case officer responsible for the document. */
   protected String saksbehandler;
 
+  /** The case officer responsible for the document, including sensitive information. */
   protected String saksbehandlerSensitiv;
 
+  /** The meeting this document belongs to. */
   protected ExpandableField<MoetemappeRequest> moetemappe;
 
   public MoetedokumentRequest(
@@ -29,6 +33,7 @@ public class MoetedokumentRequest extends RegistreringRequest {
       String accessibleAfter,
       String systemId,
       ExpandableField<EnhetRequest> journalenhet,
+      String slug,
       String offentligTittel,
       String offentligTittelSensitiv,
       String beskrivelse,
@@ -46,6 +51,7 @@ public class MoetedokumentRequest extends RegistreringRequest {
         accessibleAfter,
         systemId,
         journalenhet,
+        slug,
         offentligTittel,
         offentligTittelSensitiv,
         beskrivelse,
@@ -60,18 +66,22 @@ public class MoetedokumentRequest extends RegistreringRequest {
     this.moetemappe = moetemappe;
   }
 
+  /** The type of meeting document (e.g., 'Agenda', 'Minutes'). */
   public String getMoetedokumenttype() {
     return moetedokumenttype;
   }
 
+  /** The case officer responsible for the document. */
   public String getSaksbehandler() {
     return saksbehandler;
   }
 
+  /** The case officer responsible for the document, including sensitive information. */
   public String getSaksbehandlerSensitiv() {
     return saksbehandlerSensitiv;
   }
 
+  /** The meeting this document belongs to. */
   public ExpandableField<MoetemappeRequest> getMoetemappe() {
     return moetemappe;
   }
@@ -104,6 +114,9 @@ public class MoetedokumentRequest extends RegistreringRequest {
      */
     protected ExpandableField<EnhetRequest> journalenhet;
 
+    /** A URL-friendly unique slug for the resource. */
+    protected String slug;
+
     /** The title of the resource, with sensitive information redacted. */
     protected String offentligTittel;
 
@@ -131,12 +144,16 @@ public class MoetedokumentRequest extends RegistreringRequest {
     /** The administrative unit that has been handed the responsibility for this resource. */
     protected ExpandableField<EnhetRequest> avhendetTil;
 
+    /** The type of meeting document (e.g., 'Agenda', 'Minutes'). */
     protected String moetedokumenttype;
 
+    /** The case officer responsible for the document. */
     protected String saksbehandler;
 
+    /** The case officer responsible for the document, including sensitive information. */
     protected String saksbehandlerSensitiv;
 
+    /** The meeting this document belongs to. */
     protected ExpandableField<MoetemappeRequest> moetemappe;
 
     /**
@@ -164,6 +181,11 @@ public class MoetedokumentRequest extends RegistreringRequest {
      */
     public ExpandableField<EnhetRequest> getJournalenhet() {
       return journalenhet;
+    }
+
+    /** A URL-friendly unique slug for the resource. */
+    public String getSlug() {
+      return slug;
     }
 
     /** The title of the resource, with sensitive information redacted. */
@@ -209,18 +231,22 @@ public class MoetedokumentRequest extends RegistreringRequest {
       return avhendetTil;
     }
 
+    /** The type of meeting document (e.g., 'Agenda', 'Minutes'). */
     public String getMoetedokumenttype() {
       return moetedokumenttype;
     }
 
+    /** The case officer responsible for the document. */
     public String getSaksbehandler() {
       return saksbehandler;
     }
 
+    /** The case officer responsible for the document, including sensitive information. */
     public String getSaksbehandlerSensitiv() {
       return saksbehandlerSensitiv;
     }
 
+    /** The meeting this document belongs to. */
     public ExpandableField<MoetemappeRequest> getMoetemappe() {
       return moetemappe;
     }
@@ -263,6 +289,12 @@ public class MoetedokumentRequest extends RegistreringRequest {
      */
     public Builder journalenhet(String id) {
       this.journalenhet = new ExpandableField<>(id);
+      return this;
+    }
+
+    /** A URL-friendly unique slug for the resource. */
+    public Builder slug(String slug) {
+      this.slug = slug;
       return this;
     }
 
@@ -383,26 +415,31 @@ public class MoetedokumentRequest extends RegistreringRequest {
       return this;
     }
 
+    /** The type of meeting document (e.g., 'Agenda', 'Minutes'). */
     public Builder moetedokumenttype(String moetedokumenttype) {
       this.moetedokumenttype = moetedokumenttype;
       return this;
     }
 
+    /** The case officer responsible for the document. */
     public Builder saksbehandler(String saksbehandler) {
       this.saksbehandler = saksbehandler;
       return this;
     }
 
+    /** The case officer responsible for the document, including sensitive information. */
     public Builder saksbehandlerSensitiv(String saksbehandlerSensitiv) {
       this.saksbehandlerSensitiv = saksbehandlerSensitiv;
       return this;
     }
 
+    /** The meeting this document belongs to. */
     public Builder moetemappe(MoetemappeRequest moetemappe) {
       this.moetemappe = new ExpandableField<>(moetemappe);
       return this;
     }
 
+    /** The meeting this document belongs to. */
     public Builder moetemappe(String id) {
       this.moetemappe = new ExpandableField<>(id);
       return this;
@@ -414,6 +451,7 @@ public class MoetedokumentRequest extends RegistreringRequest {
           this.accessibleAfter,
           this.systemId,
           this.journalenhet,
+          this.slug,
           this.offentligTittel,
           this.offentligTittelSensitiv,
           this.beskrivelse,
