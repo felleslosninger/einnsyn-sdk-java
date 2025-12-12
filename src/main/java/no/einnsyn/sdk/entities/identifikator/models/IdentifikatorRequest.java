@@ -8,14 +8,18 @@ import no.einnsyn.sdk.common.expandablefield.ExpandableField;
 import no.einnsyn.sdk.entities.arkivbase.models.ArkivBaseRequest;
 import no.einnsyn.sdk.entities.enhet.models.EnhetRequest;
 
-/** Identifikator */
+/** Represents an identifier for a person, such as a case officer or an author. */
 public class IdentifikatorRequest extends ArkivBaseRequest {
+  /** The full name of the person. */
   protected String navn;
 
+  /** A unique identifier for the person, often a username or an employee ID. */
   protected String identifikator;
 
+  /** The initials of the person. */
   protected String initialer;
 
+  /** The email address of the person. */
   protected String epostadresse;
 
   public IdentifikatorRequest(
@@ -34,18 +38,22 @@ public class IdentifikatorRequest extends ArkivBaseRequest {
     this.epostadresse = epostadresse;
   }
 
+  /** The full name of the person. */
   public String getNavn() {
     return navn;
   }
 
+  /** A unique identifier for the person, often a username or an employee ID. */
   public String getIdentifikator() {
     return identifikator;
   }
 
+  /** The initials of the person. */
   public String getInitialer() {
     return initialer;
   }
 
+  /** The email address of the person. */
   public String getEpostadresse() {
     return epostadresse;
   }
@@ -78,12 +86,16 @@ public class IdentifikatorRequest extends ArkivBaseRequest {
      */
     protected ExpandableField<EnhetRequest> journalenhet;
 
+    /** The full name of the person. */
     protected String navn;
 
+    /** A unique identifier for the person, often a username or an employee ID. */
     protected String identifikator;
 
+    /** The initials of the person. */
     protected String initialer;
 
+    /** The email address of the person. */
     protected String epostadresse;
 
     /**
@@ -113,18 +125,22 @@ public class IdentifikatorRequest extends ArkivBaseRequest {
       return journalenhet;
     }
 
+    /** The full name of the person. */
     public String getNavn() {
       return navn;
     }
 
+    /** A unique identifier for the person, often a username or an employee ID. */
     public String getIdentifikator() {
       return identifikator;
     }
 
+    /** The initials of the person. */
     public String getInitialer() {
       return initialer;
     }
 
+    /** The email address of the person. */
     public String getEpostadresse() {
       return epostadresse;
     }
@@ -170,21 +186,25 @@ public class IdentifikatorRequest extends ArkivBaseRequest {
       return this;
     }
 
+    /** The full name of the person. */
     public Builder navn(String navn) {
       this.navn = navn;
       return this;
     }
 
+    /** A unique identifier for the person, often a username or an employee ID. */
     public Builder identifikator(String identifikator) {
       this.identifikator = identifikator;
       return this;
     }
 
+    /** The initials of the person. */
     public Builder initialer(String initialer) {
       this.initialer = initialer;
       return this;
     }
 
+    /** The email address of the person. */
     public Builder epostadresse(String epostadresse) {
       this.epostadresse = epostadresse;
       return this;

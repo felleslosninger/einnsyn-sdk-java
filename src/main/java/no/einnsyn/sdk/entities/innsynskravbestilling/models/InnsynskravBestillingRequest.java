@@ -11,12 +11,15 @@ import no.einnsyn.sdk.common.expandablefield.ExpandableField;
 import no.einnsyn.sdk.entities.base.models.BaseRequest;
 import no.einnsyn.sdk.entities.innsynskrav.models.InnsynskravRequest;
 
-/** Innsynskrav */
+/** Represents an order containing one or more access requests (Innsynskrav). */
 public class InnsynskravBestillingRequest extends BaseRequest {
+  /** The email address of the person who placed the order. */
   protected String email;
 
+  /** The list of individual access requests in this order. */
   protected List<ExpandableField<InnsynskravRequest>> innsynskrav;
 
+  /** The preferred language for communication. */
   protected LanguageEnum language;
 
   public InnsynskravBestillingRequest(
@@ -31,14 +34,17 @@ public class InnsynskravBestillingRequest extends BaseRequest {
     this.language = language;
   }
 
+  /** The email address of the person who placed the order. */
   public String getEmail() {
     return email;
   }
 
+  /** The list of individual access requests in this order. */
   public List<ExpandableField<InnsynskravRequest>> getInnsynskrav() {
     return innsynskrav;
   }
 
+  /** The preferred language for communication. */
   public LanguageEnum getLanguage() {
     return language;
   }
@@ -61,10 +67,13 @@ public class InnsynskravBestillingRequest extends BaseRequest {
     /** This object should not be accessible to the public before the given dateTime. */
     protected String accessibleAfter;
 
+    /** The email address of the person who placed the order. */
     protected String email;
 
+    /** The list of individual access requests in this order. */
     protected List<ExpandableField<InnsynskravRequest>> innsynskrav;
 
+    /** The preferred language for communication. */
     protected LanguageEnum language;
 
     /**
@@ -80,14 +89,17 @@ public class InnsynskravBestillingRequest extends BaseRequest {
       return accessibleAfter;
     }
 
+    /** The email address of the person who placed the order. */
     public String getEmail() {
       return email;
     }
 
+    /** The list of individual access requests in this order. */
     public List<ExpandableField<InnsynskravRequest>> getInnsynskrav() {
       return innsynskrav;
     }
 
+    /** The preferred language for communication. */
     public LanguageEnum getLanguage() {
       return language;
     }
@@ -107,17 +119,20 @@ public class InnsynskravBestillingRequest extends BaseRequest {
       return this;
     }
 
+    /** The email address of the person who placed the order. */
     public Builder email(String email) {
       this.email = email;
       return this;
     }
 
+    /** The list of individual access requests in this order. */
     public Builder innsynskrav(List<InnsynskravRequest> innsynskrav) {
       this.innsynskrav =
           innsynskrav.stream().map(ExpandableField::new).collect(Collectors.toList());
       return this;
     }
 
+    /** The list of individual access requests in this order. */
     public Builder addInnsynskrav(InnsynskravRequest innsynskrav) {
       if (this.innsynskrav == null) {
         this.innsynskrav = new ArrayList<>();
@@ -126,6 +141,7 @@ public class InnsynskravBestillingRequest extends BaseRequest {
       return this;
     }
 
+    /** The list of individual access requests in this order. */
     public Builder addInnsynskrav(
         Function<InnsynskravRequest.Builder, InnsynskravRequest.Builder> builderFunction) {
       if (this.innsynskrav == null) {
@@ -136,6 +152,7 @@ public class InnsynskravBestillingRequest extends BaseRequest {
       return this;
     }
 
+    /** The list of individual access requests in this order. */
     public Builder addInnsynskrav(String id) {
       if (this.innsynskrav == null) {
         this.innsynskrav = new ArrayList<>();
@@ -144,6 +161,7 @@ public class InnsynskravBestillingRequest extends BaseRequest {
       return this;
     }
 
+    /** The preferred language for communication. */
     public Builder language(LanguageEnum language) {
       this.language = language;
       return this;

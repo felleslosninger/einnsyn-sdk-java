@@ -8,8 +8,14 @@ import no.einnsyn.sdk.entities.arkivbase.models.ArkivBaseRequest;
 import no.einnsyn.sdk.entities.enhet.models.EnhetRequest;
 import no.einnsyn.sdk.entities.klasse.models.KlasseRequest;
 
-/** Mappe */
+/**
+ * An abstract base model for case files (Saksmappe) and meeting records (Moetemappe). It contains
+ * common properties for these folder-like structures.
+ */
 public class MappeRequest extends ArkivBaseRequest {
+  /** A URL-friendly unique slug for the resource. */
+  protected String slug;
+
   /** The title of the Mappe, with sensitive information redacted. */
   protected String offentligTittel;
 
@@ -40,6 +46,7 @@ public class MappeRequest extends ArkivBaseRequest {
       String accessibleAfter,
       String systemId,
       ExpandableField<EnhetRequest> journalenhet,
+      String slug,
       String offentligTittel,
       String offentligTittelSensitiv,
       String beskrivelse,
@@ -48,6 +55,7 @@ public class MappeRequest extends ArkivBaseRequest {
       String oppdatertDato,
       ExpandableField<KlasseRequest> klasse) {
     super(externalId, accessibleAfter, systemId, journalenhet);
+    this.slug = slug;
     this.offentligTittel = offentligTittel;
     this.offentligTittelSensitiv = offentligTittelSensitiv;
     this.beskrivelse = beskrivelse;
@@ -55,6 +63,11 @@ public class MappeRequest extends ArkivBaseRequest {
     this.publisertDato = publisertDato;
     this.oppdatertDato = oppdatertDato;
     this.klasse = klasse;
+  }
+
+  /** A URL-friendly unique slug for the resource. */
+  public String getSlug() {
+    return slug;
   }
 
   /** The title of the Mappe, with sensitive information redacted. */
@@ -116,6 +129,9 @@ public class MappeRequest extends ArkivBaseRequest {
      */
     protected ExpandableField<EnhetRequest> journalenhet;
 
+    /** A URL-friendly unique slug for the resource. */
+    protected String slug;
+
     /** The title of the Mappe, with sensitive information redacted. */
     protected String offentligTittel;
 
@@ -166,6 +182,11 @@ public class MappeRequest extends ArkivBaseRequest {
      */
     public ExpandableField<EnhetRequest> getJournalenhet() {
       return journalenhet;
+    }
+
+    /** A URL-friendly unique slug for the resource. */
+    public String getSlug() {
+      return slug;
     }
 
     /** The title of the Mappe, with sensitive information redacted. */
@@ -248,6 +269,12 @@ public class MappeRequest extends ArkivBaseRequest {
       return this;
     }
 
+    /** A URL-friendly unique slug for the resource. */
+    public Builder slug(String slug) {
+      this.slug = slug;
+      return this;
+    }
+
     /** The title of the Mappe, with sensitive information redacted. */
     public Builder offentligTittel(String offentligTittel) {
       this.offentligTittel = offentligTittel;
@@ -306,6 +333,7 @@ public class MappeRequest extends ArkivBaseRequest {
           this.accessibleAfter,
           this.systemId,
           this.journalenhet,
+          this.slug,
           this.offentligTittel,
           this.offentligTittelSensitiv,
           this.beskrivelse,

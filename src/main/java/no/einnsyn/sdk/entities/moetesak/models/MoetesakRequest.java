@@ -17,28 +17,39 @@ import no.einnsyn.sdk.entities.registrering.models.RegistreringRequest;
 import no.einnsyn.sdk.entities.utredning.models.UtredningRequest;
 import no.einnsyn.sdk.entities.vedtak.models.VedtakRequest;
 
-/** Moetesak */
+/** Represents a case discussed in a meeting. */
 public class MoetesakRequest extends RegistreringRequest {
+  /** The type of meeting case. */
   protected MoetesakstypeEnum moetesakstype;
 
+  /** The year of the meeting case. */
   protected Integer moetesaksaar;
 
+  /** The sequence number of the meeting case within the year. */
   protected Integer moetesakssekvensnummer;
 
+  /** The name of the committee or board handling the case. */
   protected String utvalg;
 
+  /** A link to a video recording of the case discussion. */
   protected String videoLink;
 
+  /** The report or investigation related to the case. */
   protected ExpandableField<UtredningRequest> utredning;
 
+  /** The recommendation or proposition for the case. */
   protected ExpandableField<MoetesaksbeskrivelseRequest> innstilling;
 
+  /** The decision made in the case. */
   protected ExpandableField<VedtakRequest> vedtak;
 
+  /** The meeting record this case belongs to. */
   protected ExpandableField<MoetemappeRequest> moetemappe;
 
+  /** Legacy field for the meeting case type. */
   protected String legacyMoetesakstype;
 
+  /** Legacy field for a reference to another meeting case. */
   protected String legacyReferanseTilMoetesak;
 
   public MoetesakRequest(
@@ -46,6 +57,7 @@ public class MoetesakRequest extends RegistreringRequest {
       String accessibleAfter,
       String systemId,
       ExpandableField<EnhetRequest> journalenhet,
+      String slug,
       String offentligTittel,
       String offentligTittelSensitiv,
       String beskrivelse,
@@ -70,6 +82,7 @@ public class MoetesakRequest extends RegistreringRequest {
         accessibleAfter,
         systemId,
         journalenhet,
+        slug,
         offentligTittel,
         offentligTittelSensitiv,
         beskrivelse,
@@ -91,46 +104,57 @@ public class MoetesakRequest extends RegistreringRequest {
     this.legacyReferanseTilMoetesak = legacyReferanseTilMoetesak;
   }
 
+  /** The type of meeting case. */
   public MoetesakstypeEnum getMoetesakstype() {
     return moetesakstype;
   }
 
+  /** The year of the meeting case. */
   public Integer getMoetesaksaar() {
     return moetesaksaar;
   }
 
+  /** The sequence number of the meeting case within the year. */
   public Integer getMoetesakssekvensnummer() {
     return moetesakssekvensnummer;
   }
 
+  /** The name of the committee or board handling the case. */
   public String getUtvalg() {
     return utvalg;
   }
 
+  /** A link to a video recording of the case discussion. */
   public String getVideoLink() {
     return videoLink;
   }
 
+  /** The report or investigation related to the case. */
   public ExpandableField<UtredningRequest> getUtredning() {
     return utredning;
   }
 
+  /** The recommendation or proposition for the case. */
   public ExpandableField<MoetesaksbeskrivelseRequest> getInnstilling() {
     return innstilling;
   }
 
+  /** The decision made in the case. */
   public ExpandableField<VedtakRequest> getVedtak() {
     return vedtak;
   }
 
+  /** The meeting record this case belongs to. */
   public ExpandableField<MoetemappeRequest> getMoetemappe() {
     return moetemappe;
   }
 
+  /** Legacy field for the meeting case type. */
   public String getLegacyMoetesakstype() {
     return legacyMoetesakstype;
   }
 
+  /** Legacy field for a reference to another meeting case. */
   public String getLegacyReferanseTilMoetesak() {
     return legacyReferanseTilMoetesak;
   }
@@ -163,6 +187,9 @@ public class MoetesakRequest extends RegistreringRequest {
      */
     protected ExpandableField<EnhetRequest> journalenhet;
 
+    /** A URL-friendly unique slug for the resource. */
+    protected String slug;
+
     /** The title of the resource, with sensitive information redacted. */
     protected String offentligTittel;
 
@@ -190,26 +217,37 @@ public class MoetesakRequest extends RegistreringRequest {
     /** The administrative unit that has been handed the responsibility for this resource. */
     protected ExpandableField<EnhetRequest> avhendetTil;
 
+    /** The type of meeting case. */
     protected MoetesakstypeEnum moetesakstype;
 
+    /** The year of the meeting case. */
     protected Integer moetesaksaar;
 
+    /** The sequence number of the meeting case within the year. */
     protected Integer moetesakssekvensnummer;
 
+    /** The name of the committee or board handling the case. */
     protected String utvalg;
 
+    /** A link to a video recording of the case discussion. */
     protected String videoLink;
 
+    /** The report or investigation related to the case. */
     protected ExpandableField<UtredningRequest> utredning;
 
+    /** The recommendation or proposition for the case. */
     protected ExpandableField<MoetesaksbeskrivelseRequest> innstilling;
 
+    /** The decision made in the case. */
     protected ExpandableField<VedtakRequest> vedtak;
 
+    /** The meeting record this case belongs to. */
     protected ExpandableField<MoetemappeRequest> moetemappe;
 
+    /** Legacy field for the meeting case type. */
     protected String legacyMoetesakstype;
 
+    /** Legacy field for a reference to another meeting case. */
     protected String legacyReferanseTilMoetesak;
 
     /**
@@ -237,6 +275,11 @@ public class MoetesakRequest extends RegistreringRequest {
      */
     public ExpandableField<EnhetRequest> getJournalenhet() {
       return journalenhet;
+    }
+
+    /** A URL-friendly unique slug for the resource. */
+    public String getSlug() {
+      return slug;
     }
 
     /** The title of the resource, with sensitive information redacted. */
@@ -282,46 +325,57 @@ public class MoetesakRequest extends RegistreringRequest {
       return avhendetTil;
     }
 
+    /** The type of meeting case. */
     public MoetesakstypeEnum getMoetesakstype() {
       return moetesakstype;
     }
 
+    /** The year of the meeting case. */
     public Integer getMoetesaksaar() {
       return moetesaksaar;
     }
 
+    /** The sequence number of the meeting case within the year. */
     public Integer getMoetesakssekvensnummer() {
       return moetesakssekvensnummer;
     }
 
+    /** The name of the committee or board handling the case. */
     public String getUtvalg() {
       return utvalg;
     }
 
+    /** A link to a video recording of the case discussion. */
     public String getVideoLink() {
       return videoLink;
     }
 
+    /** The report or investigation related to the case. */
     public ExpandableField<UtredningRequest> getUtredning() {
       return utredning;
     }
 
+    /** The recommendation or proposition for the case. */
     public ExpandableField<MoetesaksbeskrivelseRequest> getInnstilling() {
       return innstilling;
     }
 
+    /** The decision made in the case. */
     public ExpandableField<VedtakRequest> getVedtak() {
       return vedtak;
     }
 
+    /** The meeting record this case belongs to. */
     public ExpandableField<MoetemappeRequest> getMoetemappe() {
       return moetemappe;
     }
 
+    /** Legacy field for the meeting case type. */
     public String getLegacyMoetesakstype() {
       return legacyMoetesakstype;
     }
 
+    /** Legacy field for a reference to another meeting case. */
     public String getLegacyReferanseTilMoetesak() {
       return legacyReferanseTilMoetesak;
     }
@@ -364,6 +418,12 @@ public class MoetesakRequest extends RegistreringRequest {
      */
     public Builder journalenhet(String id) {
       this.journalenhet = new ExpandableField<>(id);
+      return this;
+    }
+
+    /** A URL-friendly unique slug for the resource. */
+    public Builder slug(String slug) {
+      this.slug = slug;
       return this;
     }
 
@@ -484,76 +544,91 @@ public class MoetesakRequest extends RegistreringRequest {
       return this;
     }
 
+    /** The type of meeting case. */
     public Builder moetesakstype(MoetesakstypeEnum moetesakstype) {
       this.moetesakstype = moetesakstype;
       return this;
     }
 
+    /** The year of the meeting case. */
     public Builder moetesaksaar(Integer moetesaksaar) {
       this.moetesaksaar = moetesaksaar;
       return this;
     }
 
+    /** The sequence number of the meeting case within the year. */
     public Builder moetesakssekvensnummer(Integer moetesakssekvensnummer) {
       this.moetesakssekvensnummer = moetesakssekvensnummer;
       return this;
     }
 
+    /** The name of the committee or board handling the case. */
     public Builder utvalg(String utvalg) {
       this.utvalg = utvalg;
       return this;
     }
 
+    /** A link to a video recording of the case discussion. */
     public Builder videoLink(String videoLink) {
       this.videoLink = videoLink;
       return this;
     }
 
+    /** The report or investigation related to the case. */
     public Builder utredning(UtredningRequest utredning) {
       this.utredning = new ExpandableField<>(utredning);
       return this;
     }
 
+    /** The report or investigation related to the case. */
     public Builder utredning(String id) {
       this.utredning = new ExpandableField<>(id);
       return this;
     }
 
+    /** The recommendation or proposition for the case. */
     public Builder innstilling(MoetesaksbeskrivelseRequest innstilling) {
       this.innstilling = new ExpandableField<>(innstilling);
       return this;
     }
 
+    /** The recommendation or proposition for the case. */
     public Builder innstilling(String id) {
       this.innstilling = new ExpandableField<>(id);
       return this;
     }
 
+    /** The decision made in the case. */
     public Builder vedtak(VedtakRequest vedtak) {
       this.vedtak = new ExpandableField<>(vedtak);
       return this;
     }
 
+    /** The decision made in the case. */
     public Builder vedtak(String id) {
       this.vedtak = new ExpandableField<>(id);
       return this;
     }
 
+    /** The meeting record this case belongs to. */
     public Builder moetemappe(MoetemappeRequest moetemappe) {
       this.moetemappe = new ExpandableField<>(moetemappe);
       return this;
     }
 
+    /** The meeting record this case belongs to. */
     public Builder moetemappe(String id) {
       this.moetemappe = new ExpandableField<>(id);
       return this;
     }
 
+    /** Legacy field for the meeting case type. */
     public Builder legacyMoetesakstype(String legacyMoetesakstype) {
       this.legacyMoetesakstype = legacyMoetesakstype;
       return this;
     }
 
+    /** Legacy field for a reference to another meeting case. */
     public Builder legacyReferanseTilMoetesak(String legacyReferanseTilMoetesak) {
       this.legacyReferanseTilMoetesak = legacyReferanseTilMoetesak;
       return this;
@@ -565,6 +640,7 @@ public class MoetesakRequest extends RegistreringRequest {
           this.accessibleAfter,
           this.systemId,
           this.journalenhet,
+          this.slug,
           this.offentligTittel,
           this.offentligTittelSensitiv,
           this.beskrivelse,

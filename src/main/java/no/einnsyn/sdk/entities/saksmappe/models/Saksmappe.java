@@ -7,7 +7,10 @@ import no.einnsyn.sdk.common.expandablefield.ExpandableField;
 import no.einnsyn.sdk.entities.enhet.models.Enhet;
 import no.einnsyn.sdk.entities.mappe.models.Mappe;
 
-/** Saksmappe */
+/**
+ * Represents a case file, which is a folder for collecting all documents related to a specific
+ * case.
+ */
 public class Saksmappe extends Mappe {
   protected final String entity = "Saksmappe";
 

@@ -8,7 +8,10 @@ import no.einnsyn.sdk.common.expandablefield.ExpandableField;
 import no.einnsyn.sdk.entities.arkivbase.models.ArkivBaseRequest;
 import no.einnsyn.sdk.entities.enhet.models.EnhetRequest;
 
-/** Arkivdel */
+/**
+ * Represents a subdivision of an archive (Arkiv). In the Noark 5 standard, an archive can be
+ * divided into one or more archive parts.
+ */
 public class ArkivdelRequest extends ArkivBaseRequest {
   /** The title of the Arkivdel. */
   protected String tittel;
