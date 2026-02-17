@@ -7,20 +7,36 @@ import java.util.List;
 import java.util.function.Function;
 
 public class StatisticsResponse {
-  protected Innsynskrav innsynskrav;
+  /** Aggregated summary of statistics over the entire queried period */
+  protected Summary summary;
 
-  protected Download download;
+  protected Metadata metadata;
+
+  /**
+   * Time series data showing statistics broken down by the specified aggregation interval. Each
+   * entry represents metrics for a specific time period.
+   */
+  protected List<TimeSeries> timeSeries;
 
   public StatisticsResponse() {
     super();
   }
 
-  public Innsynskrav getInnsynskrav() {
-    return innsynskrav;
+  /** Aggregated summary of statistics over the entire queried period */
+  public Summary getSummary() {
+    return summary;
   }
 
-  public Download getDownload() {
-    return download;
+  public Metadata getMetadata() {
+    return metadata;
+  }
+
+  /**
+   * Time series data showing statistics broken down by the specified aggregation interval. Each
+   * entry represents metrics for a specific time period.
+   */
+  public List<TimeSeries> getTimeSeries() {
+    return timeSeries;
   }
 
   public static Builder builder() {
@@ -38,146 +54,161 @@ public class StatisticsResponse {
     }
   }
 
-  public static class Innsynskrav {
-    protected Integer count;
+  public static class Summary {
+    /** Total number of entities created in the period */
+    protected Integer createdCount;
 
-    protected Integer interval;
+    /** Total number of entities created with fulltext content in the period */
+    protected Integer createdWithFulltextCount;
 
-    protected List<Bucket> bucket;
+    /** Total number of innsynskrav (access requests) created in the period */
+    protected Integer createdInnsynskravCount;
 
-    public Innsynskrav() {
+    /** Total number of document downloads in the period */
+    protected Integer downloadCount;
+
+    public Summary() {
       super();
     }
 
-    public Integer getCount() {
-      return count;
+    /** Total number of entities created in the period */
+    public Integer getCreatedCount() {
+      return createdCount;
     }
 
-    public Integer getInterval() {
-      return interval;
+    /** Total number of entities created with fulltext content in the period */
+    public Integer getCreatedWithFulltextCount() {
+      return createdWithFulltextCount;
     }
 
-    public List<Bucket> getBucket() {
-      return bucket;
+    /** Total number of innsynskrav (access requests) created in the period */
+    public Integer getCreatedInnsynskravCount() {
+      return createdInnsynskravCount;
+    }
+
+    /** Total number of document downloads in the period */
+    public Integer getDownloadCount() {
+      return downloadCount;
     }
 
     public static Builder builder() {
       return new Builder();
     }
 
-    public static Innsynskrav of(Function<Builder, Builder> builderFunction) {
+    public static Summary of(Function<Builder, Builder> builderFunction) {
       return builderFunction.apply(new Builder()).build();
     }
 
     public static class Builder {
 
-      public Innsynskrav build() {
-        return new Innsynskrav();
-      }
-    }
-
-    public static class Bucket {
-      protected String time;
-
-      protected Integer count;
-
-      public Bucket() {
-        super();
-      }
-
-      public String getTime() {
-        return time;
-      }
-
-      public Integer getCount() {
-        return count;
-      }
-
-      public static Builder builder() {
-        return new Builder();
-      }
-
-      public static Bucket of(Function<Builder, Builder> builderFunction) {
-        return builderFunction.apply(new Builder()).build();
-      }
-
-      public static class Builder {
-
-        public Bucket build() {
-          return new Bucket();
-        }
+      public Summary build() {
+        return new Summary();
       }
     }
   }
 
-  public static class Download {
-    protected Integer count;
+  public static class Metadata {
+    /** The aggregation interval used for the time series data */
+    protected String aggregateInterval;
 
-    protected Integer interval;
+    /** The start date for the aggregated statistics */
+    protected String aggregateFrom;
 
-    protected List<Bucket> bucket;
+    /** The end date for the aggregated statistics */
+    protected String aggregateTo;
 
-    public Download() {
+    public Metadata() {
       super();
     }
 
-    public Integer getCount() {
-      return count;
+    /** The aggregation interval used for the time series data */
+    public String getAggregateInterval() {
+      return aggregateInterval;
     }
 
-    public Integer getInterval() {
-      return interval;
+    /** The start date for the aggregated statistics */
+    public String getAggregateFrom() {
+      return aggregateFrom;
     }
 
-    public List<Bucket> getBucket() {
-      return bucket;
+    /** The end date for the aggregated statistics */
+    public String getAggregateTo() {
+      return aggregateTo;
     }
 
     public static Builder builder() {
       return new Builder();
     }
 
-    public static Download of(Function<Builder, Builder> builderFunction) {
+    public static Metadata of(Function<Builder, Builder> builderFunction) {
       return builderFunction.apply(new Builder()).build();
     }
 
     public static class Builder {
 
-      public Download build() {
-        return new Download();
+      public Metadata build() {
+        return new Metadata();
       }
     }
+  }
 
-    public static class Bucket {
-      protected String time;
+  public static class TimeSeries {
+    /** The timestamp for this time series data point */
+    protected String time;
 
-      protected Integer count;
+    /** Number of entities created during this time interval */
+    protected Integer createdCount;
 
-      public Bucket() {
-        super();
-      }
+    /** Number of entities created with fulltext content during this time interval */
+    protected Integer createdWithFulltextCount;
 
-      public String getTime() {
-        return time;
-      }
+    /** Number of innsynskrav (access requests) created during this time interval */
+    protected Integer createdInnsynskravCount;
 
-      public Integer getCount() {
-        return count;
-      }
+    /** Number of document downloads during this time interval */
+    protected Integer downloadCount;
 
-      public static Builder builder() {
-        return new Builder();
-      }
+    public TimeSeries() {
+      super();
+    }
 
-      public static Bucket of(Function<Builder, Builder> builderFunction) {
-        return builderFunction.apply(new Builder()).build();
-      }
+    /** The timestamp for this time series data point */
+    public String getTime() {
+      return time;
+    }
 
-      public static class Builder {
+    /** Number of entities created during this time interval */
+    public Integer getCreatedCount() {
+      return createdCount;
+    }
 
-        public Bucket build() {
-          return new Bucket();
-        }
+    /** Number of entities created with fulltext content during this time interval */
+    public Integer getCreatedWithFulltextCount() {
+      return createdWithFulltextCount;
+    }
+
+    /** Number of innsynskrav (access requests) created during this time interval */
+    public Integer getCreatedInnsynskravCount() {
+      return createdInnsynskravCount;
+    }
+
+    /** Number of document downloads during this time interval */
+    public Integer getDownloadCount() {
+      return downloadCount;
+    }
+
+    public static Builder builder() {
+      return new Builder();
+    }
+
+    public static TimeSeries of(Function<Builder, Builder> builderFunction) {
+      return builderFunction.apply(new Builder()).build();
+    }
+
+    public static class Builder {
+
+      public TimeSeries build() {
+        return new TimeSeries();
       }
     }
   }

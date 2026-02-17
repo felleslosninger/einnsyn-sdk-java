@@ -8,10 +8,12 @@ import no.einnsyn.sdk.common.expandablefield.ExpandableField;
 import no.einnsyn.sdk.entities.arkivbase.models.ArkivBaseRequest;
 import no.einnsyn.sdk.entities.enhet.models.EnhetRequest;
 
-/** Behandlingsprotokoll */
+/** Represents a record of proceedings, often related to a decision-making process in a meeting. */
 public class BehandlingsprotokollRequest extends ArkivBaseRequest {
+  /** The content of the protocol. */
   protected String tekstInnhold;
 
+  /** The format of the content (e.g., "text/html"). */
   protected String tekstFormat;
 
   public BehandlingsprotokollRequest(
@@ -26,10 +28,12 @@ public class BehandlingsprotokollRequest extends ArkivBaseRequest {
     this.tekstFormat = tekstFormat;
   }
 
+  /** The content of the protocol. */
   public String getTekstInnhold() {
     return tekstInnhold;
   }
 
+  /** The format of the content (e.g., "text/html"). */
   public String getTekstFormat() {
     return tekstFormat;
   }
@@ -62,8 +66,10 @@ public class BehandlingsprotokollRequest extends ArkivBaseRequest {
      */
     protected ExpandableField<EnhetRequest> journalenhet;
 
+    /** The content of the protocol. */
     protected String tekstInnhold;
 
+    /** The format of the content (e.g., "text/html"). */
     protected String tekstFormat;
 
     /**
@@ -93,10 +99,12 @@ public class BehandlingsprotokollRequest extends ArkivBaseRequest {
       return journalenhet;
     }
 
+    /** The content of the protocol. */
     public String getTekstInnhold() {
       return tekstInnhold;
     }
 
+    /** The format of the content (e.g., "text/html"). */
     public String getTekstFormat() {
       return tekstFormat;
     }
@@ -142,11 +150,13 @@ public class BehandlingsprotokollRequest extends ArkivBaseRequest {
       return this;
     }
 
+    /** The content of the protocol. */
     public Builder tekstInnhold(String tekstInnhold) {
       this.tekstInnhold = tekstInnhold;
       return this;
     }
 
+    /** The format of the content (e.g., "text/html"). */
     public Builder tekstFormat(String tekstFormat) {
       this.tekstFormat = tekstFormat;
       return this;

@@ -10,8 +10,14 @@ import no.einnsyn.sdk.entities.klasse.models.Klasse;
 import no.einnsyn.sdk.entities.moetemappe.models.Moetemappe;
 import no.einnsyn.sdk.entities.saksmappe.models.Saksmappe;
 
-/** Mappe */
+/**
+ * An abstract base model for case files (Saksmappe) and meeting records (Moetemappe). It contains
+ * common properties for these folder-like structures.
+ */
 public class Mappe extends ArkivBase {
+  /** A URL-friendly unique slug for the resource. */
+  protected String slug;
+
   /** The title of the Mappe, with sensitive information redacted. */
   protected String offentligTittel;
 
@@ -48,6 +54,11 @@ public class Mappe extends ArkivBase {
    * Arkivdel.
    */
   protected ExpandableField<Arkivdel> arkivdel;
+
+  /** A URL-friendly unique slug for the resource. */
+  public String getSlug() {
+    return slug;
+  }
 
   /** The title of the Mappe, with sensitive information redacted. */
   public String getOffentligTittel() {

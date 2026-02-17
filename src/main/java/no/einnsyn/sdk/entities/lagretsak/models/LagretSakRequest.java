@@ -9,7 +9,7 @@ import no.einnsyn.sdk.entities.base.models.BaseRequest;
 import no.einnsyn.sdk.entities.moetemappe.models.MoetemappeRequest;
 import no.einnsyn.sdk.entities.saksmappe.models.SaksmappeRequest;
 
-/** LagretSak */
+/** Represents a case file (Saksmappe or Moetemappe) that a user has saved for quick access. */
 public class LagretSakRequest extends BaseRequest {
   /** The saksmappe that has been saved. */
   protected ExpandableField<SaksmappeRequest> saksmappe;

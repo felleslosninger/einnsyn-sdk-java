@@ -13,12 +13,15 @@ import no.einnsyn.sdk.entities.dokumentbeskrivelse.models.DokumentbeskrivelseReq
 import no.einnsyn.sdk.entities.enhet.models.EnhetRequest;
 import no.einnsyn.sdk.entities.moetesaksbeskrivelse.models.MoetesaksbeskrivelseRequest;
 
-/** Utredning */
+/** Represents a report or investigation related to a meeting case. */
 public class UtredningRequest extends ArkivBaseRequest {
+  /** The description of the case. */
   protected ExpandableField<MoetesaksbeskrivelseRequest> saksbeskrivelse;
 
+  /** The recommendation or proposition. */
   protected ExpandableField<MoetesaksbeskrivelseRequest> innstilling;
 
+  /** Documents that are part of the investigation. */
   protected List<ExpandableField<DokumentbeskrivelseRequest>> utredningsdokument;
 
   public UtredningRequest(
@@ -35,14 +38,17 @@ public class UtredningRequest extends ArkivBaseRequest {
     this.utredningsdokument = utredningsdokument;
   }
 
+  /** The description of the case. */
   public ExpandableField<MoetesaksbeskrivelseRequest> getSaksbeskrivelse() {
     return saksbeskrivelse;
   }
 
+  /** The recommendation or proposition. */
   public ExpandableField<MoetesaksbeskrivelseRequest> getInnstilling() {
     return innstilling;
   }
 
+  /** Documents that are part of the investigation. */
   public List<ExpandableField<DokumentbeskrivelseRequest>> getUtredningsdokument() {
     return utredningsdokument;
   }
@@ -75,10 +81,13 @@ public class UtredningRequest extends ArkivBaseRequest {
      */
     protected ExpandableField<EnhetRequest> journalenhet;
 
+    /** The description of the case. */
     protected ExpandableField<MoetesaksbeskrivelseRequest> saksbeskrivelse;
 
+    /** The recommendation or proposition. */
     protected ExpandableField<MoetesaksbeskrivelseRequest> innstilling;
 
+    /** Documents that are part of the investigation. */
     protected List<ExpandableField<DokumentbeskrivelseRequest>> utredningsdokument;
 
     /**
@@ -108,14 +117,17 @@ public class UtredningRequest extends ArkivBaseRequest {
       return journalenhet;
     }
 
+    /** The description of the case. */
     public ExpandableField<MoetesaksbeskrivelseRequest> getSaksbeskrivelse() {
       return saksbeskrivelse;
     }
 
+    /** The recommendation or proposition. */
     public ExpandableField<MoetesaksbeskrivelseRequest> getInnstilling() {
       return innstilling;
     }
 
+    /** Documents that are part of the investigation. */
     public List<ExpandableField<DokumentbeskrivelseRequest>> getUtredningsdokument() {
       return utredningsdokument;
     }
@@ -161,32 +173,38 @@ public class UtredningRequest extends ArkivBaseRequest {
       return this;
     }
 
+    /** The description of the case. */
     public Builder saksbeskrivelse(MoetesaksbeskrivelseRequest saksbeskrivelse) {
       this.saksbeskrivelse = new ExpandableField<>(saksbeskrivelse);
       return this;
     }
 
+    /** The description of the case. */
     public Builder saksbeskrivelse(String id) {
       this.saksbeskrivelse = new ExpandableField<>(id);
       return this;
     }
 
+    /** The recommendation or proposition. */
     public Builder innstilling(MoetesaksbeskrivelseRequest innstilling) {
       this.innstilling = new ExpandableField<>(innstilling);
       return this;
     }
 
+    /** The recommendation or proposition. */
     public Builder innstilling(String id) {
       this.innstilling = new ExpandableField<>(id);
       return this;
     }
 
+    /** Documents that are part of the investigation. */
     public Builder utredningsdokument(List<DokumentbeskrivelseRequest> utredningsdokument) {
       this.utredningsdokument =
           utredningsdokument.stream().map(ExpandableField::new).collect(Collectors.toList());
       return this;
     }
 
+    /** Documents that are part of the investigation. */
     public Builder addUtredningsdokument(DokumentbeskrivelseRequest utredningsdokument) {
       if (this.utredningsdokument == null) {
         this.utredningsdokument = new ArrayList<>();
@@ -196,6 +214,7 @@ public class UtredningRequest extends ArkivBaseRequest {
       return this;
     }
 
+    /** Documents that are part of the investigation. */
     public Builder addUtredningsdokument(
         Function<DokumentbeskrivelseRequest.Builder, DokumentbeskrivelseRequest.Builder>
             builderFunction) {
@@ -208,6 +227,7 @@ public class UtredningRequest extends ArkivBaseRequest {
       return this;
     }
 
+    /** Documents that are part of the investigation. */
     public Builder addUtredningsdokument(String id) {
       if (this.utredningsdokument == null) {
         this.utredningsdokument = new ArrayList<>();

@@ -29,6 +29,15 @@ public class StatisticsParameters {
    */
   protected List<String> excludeAdministrativEnhetExact;
 
+  /** Filter by title. This is a free text search. */
+  protected List<String> tittel;
+
+  /** Filter by sender/recipient name. This is a free text search. */
+  protected List<String> korrespondansepartNavn;
+
+  /** Filter by legal basis for exemption. This is a free text search. */
+  protected List<String> skjermingshjemmel;
+
   /** Filter by the published date of the document. */
   protected String publisertDatoFrom;
 
@@ -41,11 +50,37 @@ public class StatisticsParameters {
   /** Filter by the updated date of the document. */
   protected String oppdatertDatoTo;
 
+  /** Filter by journal date. */
+  protected String journaldatoFrom;
+
+  /** Filter by journal date. */
+  protected String journaldatoTo;
+
+  /** Filter by document date. */
+  protected String dokumentetsDatoFrom;
+
+  /** Filter by document date. */
+  protected String dokumentetsDatoTo;
+
   /** Filter by the date of a meeting. */
   protected String moetedatoFrom;
 
   /** Filter by the date of a meeting. */
   protected String moetedatoTo;
+
+  /**
+   * Filter by the legacy "standardDato". This is the default date for each entity type. For
+   * instance, for Moetemappe this would be "moetedato", for Journalpost this would be
+   * "journaldato".
+   */
+  protected String standardDatoFrom;
+
+  /**
+   * Filter by the legacy "standardDato". This is the default date for each entity type. For
+   * instance, for Moetemappe this would be "moetedato", for Journalpost this would be
+   * "journaldato".
+   */
+  protected String standardDatoTo;
 
   /** Filter by saksaar */
   protected List<String> saksaar;
@@ -92,9 +127,26 @@ public class StatisticsParameters {
   /** Match documents with (or without) fulltext. */
   protected Boolean fulltext;
 
+  /**
+   * The start date for aggregating statistics. If not provided, it will be set to one year before
+   * `aggregateTo`.
+   */
   protected String aggregateFrom;
 
+  /**
+   * The end date for aggregating statistics. If not provided, statistics up to the current date
+   * will be included.
+   */
   protected String aggregateTo;
+
+  /**
+   * The preferred time interval for aggregating statistics data. Determines how data points are
+   * grouped in the time series. Note: There is a maximum limit of 1000 data points in the time
+   * series. If the requested interval combined with the date range would exceed this limit, the
+   * interval will be automatically adjusted to a larger granularity to stay within the limit.
+   * Default is "hour".
+   */
+  protected AggregateIntervalEnum aggregateInterval;
 
   public StatisticsParameters(
       String query,
@@ -102,12 +154,21 @@ public class StatisticsParameters {
       List<String> administrativEnhetExact,
       List<String> excludeAdministrativEnhet,
       List<String> excludeAdministrativEnhetExact,
+      List<String> tittel,
+      List<String> korrespondansepartNavn,
+      List<String> skjermingshjemmel,
       String publisertDatoFrom,
       String publisertDatoTo,
       String oppdatertDatoFrom,
       String oppdatertDatoTo,
+      String journaldatoFrom,
+      String journaldatoTo,
+      String dokumentetsDatoFrom,
+      String dokumentetsDatoTo,
       String moetedatoFrom,
       String moetedatoTo,
+      String standardDatoFrom,
+      String standardDatoTo,
       List<String> saksaar,
       List<String> sakssekvensnummer,
       List<String> saksnummer,
@@ -122,19 +183,29 @@ public class StatisticsParameters {
       String journalenhet,
       Boolean fulltext,
       String aggregateFrom,
-      String aggregateTo) {
+      String aggregateTo,
+      AggregateIntervalEnum aggregateInterval) {
     super();
     this.query = query;
     this.administrativEnhet = administrativEnhet;
     this.administrativEnhetExact = administrativEnhetExact;
     this.excludeAdministrativEnhet = excludeAdministrativEnhet;
     this.excludeAdministrativEnhetExact = excludeAdministrativEnhetExact;
+    this.tittel = tittel;
+    this.korrespondansepartNavn = korrespondansepartNavn;
+    this.skjermingshjemmel = skjermingshjemmel;
     this.publisertDatoFrom = publisertDatoFrom;
     this.publisertDatoTo = publisertDatoTo;
     this.oppdatertDatoFrom = oppdatertDatoFrom;
     this.oppdatertDatoTo = oppdatertDatoTo;
+    this.journaldatoFrom = journaldatoFrom;
+    this.journaldatoTo = journaldatoTo;
+    this.dokumentetsDatoFrom = dokumentetsDatoFrom;
+    this.dokumentetsDatoTo = dokumentetsDatoTo;
     this.moetedatoFrom = moetedatoFrom;
     this.moetedatoTo = moetedatoTo;
+    this.standardDatoFrom = standardDatoFrom;
+    this.standardDatoTo = standardDatoTo;
     this.saksaar = saksaar;
     this.sakssekvensnummer = sakssekvensnummer;
     this.saksnummer = saksnummer;
@@ -150,6 +221,7 @@ public class StatisticsParameters {
     this.fulltext = fulltext;
     this.aggregateFrom = aggregateFrom;
     this.aggregateTo = aggregateTo;
+    this.aggregateInterval = aggregateInterval;
   }
 
   /**
@@ -183,6 +255,21 @@ public class StatisticsParameters {
     return excludeAdministrativEnhetExact;
   }
 
+  /** Filter by title. This is a free text search. */
+  public List<String> getTittel() {
+    return tittel;
+  }
+
+  /** Filter by sender/recipient name. This is a free text search. */
+  public List<String> getKorrespondansepartNavn() {
+    return korrespondansepartNavn;
+  }
+
+  /** Filter by legal basis for exemption. This is a free text search. */
+  public List<String> getSkjermingshjemmel() {
+    return skjermingshjemmel;
+  }
+
   /** Filter by the published date of the document. */
   public String getPublisertDatoFrom() {
     return publisertDatoFrom;
@@ -203,6 +290,26 @@ public class StatisticsParameters {
     return oppdatertDatoTo;
   }
 
+  /** Filter by journal date. */
+  public String getJournaldatoFrom() {
+    return journaldatoFrom;
+  }
+
+  /** Filter by journal date. */
+  public String getJournaldatoTo() {
+    return journaldatoTo;
+  }
+
+  /** Filter by document date. */
+  public String getDokumentetsDatoFrom() {
+    return dokumentetsDatoFrom;
+  }
+
+  /** Filter by document date. */
+  public String getDokumentetsDatoTo() {
+    return dokumentetsDatoTo;
+  }
+
   /** Filter by the date of a meeting. */
   public String getMoetedatoFrom() {
     return moetedatoFrom;
@@ -211,6 +318,24 @@ public class StatisticsParameters {
   /** Filter by the date of a meeting. */
   public String getMoetedatoTo() {
     return moetedatoTo;
+  }
+
+  /**
+   * Filter by the legacy "standardDato". This is the default date for each entity type. For
+   * instance, for Moetemappe this would be "moetedato", for Journalpost this would be
+   * "journaldato".
+   */
+  public String getStandardDatoFrom() {
+    return standardDatoFrom;
+  }
+
+  /**
+   * Filter by the legacy "standardDato". This is the default date for each entity type. For
+   * instance, for Moetemappe this would be "moetedato", for Journalpost this would be
+   * "journaldato".
+   */
+  public String getStandardDatoTo() {
+    return standardDatoTo;
   }
 
   /** Filter by saksaar */
@@ -284,12 +409,31 @@ public class StatisticsParameters {
     return fulltext;
   }
 
+  /**
+   * The start date for aggregating statistics. If not provided, it will be set to one year before
+   * `aggregateTo`.
+   */
   public String getAggregateFrom() {
     return aggregateFrom;
   }
 
+  /**
+   * The end date for aggregating statistics. If not provided, statistics up to the current date
+   * will be included.
+   */
   public String getAggregateTo() {
     return aggregateTo;
+  }
+
+  /**
+   * The preferred time interval for aggregating statistics data. Determines how data points are
+   * grouped in the time series. Note: There is a maximum limit of 1000 data points in the time
+   * series. If the requested interval combined with the date range would exceed this limit, the
+   * interval will be automatically adjusted to a larger granularity to stay within the limit.
+   * Default is "hour".
+   */
+  public AggregateIntervalEnum getAggregateInterval() {
+    return aggregateInterval;
   }
 
   public static Builder builder() {
@@ -324,6 +468,15 @@ public class StatisticsParameters {
      */
     protected List<String> excludeAdministrativEnhetExact;
 
+    /** Filter by title. This is a free text search. */
+    protected List<String> tittel;
+
+    /** Filter by sender/recipient name. This is a free text search. */
+    protected List<String> korrespondansepartNavn;
+
+    /** Filter by legal basis for exemption. This is a free text search. */
+    protected List<String> skjermingshjemmel;
+
     /** Filter by the published date of the document. */
     protected String publisertDatoFrom;
 
@@ -336,11 +489,37 @@ public class StatisticsParameters {
     /** Filter by the updated date of the document. */
     protected String oppdatertDatoTo;
 
+    /** Filter by journal date. */
+    protected String journaldatoFrom;
+
+    /** Filter by journal date. */
+    protected String journaldatoTo;
+
+    /** Filter by document date. */
+    protected String dokumentetsDatoFrom;
+
+    /** Filter by document date. */
+    protected String dokumentetsDatoTo;
+
     /** Filter by the date of a meeting. */
     protected String moetedatoFrom;
 
     /** Filter by the date of a meeting. */
     protected String moetedatoTo;
+
+    /**
+     * Filter by the legacy "standardDato". This is the default date for each entity type. For
+     * instance, for Moetemappe this would be "moetedato", for Journalpost this would be
+     * "journaldato".
+     */
+    protected String standardDatoFrom;
+
+    /**
+     * Filter by the legacy "standardDato". This is the default date for each entity type. For
+     * instance, for Moetemappe this would be "moetedato", for Journalpost this would be
+     * "journaldato".
+     */
+    protected String standardDatoTo;
 
     /** Filter by saksaar */
     protected List<String> saksaar;
@@ -387,9 +566,26 @@ public class StatisticsParameters {
     /** Match documents with (or without) fulltext. */
     protected Boolean fulltext;
 
+    /**
+     * The start date for aggregating statistics. If not provided, it will be set to one year before
+     * `aggregateTo`.
+     */
     protected String aggregateFrom;
 
+    /**
+     * The end date for aggregating statistics. If not provided, statistics up to the current date
+     * will be included.
+     */
     protected String aggregateTo;
+
+    /**
+     * The preferred time interval for aggregating statistics data. Determines how data points are
+     * grouped in the time series. Note: There is a maximum limit of 1000 data points in the time
+     * series. If the requested interval combined with the date range would exceed this limit, the
+     * interval will be automatically adjusted to a larger granularity to stay within the limit.
+     * Default is "hour".
+     */
+    protected AggregateIntervalEnum aggregateInterval;
 
     /**
      * A query string to filter by. Quotes can be used to search for exact matches or phrases. Words
@@ -424,6 +620,21 @@ public class StatisticsParameters {
       return excludeAdministrativEnhetExact;
     }
 
+    /** Filter by title. This is a free text search. */
+    public List<String> getTittel() {
+      return tittel;
+    }
+
+    /** Filter by sender/recipient name. This is a free text search. */
+    public List<String> getKorrespondansepartNavn() {
+      return korrespondansepartNavn;
+    }
+
+    /** Filter by legal basis for exemption. This is a free text search. */
+    public List<String> getSkjermingshjemmel() {
+      return skjermingshjemmel;
+    }
+
     /** Filter by the published date of the document. */
     public String getPublisertDatoFrom() {
       return publisertDatoFrom;
@@ -444,6 +655,26 @@ public class StatisticsParameters {
       return oppdatertDatoTo;
     }
 
+    /** Filter by journal date. */
+    public String getJournaldatoFrom() {
+      return journaldatoFrom;
+    }
+
+    /** Filter by journal date. */
+    public String getJournaldatoTo() {
+      return journaldatoTo;
+    }
+
+    /** Filter by document date. */
+    public String getDokumentetsDatoFrom() {
+      return dokumentetsDatoFrom;
+    }
+
+    /** Filter by document date. */
+    public String getDokumentetsDatoTo() {
+      return dokumentetsDatoTo;
+    }
+
     /** Filter by the date of a meeting. */
     public String getMoetedatoFrom() {
       return moetedatoFrom;
@@ -452,6 +683,24 @@ public class StatisticsParameters {
     /** Filter by the date of a meeting. */
     public String getMoetedatoTo() {
       return moetedatoTo;
+    }
+
+    /**
+     * Filter by the legacy "standardDato". This is the default date for each entity type. For
+     * instance, for Moetemappe this would be "moetedato", for Journalpost this would be
+     * "journaldato".
+     */
+    public String getStandardDatoFrom() {
+      return standardDatoFrom;
+    }
+
+    /**
+     * Filter by the legacy "standardDato". This is the default date for each entity type. For
+     * instance, for Moetemappe this would be "moetedato", for Journalpost this would be
+     * "journaldato".
+     */
+    public String getStandardDatoTo() {
+      return standardDatoTo;
     }
 
     /** Filter by saksaar */
@@ -525,12 +774,31 @@ public class StatisticsParameters {
       return fulltext;
     }
 
+    /**
+     * The start date for aggregating statistics. If not provided, it will be set to one year before
+     * `aggregateTo`.
+     */
     public String getAggregateFrom() {
       return aggregateFrom;
     }
 
+    /**
+     * The end date for aggregating statistics. If not provided, statistics up to the current date
+     * will be included.
+     */
     public String getAggregateTo() {
       return aggregateTo;
+    }
+
+    /**
+     * The preferred time interval for aggregating statistics data. Determines how data points are
+     * grouped in the time series. Note: There is a maximum limit of 1000 data points in the time
+     * series. If the requested interval combined with the date range would exceed this limit, the
+     * interval will be automatically adjusted to a larger granularity to stay within the limit.
+     * Default is "hour".
+     */
+    public AggregateIntervalEnum getAggregateInterval() {
+      return aggregateInterval;
     }
 
     /**
@@ -612,6 +880,51 @@ public class StatisticsParameters {
       return this;
     }
 
+    /** Filter by title. This is a free text search. */
+    public Builder tittel(List<String> tittel) {
+      this.tittel = tittel;
+      return this;
+    }
+
+    /** Filter by title. This is a free text search. */
+    public Builder addTittel(String tittel) {
+      if (this.tittel == null) {
+        this.tittel = new ArrayList<>();
+      }
+      this.tittel.add(tittel);
+      return this;
+    }
+
+    /** Filter by sender/recipient name. This is a free text search. */
+    public Builder korrespondansepartNavn(List<String> korrespondansepartNavn) {
+      this.korrespondansepartNavn = korrespondansepartNavn;
+      return this;
+    }
+
+    /** Filter by sender/recipient name. This is a free text search. */
+    public Builder addKorrespondansepartNavn(String korrespondansepartNavn) {
+      if (this.korrespondansepartNavn == null) {
+        this.korrespondansepartNavn = new ArrayList<>();
+      }
+      this.korrespondansepartNavn.add(korrespondansepartNavn);
+      return this;
+    }
+
+    /** Filter by legal basis for exemption. This is a free text search. */
+    public Builder skjermingshjemmel(List<String> skjermingshjemmel) {
+      this.skjermingshjemmel = skjermingshjemmel;
+      return this;
+    }
+
+    /** Filter by legal basis for exemption. This is a free text search. */
+    public Builder addSkjermingshjemmel(String skjermingshjemmel) {
+      if (this.skjermingshjemmel == null) {
+        this.skjermingshjemmel = new ArrayList<>();
+      }
+      this.skjermingshjemmel.add(skjermingshjemmel);
+      return this;
+    }
+
     /** Filter by the published date of the document. */
     public Builder publisertDatoFrom(String publisertDatoFrom) {
       this.publisertDatoFrom = publisertDatoFrom;
@@ -636,6 +949,30 @@ public class StatisticsParameters {
       return this;
     }
 
+    /** Filter by journal date. */
+    public Builder journaldatoFrom(String journaldatoFrom) {
+      this.journaldatoFrom = journaldatoFrom;
+      return this;
+    }
+
+    /** Filter by journal date. */
+    public Builder journaldatoTo(String journaldatoTo) {
+      this.journaldatoTo = journaldatoTo;
+      return this;
+    }
+
+    /** Filter by document date. */
+    public Builder dokumentetsDatoFrom(String dokumentetsDatoFrom) {
+      this.dokumentetsDatoFrom = dokumentetsDatoFrom;
+      return this;
+    }
+
+    /** Filter by document date. */
+    public Builder dokumentetsDatoTo(String dokumentetsDatoTo) {
+      this.dokumentetsDatoTo = dokumentetsDatoTo;
+      return this;
+    }
+
     /** Filter by the date of a meeting. */
     public Builder moetedatoFrom(String moetedatoFrom) {
       this.moetedatoFrom = moetedatoFrom;
@@ -645,6 +982,26 @@ public class StatisticsParameters {
     /** Filter by the date of a meeting. */
     public Builder moetedatoTo(String moetedatoTo) {
       this.moetedatoTo = moetedatoTo;
+      return this;
+    }
+
+    /**
+     * Filter by the legacy "standardDato". This is the default date for each entity type. For
+     * instance, for Moetemappe this would be "moetedato", for Journalpost this would be
+     * "journaldato".
+     */
+    public Builder standardDatoFrom(String standardDatoFrom) {
+      this.standardDatoFrom = standardDatoFrom;
+      return this;
+    }
+
+    /**
+     * Filter by the legacy "standardDato". This is the default date for each entity type. For
+     * instance, for Moetemappe this would be "moetedato", for Journalpost this would be
+     * "journaldato".
+     */
+    public Builder standardDatoTo(String standardDatoTo) {
+      this.standardDatoTo = standardDatoTo;
       return this;
     }
 
@@ -837,13 +1194,33 @@ public class StatisticsParameters {
       return this;
     }
 
+    /**
+     * The start date for aggregating statistics. If not provided, it will be set to one year before
+     * `aggregateTo`.
+     */
     public Builder aggregateFrom(String aggregateFrom) {
       this.aggregateFrom = aggregateFrom;
       return this;
     }
 
+    /**
+     * The end date for aggregating statistics. If not provided, statistics up to the current date
+     * will be included.
+     */
     public Builder aggregateTo(String aggregateTo) {
       this.aggregateTo = aggregateTo;
+      return this;
+    }
+
+    /**
+     * The preferred time interval for aggregating statistics data. Determines how data points are
+     * grouped in the time series. Note: There is a maximum limit of 1000 data points in the time
+     * series. If the requested interval combined with the date range would exceed this limit, the
+     * interval will be automatically adjusted to a larger granularity to stay within the limit.
+     * Default is "hour".
+     */
+    public Builder aggregateInterval(AggregateIntervalEnum aggregateInterval) {
+      this.aggregateInterval = aggregateInterval;
       return this;
     }
 
@@ -854,12 +1231,21 @@ public class StatisticsParameters {
           this.administrativEnhetExact,
           this.excludeAdministrativEnhet,
           this.excludeAdministrativEnhetExact,
+          this.tittel,
+          this.korrespondansepartNavn,
+          this.skjermingshjemmel,
           this.publisertDatoFrom,
           this.publisertDatoTo,
           this.oppdatertDatoFrom,
           this.oppdatertDatoTo,
+          this.journaldatoFrom,
+          this.journaldatoTo,
+          this.dokumentetsDatoFrom,
+          this.dokumentetsDatoTo,
           this.moetedatoFrom,
           this.moetedatoTo,
+          this.standardDatoFrom,
+          this.standardDatoTo,
           this.saksaar,
           this.sakssekvensnummer,
           this.saksnummer,
@@ -874,7 +1260,8 @@ public class StatisticsParameters {
           this.journalenhet,
           this.fulltext,
           this.aggregateFrom,
-          this.aggregateTo);
+          this.aggregateTo,
+          this.aggregateInterval);
     }
   }
 }
