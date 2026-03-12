@@ -10,12 +10,15 @@ import no.einnsyn.sdk.entities.enhet.models.EnhetRequest;
 import no.einnsyn.sdk.entities.identifikator.models.IdentifikatorRequest;
 import no.einnsyn.sdk.entities.moetedeltaker.models.MoetedeltakerRequest;
 
-/** Votering */
+/** Represents a vote cast by a participant in a meeting. */
 public class VoteringRequest extends ArkivBaseRequest {
+  /** The meeting participant who cast the vote. */
   protected ExpandableField<MoetedeltakerRequest> moetedeltaker;
 
+  /** The vote cast ('Ja' for yes, 'Nei' for no, 'Blankt' for blank). */
   protected StemmeEnum stemme;
 
+  /** The person or party the participant is representing, if applicable. */
   protected ExpandableField<IdentifikatorRequest> representerer;
 
   public VoteringRequest(
@@ -32,14 +35,17 @@ public class VoteringRequest extends ArkivBaseRequest {
     this.representerer = representerer;
   }
 
+  /** The meeting participant who cast the vote. */
   public ExpandableField<MoetedeltakerRequest> getMoetedeltaker() {
     return moetedeltaker;
   }
 
+  /** The vote cast ('Ja' for yes, 'Nei' for no, 'Blankt' for blank). */
   public StemmeEnum getStemme() {
     return stemme;
   }
 
+  /** The person or party the participant is representing, if applicable. */
   public ExpandableField<IdentifikatorRequest> getRepresenterer() {
     return representerer;
   }
@@ -72,10 +78,13 @@ public class VoteringRequest extends ArkivBaseRequest {
      */
     protected ExpandableField<EnhetRequest> journalenhet;
 
+    /** The meeting participant who cast the vote. */
     protected ExpandableField<MoetedeltakerRequest> moetedeltaker;
 
+    /** The vote cast ('Ja' for yes, 'Nei' for no, 'Blankt' for blank). */
     protected StemmeEnum stemme;
 
+    /** The person or party the participant is representing, if applicable. */
     protected ExpandableField<IdentifikatorRequest> representerer;
 
     /**
@@ -105,14 +114,17 @@ public class VoteringRequest extends ArkivBaseRequest {
       return journalenhet;
     }
 
+    /** The meeting participant who cast the vote. */
     public ExpandableField<MoetedeltakerRequest> getMoetedeltaker() {
       return moetedeltaker;
     }
 
+    /** The vote cast ('Ja' for yes, 'Nei' for no, 'Blankt' for blank). */
     public StemmeEnum getStemme() {
       return stemme;
     }
 
+    /** The person or party the participant is representing, if applicable. */
     public ExpandableField<IdentifikatorRequest> getRepresenterer() {
       return representerer;
     }
@@ -158,26 +170,31 @@ public class VoteringRequest extends ArkivBaseRequest {
       return this;
     }
 
+    /** The meeting participant who cast the vote. */
     public Builder moetedeltaker(MoetedeltakerRequest moetedeltaker) {
       this.moetedeltaker = new ExpandableField<>(moetedeltaker);
       return this;
     }
 
+    /** The meeting participant who cast the vote. */
     public Builder moetedeltaker(String id) {
       this.moetedeltaker = new ExpandableField<>(id);
       return this;
     }
 
+    /** The vote cast ('Ja' for yes, 'Nei' for no, 'Blankt' for blank). */
     public Builder stemme(StemmeEnum stemme) {
       this.stemme = stemme;
       return this;
     }
 
+    /** The person or party the participant is representing, if applicable. */
     public Builder representerer(IdentifikatorRequest representerer) {
       this.representerer = new ExpandableField<>(representerer);
       return this;
     }
 
+    /** The person or party the participant is representing, if applicable. */
     public Builder representerer(String id) {
       this.representerer = new ExpandableField<>(id);
       return this;

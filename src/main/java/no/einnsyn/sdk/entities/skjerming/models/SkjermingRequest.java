@@ -8,10 +8,15 @@ import no.einnsyn.sdk.common.expandablefield.ExpandableField;
 import no.einnsyn.sdk.entities.arkivbase.models.ArkivBaseRequest;
 import no.einnsyn.sdk.entities.enhet.models.EnhetRequest;
 
-/** Skjerming */
+/**
+ * Represents access control information for a resource, specifying restrictions and the legal basis
+ * for them.
+ */
 public class SkjermingRequest extends ArkivBaseRequest {
+  /** The code for the access restriction. */
   protected String tilgangsrestriksjon;
 
+  /** The legal basis for the access restriction (a reference to a law or regulation). */
   protected String skjermingshjemmel;
 
   public SkjermingRequest(
@@ -26,10 +31,12 @@ public class SkjermingRequest extends ArkivBaseRequest {
     this.skjermingshjemmel = skjermingshjemmel;
   }
 
+  /** The code for the access restriction. */
   public String getTilgangsrestriksjon() {
     return tilgangsrestriksjon;
   }
 
+  /** The legal basis for the access restriction (a reference to a law or regulation). */
   public String getSkjermingshjemmel() {
     return skjermingshjemmel;
   }
@@ -62,8 +69,10 @@ public class SkjermingRequest extends ArkivBaseRequest {
      */
     protected ExpandableField<EnhetRequest> journalenhet;
 
+    /** The code for the access restriction. */
     protected String tilgangsrestriksjon;
 
+    /** The legal basis for the access restriction (a reference to a law or regulation). */
     protected String skjermingshjemmel;
 
     /**
@@ -93,10 +102,12 @@ public class SkjermingRequest extends ArkivBaseRequest {
       return journalenhet;
     }
 
+    /** The code for the access restriction. */
     public String getTilgangsrestriksjon() {
       return tilgangsrestriksjon;
     }
 
+    /** The legal basis for the access restriction (a reference to a law or regulation). */
     public String getSkjermingshjemmel() {
       return skjermingshjemmel;
     }
@@ -142,11 +153,13 @@ public class SkjermingRequest extends ArkivBaseRequest {
       return this;
     }
 
+    /** The code for the access restriction. */
     public Builder tilgangsrestriksjon(String tilgangsrestriksjon) {
       this.tilgangsrestriksjon = tilgangsrestriksjon;
       return this;
     }
 
+    /** The legal basis for the access restriction (a reference to a law or regulation). */
     public Builder skjermingshjemmel(String skjermingshjemmel) {
       this.skjermingshjemmel = skjermingshjemmel;
       return this;

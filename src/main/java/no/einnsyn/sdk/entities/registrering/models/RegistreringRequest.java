@@ -13,8 +13,14 @@ import no.einnsyn.sdk.entities.dokumentbeskrivelse.models.DokumentbeskrivelseReq
 import no.einnsyn.sdk.entities.enhet.models.EnhetRequest;
 import no.einnsyn.sdk.entities.korrespondansepart.models.KorrespondansepartRequest;
 
-/** Registrering */
+/**
+ * An abstract base model for registry entries, such as journal entries (Journalpost) and
+ * meeting-related entries (Moetesak, Moetedokument).
+ */
 public class RegistreringRequest extends ArkivBaseRequest {
+  /** A URL-friendly unique slug for the resource. */
+  protected String slug;
+
   /** The title of the resource, with sensitive information redacted. */
   protected String offentligTittel;
 
@@ -47,6 +53,7 @@ public class RegistreringRequest extends ArkivBaseRequest {
       String accessibleAfter,
       String systemId,
       ExpandableField<EnhetRequest> journalenhet,
+      String slug,
       String offentligTittel,
       String offentligTittelSensitiv,
       String beskrivelse,
@@ -56,6 +63,7 @@ public class RegistreringRequest extends ArkivBaseRequest {
       List<ExpandableField<DokumentbeskrivelseRequest>> dokumentbeskrivelse,
       ExpandableField<EnhetRequest> avhendetTil) {
     super(externalId, accessibleAfter, systemId, journalenhet);
+    this.slug = slug;
     this.offentligTittel = offentligTittel;
     this.offentligTittelSensitiv = offentligTittelSensitiv;
     this.beskrivelse = beskrivelse;
@@ -64,6 +72,11 @@ public class RegistreringRequest extends ArkivBaseRequest {
     this.korrespondansepart = korrespondansepart;
     this.dokumentbeskrivelse = dokumentbeskrivelse;
     this.avhendetTil = avhendetTil;
+  }
+
+  /** A URL-friendly unique slug for the resource. */
+  public String getSlug() {
+    return slug;
   }
 
   /** The title of the resource, with sensitive information redacted. */
@@ -129,6 +142,9 @@ public class RegistreringRequest extends ArkivBaseRequest {
      */
     protected ExpandableField<EnhetRequest> journalenhet;
 
+    /** A URL-friendly unique slug for the resource. */
+    protected String slug;
+
     /** The title of the resource, with sensitive information redacted. */
     protected String offentligTittel;
 
@@ -181,6 +197,11 @@ public class RegistreringRequest extends ArkivBaseRequest {
      */
     public ExpandableField<EnhetRequest> getJournalenhet() {
       return journalenhet;
+    }
+
+    /** A URL-friendly unique slug for the resource. */
+    public String getSlug() {
+      return slug;
     }
 
     /** The title of the resource, with sensitive information redacted. */
@@ -264,6 +285,12 @@ public class RegistreringRequest extends ArkivBaseRequest {
      */
     public Builder journalenhet(String id) {
       this.journalenhet = new ExpandableField<>(id);
+      return this;
+    }
+
+    /** A URL-friendly unique slug for the resource. */
+    public Builder slug(String slug) {
+      this.slug = slug;
       return this;
     }
 
@@ -390,6 +417,7 @@ public class RegistreringRequest extends ArkivBaseRequest {
           this.accessibleAfter,
           this.systemId,
           this.journalenhet,
+          this.slug,
           this.offentligTittel,
           this.offentligTittelSensitiv,
           this.beskrivelse,

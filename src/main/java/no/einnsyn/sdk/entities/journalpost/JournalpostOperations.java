@@ -19,6 +19,8 @@ import no.einnsyn.sdk.entities.journalpost.models.JournalpostRequest;
 import no.einnsyn.sdk.entities.journalpost.models.ListByJournalpostParameters;
 import no.einnsyn.sdk.entities.korrespondansepart.models.Korrespondansepart;
 import no.einnsyn.sdk.entities.korrespondansepart.models.KorrespondansepartRequest;
+import no.einnsyn.sdk.entities.skjerming.models.Skjerming;
+import no.einnsyn.sdk.entities.skjerming.models.SkjermingRequest;
 import no.einnsyn.sdk.net.ApiRequestMethod;
 import no.einnsyn.sdk.net.ApiRequester;
 
@@ -527,6 +529,117 @@ public class JournalpostOperations extends ApiEntityOperations<Journalpost, Jour
         url,
         null,
         bodyBuilderFunction.apply(new KorrespondansepartRequest.Builder()).build(),
+        optionsBuilderFunction.apply(new EInnsynOptions.Builder()).build(),
+        type);
+  }
+
+  public Skjerming addSkjerming(String id, SkjermingRequest body) throws EInnsynException {
+    String url = "/journalpost/" + id + "/skjerming";
+    ApiRequestMethod method = ApiRequestMethod.POST;
+    Type type = new TypeToken<Skjerming>() {}.getType();
+    return requester.request(method, url, null, body, null, type);
+  }
+
+  public Skjerming addSkjerming(String id, String bodyId) throws EInnsynException {
+    String url = "/journalpost/" + id + "/skjerming";
+    ApiRequestMethod method = ApiRequestMethod.POST;
+    Type type = new TypeToken<Skjerming>() {}.getType();
+    return requester.request(method, url, null, bodyId, null, type);
+  }
+
+  public Skjerming addSkjerming(
+      String id, Function<SkjermingRequest.Builder, SkjermingRequest.Builder> bodyBuilderFunction)
+      throws EInnsynException {
+    String url = "/journalpost/" + id + "/skjerming";
+    ApiRequestMethod method = ApiRequestMethod.POST;
+    Type type = new TypeToken<Skjerming>() {}.getType();
+    return requester.request(
+        method,
+        url,
+        null,
+        bodyBuilderFunction.apply(new SkjermingRequest.Builder()).build(),
+        null,
+        type);
+  }
+
+  public Skjerming addSkjerming(String id, SkjermingRequest body, EInnsynOptions options)
+      throws EInnsynException {
+    String url = "/journalpost/" + id + "/skjerming";
+    ApiRequestMethod method = ApiRequestMethod.POST;
+    Type type = new TypeToken<Skjerming>() {}.getType();
+    return requester.request(method, url, null, body, options, type);
+  }
+
+  public Skjerming addSkjerming(String id, String bodyId, EInnsynOptions options)
+      throws EInnsynException {
+    String url = "/journalpost/" + id + "/skjerming";
+    ApiRequestMethod method = ApiRequestMethod.POST;
+    Type type = new TypeToken<Skjerming>() {}.getType();
+    return requester.request(method, url, null, bodyId, options, type);
+  }
+
+  public Skjerming addSkjerming(
+      String id,
+      Function<SkjermingRequest.Builder, SkjermingRequest.Builder> bodyBuilderFunction,
+      Function<EInnsynOptions.Builder, EInnsynOptions.Builder> optionsBuilderFunction)
+      throws EInnsynException {
+    String url = "/journalpost/" + id + "/skjerming";
+    ApiRequestMethod method = ApiRequestMethod.POST;
+    Type type = new TypeToken<Skjerming>() {}.getType();
+    return requester.request(
+        method,
+        url,
+        null,
+        bodyBuilderFunction.apply(new SkjermingRequest.Builder()).build(),
+        optionsBuilderFunction.apply(new EInnsynOptions.Builder()).build(),
+        type);
+  }
+
+  public Skjerming addSkjerming(
+      String id,
+      String bodyId,
+      Function<EInnsynOptions.Builder, EInnsynOptions.Builder> optionsBuilderFunction)
+      throws EInnsynException {
+    String url = "/journalpost/" + id + "/skjerming";
+    ApiRequestMethod method = ApiRequestMethod.POST;
+    Type type = new TypeToken<Skjerming>() {}.getType();
+    return requester.request(
+        method,
+        url,
+        null,
+        bodyId,
+        optionsBuilderFunction.apply(new EInnsynOptions.Builder()).build(),
+        type);
+  }
+
+  public Skjerming deleteSkjerming(String id, String skjermingId) throws EInnsynException {
+    String url = "/journalpost/" + id + "/skjerming/" + skjermingId;
+    ApiRequestMethod method = ApiRequestMethod.DELETE;
+    Type type = new TypeToken<Skjerming>() {}.getType();
+    return requester.request(method, url, null, null, null, type);
+  }
+
+  public Skjerming deleteSkjerming(String id, String skjermingId, EInnsynOptions options)
+      throws EInnsynException {
+    String url = "/journalpost/" + id + "/skjerming/" + skjermingId;
+    ApiRequestMethod method = ApiRequestMethod.DELETE;
+    Type type = new TypeToken<Skjerming>() {}.getType();
+    return requester.request(method, url, null, null, options, type);
+  }
+
+  public Skjerming deleteSkjerming(
+      String id,
+      String skjermingId,
+      Function<EInnsynOptions.Builder, EInnsynOptions.Builder> optionsBuilderFunction)
+      throws EInnsynException {
+    String url = "/journalpost/" + id + "/skjerming/" + skjermingId;
+    ApiRequestMethod method = ApiRequestMethod.DELETE;
+    Type type = new TypeToken<Skjerming>() {}.getType();
+    return requester.request(
+        method,
+        url,
+        null,
+        null,
         optionsBuilderFunction.apply(new EInnsynOptions.Builder()).build(),
         type);
   }

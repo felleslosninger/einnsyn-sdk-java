@@ -8,10 +8,14 @@ import no.einnsyn.sdk.common.expandablefield.ExpandableField;
 import no.einnsyn.sdk.entities.arkivbase.models.ArkivBaseRequest;
 import no.einnsyn.sdk.entities.enhet.models.EnhetRequest;
 
-/** Moetesaksbeskrivelse */
+/**
+ * Represents a textual description related to a meeting case, such as a recommendation or a report.
+ */
 public class MoetesaksbeskrivelseRequest extends ArkivBaseRequest {
+  /** The text content of the description. */
   protected String tekstInnhold;
 
+  /** The format of the text content (e.g., "text/html"). */
   protected String tekstFormat;
 
   public MoetesaksbeskrivelseRequest(
@@ -26,10 +30,12 @@ public class MoetesaksbeskrivelseRequest extends ArkivBaseRequest {
     this.tekstFormat = tekstFormat;
   }
 
+  /** The text content of the description. */
   public String getTekstInnhold() {
     return tekstInnhold;
   }
 
+  /** The format of the text content (e.g., "text/html"). */
   public String getTekstFormat() {
     return tekstFormat;
   }
@@ -62,8 +68,10 @@ public class MoetesaksbeskrivelseRequest extends ArkivBaseRequest {
      */
     protected ExpandableField<EnhetRequest> journalenhet;
 
+    /** The text content of the description. */
     protected String tekstInnhold;
 
+    /** The format of the text content (e.g., "text/html"). */
     protected String tekstFormat;
 
     /**
@@ -93,10 +101,12 @@ public class MoetesaksbeskrivelseRequest extends ArkivBaseRequest {
       return journalenhet;
     }
 
+    /** The text content of the description. */
     public String getTekstInnhold() {
       return tekstInnhold;
     }
 
+    /** The format of the text content (e.g., "text/html"). */
     public String getTekstFormat() {
       return tekstFormat;
     }
@@ -142,11 +152,13 @@ public class MoetesaksbeskrivelseRequest extends ArkivBaseRequest {
       return this;
     }
 
+    /** The text content of the description. */
     public Builder tekstInnhold(String tekstInnhold) {
       this.tekstInnhold = tekstInnhold;
       return this;
     }
 
+    /** The format of the text content (e.g., "text/html"). */
     public Builder tekstFormat(String tekstFormat) {
       this.tekstFormat = tekstFormat;
       return this;

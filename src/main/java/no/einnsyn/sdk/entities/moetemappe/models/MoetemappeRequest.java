@@ -14,24 +14,33 @@ import no.einnsyn.sdk.entities.mappe.models.MappeRequest;
 import no.einnsyn.sdk.entities.moetedokument.models.MoetedokumentRequest;
 import no.einnsyn.sdk.entities.moetesak.models.MoetesakRequest;
 
-/** Moetemappe */
+/** Represents a meeting, containing information about a specific meeting. */
 public class MoetemappeRequest extends MappeRequest {
+  /** A unique number or identifier for the meeting. */
   protected String moetenummer;
 
+  /** The name of the committee or board holding the meeting. */
   protected String utvalg;
 
+  /** The date and time of the meeting. */
   protected String moetedato;
 
+  /** The location of the meeting. */
   protected String moetested;
 
+  /** A link to a video recording of the meeting. */
   protected String videoLink;
 
+  /** A reference to the previous meeting. */
   protected ExpandableField<MoetemappeRequest> referanseForrigeMoete;
 
+  /** A reference to the next meeting. */
   protected ExpandableField<MoetemappeRequest> referanseNesteMoete;
 
+  /** Documents associated with the meeting. */
   protected List<ExpandableField<MoetedokumentRequest>> moetedokument;
 
+  /** Cases discussed in the meeting. */
   protected List<ExpandableField<MoetesakRequest>> moetesak;
 
   public MoetemappeRequest(
@@ -39,6 +48,7 @@ public class MoetemappeRequest extends MappeRequest {
       String accessibleAfter,
       String systemId,
       ExpandableField<EnhetRequest> journalenhet,
+      String slug,
       String offentligTittel,
       String offentligTittelSensitiv,
       String beskrivelse,
@@ -60,6 +70,7 @@ public class MoetemappeRequest extends MappeRequest {
         accessibleAfter,
         systemId,
         journalenhet,
+        slug,
         offentligTittel,
         offentligTittelSensitiv,
         beskrivelse,
@@ -78,38 +89,47 @@ public class MoetemappeRequest extends MappeRequest {
     this.moetesak = moetesak;
   }
 
+  /** A unique number or identifier for the meeting. */
   public String getMoetenummer() {
     return moetenummer;
   }
 
+  /** The name of the committee or board holding the meeting. */
   public String getUtvalg() {
     return utvalg;
   }
 
+  /** The date and time of the meeting. */
   public String getMoetedato() {
     return moetedato;
   }
 
+  /** The location of the meeting. */
   public String getMoetested() {
     return moetested;
   }
 
+  /** A link to a video recording of the meeting. */
   public String getVideoLink() {
     return videoLink;
   }
 
+  /** A reference to the previous meeting. */
   public ExpandableField<MoetemappeRequest> getReferanseForrigeMoete() {
     return referanseForrigeMoete;
   }
 
+  /** A reference to the next meeting. */
   public ExpandableField<MoetemappeRequest> getReferanseNesteMoete() {
     return referanseNesteMoete;
   }
 
+  /** Documents associated with the meeting. */
   public List<ExpandableField<MoetedokumentRequest>> getMoetedokument() {
     return moetedokument;
   }
 
+  /** Cases discussed in the meeting. */
   public List<ExpandableField<MoetesakRequest>> getMoetesak() {
     return moetesak;
   }
@@ -142,6 +162,9 @@ public class MoetemappeRequest extends MappeRequest {
      */
     protected ExpandableField<EnhetRequest> journalenhet;
 
+    /** A URL-friendly unique slug for the resource. */
+    protected String slug;
+
     /** The title of the Mappe, with sensitive information redacted. */
     protected String offentligTittel;
 
@@ -167,22 +190,31 @@ public class MoetemappeRequest extends MappeRequest {
     /** An optional Klasse for this Mappe. */
     protected ExpandableField<KlasseRequest> klasse;
 
+    /** A unique number or identifier for the meeting. */
     protected String moetenummer;
 
+    /** The name of the committee or board holding the meeting. */
     protected String utvalg;
 
+    /** The date and time of the meeting. */
     protected String moetedato;
 
+    /** The location of the meeting. */
     protected String moetested;
 
+    /** A link to a video recording of the meeting. */
     protected String videoLink;
 
+    /** A reference to the previous meeting. */
     protected ExpandableField<MoetemappeRequest> referanseForrigeMoete;
 
+    /** A reference to the next meeting. */
     protected ExpandableField<MoetemappeRequest> referanseNesteMoete;
 
+    /** Documents associated with the meeting. */
     protected List<ExpandableField<MoetedokumentRequest>> moetedokument;
 
+    /** Cases discussed in the meeting. */
     protected List<ExpandableField<MoetesakRequest>> moetesak;
 
     /**
@@ -210,6 +242,11 @@ public class MoetemappeRequest extends MappeRequest {
      */
     public ExpandableField<EnhetRequest> getJournalenhet() {
       return journalenhet;
+    }
+
+    /** A URL-friendly unique slug for the resource. */
+    public String getSlug() {
+      return slug;
     }
 
     /** The title of the Mappe, with sensitive information redacted. */
@@ -251,38 +288,47 @@ public class MoetemappeRequest extends MappeRequest {
       return klasse;
     }
 
+    /** A unique number or identifier for the meeting. */
     public String getMoetenummer() {
       return moetenummer;
     }
 
+    /** The name of the committee or board holding the meeting. */
     public String getUtvalg() {
       return utvalg;
     }
 
+    /** The date and time of the meeting. */
     public String getMoetedato() {
       return moetedato;
     }
 
+    /** The location of the meeting. */
     public String getMoetested() {
       return moetested;
     }
 
+    /** A link to a video recording of the meeting. */
     public String getVideoLink() {
       return videoLink;
     }
 
+    /** A reference to the previous meeting. */
     public ExpandableField<MoetemappeRequest> getReferanseForrigeMoete() {
       return referanseForrigeMoete;
     }
 
+    /** A reference to the next meeting. */
     public ExpandableField<MoetemappeRequest> getReferanseNesteMoete() {
       return referanseNesteMoete;
     }
 
+    /** Documents associated with the meeting. */
     public List<ExpandableField<MoetedokumentRequest>> getMoetedokument() {
       return moetedokument;
     }
 
+    /** Cases discussed in the meeting. */
     public List<ExpandableField<MoetesakRequest>> getMoetesak() {
       return moetesak;
     }
@@ -325,6 +371,12 @@ public class MoetemappeRequest extends MappeRequest {
      */
     public Builder journalenhet(String id) {
       this.journalenhet = new ExpandableField<>(id);
+      return this;
+    }
+
+    /** A URL-friendly unique slug for the resource. */
+    public Builder slug(String slug) {
+      this.slug = slug;
       return this;
     }
 
@@ -380,57 +432,68 @@ public class MoetemappeRequest extends MappeRequest {
       return this;
     }
 
+    /** A unique number or identifier for the meeting. */
     public Builder moetenummer(String moetenummer) {
       this.moetenummer = moetenummer;
       return this;
     }
 
+    /** The name of the committee or board holding the meeting. */
     public Builder utvalg(String utvalg) {
       this.utvalg = utvalg;
       return this;
     }
 
+    /** The date and time of the meeting. */
     public Builder moetedato(String moetedato) {
       this.moetedato = moetedato;
       return this;
     }
 
+    /** The location of the meeting. */
     public Builder moetested(String moetested) {
       this.moetested = moetested;
       return this;
     }
 
+    /** A link to a video recording of the meeting. */
     public Builder videoLink(String videoLink) {
       this.videoLink = videoLink;
       return this;
     }
 
+    /** A reference to the previous meeting. */
     public Builder referanseForrigeMoete(MoetemappeRequest referanseForrigeMoete) {
       this.referanseForrigeMoete = new ExpandableField<>(referanseForrigeMoete);
       return this;
     }
 
+    /** A reference to the previous meeting. */
     public Builder referanseForrigeMoete(String id) {
       this.referanseForrigeMoete = new ExpandableField<>(id);
       return this;
     }
 
+    /** A reference to the next meeting. */
     public Builder referanseNesteMoete(MoetemappeRequest referanseNesteMoete) {
       this.referanseNesteMoete = new ExpandableField<>(referanseNesteMoete);
       return this;
     }
 
+    /** A reference to the next meeting. */
     public Builder referanseNesteMoete(String id) {
       this.referanseNesteMoete = new ExpandableField<>(id);
       return this;
     }
 
+    /** Documents associated with the meeting. */
     public Builder moetedokument(List<MoetedokumentRequest> moetedokument) {
       this.moetedokument =
           moetedokument.stream().map(ExpandableField::new).collect(Collectors.toList());
       return this;
     }
 
+    /** Documents associated with the meeting. */
     public Builder addMoetedokument(MoetedokumentRequest moetedokument) {
       if (this.moetedokument == null) {
         this.moetedokument = new ArrayList<>();
@@ -439,6 +502,7 @@ public class MoetemappeRequest extends MappeRequest {
       return this;
     }
 
+    /** Documents associated with the meeting. */
     public Builder addMoetedokument(
         Function<MoetedokumentRequest.Builder, MoetedokumentRequest.Builder> builderFunction) {
       if (this.moetedokument == null) {
@@ -449,6 +513,7 @@ public class MoetemappeRequest extends MappeRequest {
       return this;
     }
 
+    /** Documents associated with the meeting. */
     public Builder addMoetedokument(String id) {
       if (this.moetedokument == null) {
         this.moetedokument = new ArrayList<>();
@@ -457,11 +522,13 @@ public class MoetemappeRequest extends MappeRequest {
       return this;
     }
 
+    /** Cases discussed in the meeting. */
     public Builder moetesak(List<MoetesakRequest> moetesak) {
       this.moetesak = moetesak.stream().map(ExpandableField::new).collect(Collectors.toList());
       return this;
     }
 
+    /** Cases discussed in the meeting. */
     public Builder addMoetesak(MoetesakRequest moetesak) {
       if (this.moetesak == null) {
         this.moetesak = new ArrayList<>();
@@ -470,6 +537,7 @@ public class MoetemappeRequest extends MappeRequest {
       return this;
     }
 
+    /** Cases discussed in the meeting. */
     public Builder addMoetesak(
         Function<MoetesakRequest.Builder, MoetesakRequest.Builder> builderFunction) {
       if (this.moetesak == null) {
@@ -480,6 +548,7 @@ public class MoetemappeRequest extends MappeRequest {
       return this;
     }
 
+    /** Cases discussed in the meeting. */
     public Builder addMoetesak(String id) {
       if (this.moetesak == null) {
         this.moetesak = new ArrayList<>();
@@ -494,6 +563,7 @@ public class MoetemappeRequest extends MappeRequest {
           this.accessibleAfter,
           this.systemId,
           this.journalenhet,
+          this.slug,
           this.offentligTittel,
           this.offentligTittelSensitiv,
           this.beskrivelse,

@@ -10,14 +10,18 @@ import no.einnsyn.sdk.entities.enhet.models.EnhetRequest;
 import no.einnsyn.sdk.entities.innsynskravbestilling.models.InnsynskravBestillingRequest;
 import no.einnsyn.sdk.entities.journalpost.models.JournalpostRequest;
 
-/** Innsynskrav */
+/** Represents a request for access to a specific registry entry (Journalpost). */
 public class InnsynskravRequest extends BaseRequest {
+  /** The order containing this access request. */
   protected ExpandableField<InnsynskravBestillingRequest> innsynskravBestilling;
 
+  /** The registry entry being requested. */
   protected ExpandableField<JournalpostRequest> journalpost;
 
+  /** The public authority responsible for handling the request. */
   protected ExpandableField<EnhetRequest> enhet;
 
+  /** The timestamp when the request was sent to the public authority. */
   protected String sent;
 
   public InnsynskravRequest(
@@ -34,18 +38,22 @@ public class InnsynskravRequest extends BaseRequest {
     this.sent = sent;
   }
 
+  /** The order containing this access request. */
   public ExpandableField<InnsynskravBestillingRequest> getInnsynskravBestilling() {
     return innsynskravBestilling;
   }
 
+  /** The registry entry being requested. */
   public ExpandableField<JournalpostRequest> getJournalpost() {
     return journalpost;
   }
 
+  /** The public authority responsible for handling the request. */
   public ExpandableField<EnhetRequest> getEnhet() {
     return enhet;
   }
 
+  /** The timestamp when the request was sent to the public authority. */
   public String getSent() {
     return sent;
   }
@@ -68,12 +76,16 @@ public class InnsynskravRequest extends BaseRequest {
     /** This object should not be accessible to the public before the given dateTime. */
     protected String accessibleAfter;
 
+    /** The order containing this access request. */
     protected ExpandableField<InnsynskravBestillingRequest> innsynskravBestilling;
 
+    /** The registry entry being requested. */
     protected ExpandableField<JournalpostRequest> journalpost;
 
+    /** The public authority responsible for handling the request. */
     protected ExpandableField<EnhetRequest> enhet;
 
+    /** The timestamp when the request was sent to the public authority. */
     protected String sent;
 
     /**
@@ -89,18 +101,22 @@ public class InnsynskravRequest extends BaseRequest {
       return accessibleAfter;
     }
 
+    /** The order containing this access request. */
     public ExpandableField<InnsynskravBestillingRequest> getInnsynskravBestilling() {
       return innsynskravBestilling;
     }
 
+    /** The registry entry being requested. */
     public ExpandableField<JournalpostRequest> getJournalpost() {
       return journalpost;
     }
 
+    /** The public authority responsible for handling the request. */
     public ExpandableField<EnhetRequest> getEnhet() {
       return enhet;
     }
 
+    /** The timestamp when the request was sent to the public authority. */
     public String getSent() {
       return sent;
     }
@@ -120,36 +136,43 @@ public class InnsynskravRequest extends BaseRequest {
       return this;
     }
 
+    /** The order containing this access request. */
     public Builder innsynskravBestilling(InnsynskravBestillingRequest innsynskravBestilling) {
       this.innsynskravBestilling = new ExpandableField<>(innsynskravBestilling);
       return this;
     }
 
+    /** The order containing this access request. */
     public Builder innsynskravBestilling(String id) {
       this.innsynskravBestilling = new ExpandableField<>(id);
       return this;
     }
 
+    /** The registry entry being requested. */
     public Builder journalpost(JournalpostRequest journalpost) {
       this.journalpost = new ExpandableField<>(journalpost);
       return this;
     }
 
+    /** The registry entry being requested. */
     public Builder journalpost(String id) {
       this.journalpost = new ExpandableField<>(id);
       return this;
     }
 
+    /** The public authority responsible for handling the request. */
     public Builder enhet(EnhetRequest enhet) {
       this.enhet = new ExpandableField<>(enhet);
       return this;
     }
 
+    /** The public authority responsible for handling the request. */
     public Builder enhet(String id) {
       this.enhet = new ExpandableField<>(id);
       return this;
     }
 
+    /** The timestamp when the request was sent to the public authority. */
     public Builder sent(String sent) {
       this.sent = sent;
       return this;

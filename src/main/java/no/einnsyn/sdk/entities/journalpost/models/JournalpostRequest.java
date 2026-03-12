@@ -15,30 +15,47 @@ import no.einnsyn.sdk.entities.registrering.models.RegistreringRequest;
 import no.einnsyn.sdk.entities.saksmappe.models.SaksmappeRequest;
 import no.einnsyn.sdk.entities.skjerming.models.SkjermingRequest;
 
-/** Journalpost */
+/**
+ * Represents a registry entry for a document, corresponding to the Journalpost in the Noark 5
+ * standard. It is a record of an incoming, outgoing, or internal document.
+ */
 public class JournalpostRequest extends RegistreringRequest {
+  /** The year the registry entry was created. */
   protected Integer journalaar;
 
+  /** The sequence number of the registry entry within the journal year. */
   protected Integer journalsekvensnummer;
 
+  /** The post number within the journal. */
   protected Integer journalpostnummer;
 
+  /** The type of registry entry. */
   protected JournalposttypeEnum journalposttype;
 
+  /** The date the registry entry was recorded. */
   protected String journaldato;
 
+  /** The date of the document itself. */
   protected String dokumentetsDato;
 
+  /** Access control information for the registry entry. */
   protected ExpandableField<SkjermingRequest> skjerming;
 
+  /** Legacy field for the journal post type. */
   protected String legacyJournalposttype;
 
+  /** Legacy field for references to related cases. */
   protected List<String> legacyFoelgsakenReferanse;
 
+  /** The identifier of the administrative unit responsible for the registry entry. */
   protected String administrativEnhet;
 
+  /**
+   * The full administrative unit object responsible for the registry entry (expandable reference).
+   */
   protected ExpandableField<EnhetRequest> administrativEnhetObjekt;
 
+  /** The case this record belongs to. */
   protected ExpandableField<SaksmappeRequest> saksmappe;
 
   public JournalpostRequest(
@@ -46,6 +63,7 @@ public class JournalpostRequest extends RegistreringRequest {
       String accessibleAfter,
       String systemId,
       ExpandableField<EnhetRequest> journalenhet,
+      String slug,
       String offentligTittel,
       String offentligTittelSensitiv,
       String beskrivelse,
@@ -71,6 +89,7 @@ public class JournalpostRequest extends RegistreringRequest {
         accessibleAfter,
         systemId,
         journalenhet,
+        slug,
         offentligTittel,
         offentligTittelSensitiv,
         beskrivelse,
@@ -93,50 +112,64 @@ public class JournalpostRequest extends RegistreringRequest {
     this.saksmappe = saksmappe;
   }
 
+  /** The year the registry entry was created. */
   public Integer getJournalaar() {
     return journalaar;
   }
 
+  /** The sequence number of the registry entry within the journal year. */
   public Integer getJournalsekvensnummer() {
     return journalsekvensnummer;
   }
 
+  /** The post number within the journal. */
   public Integer getJournalpostnummer() {
     return journalpostnummer;
   }
 
+  /** The type of registry entry. */
   public JournalposttypeEnum getJournalposttype() {
     return journalposttype;
   }
 
+  /** The date the registry entry was recorded. */
   public String getJournaldato() {
     return journaldato;
   }
 
+  /** The date of the document itself. */
   public String getDokumentetsDato() {
     return dokumentetsDato;
   }
 
+  /** Access control information for the registry entry. */
   public ExpandableField<SkjermingRequest> getSkjerming() {
     return skjerming;
   }
 
+  /** Legacy field for the journal post type. */
   public String getLegacyJournalposttype() {
     return legacyJournalposttype;
   }
 
+  /** Legacy field for references to related cases. */
   public List<String> getLegacyFoelgsakenReferanse() {
     return legacyFoelgsakenReferanse;
   }
 
+  /** The identifier of the administrative unit responsible for the registry entry. */
   public String getAdministrativEnhet() {
     return administrativEnhet;
   }
 
+  /**
+   * The full administrative unit object responsible for the registry entry (expandable reference).
+   */
   public ExpandableField<EnhetRequest> getAdministrativEnhetObjekt() {
     return administrativEnhetObjekt;
   }
 
+  /** The case this record belongs to. */
   public ExpandableField<SaksmappeRequest> getSaksmappe() {
     return saksmappe;
   }
@@ -169,6 +202,9 @@ public class JournalpostRequest extends RegistreringRequest {
      */
     protected ExpandableField<EnhetRequest> journalenhet;
 
+    /** A URL-friendly unique slug for the resource. */
+    protected String slug;
+
     /** The title of the resource, with sensitive information redacted. */
     protected String offentligTittel;
 
@@ -196,28 +232,43 @@ public class JournalpostRequest extends RegistreringRequest {
     /** The administrative unit that has been handed the responsibility for this resource. */
     protected ExpandableField<EnhetRequest> avhendetTil;
 
+    /** The year the registry entry was created. */
     protected Integer journalaar;
 
+    /** The sequence number of the registry entry within the journal year. */
     protected Integer journalsekvensnummer;
 
+    /** The post number within the journal. */
     protected Integer journalpostnummer;
 
+    /** The type of registry entry. */
     protected JournalposttypeEnum journalposttype;
 
+    /** The date the registry entry was recorded. */
     protected String journaldato;
 
+    /** The date of the document itself. */
     protected String dokumentetsDato;
 
+    /** Access control information for the registry entry. */
     protected ExpandableField<SkjermingRequest> skjerming;
 
+    /** Legacy field for the journal post type. */
     protected String legacyJournalposttype;
 
+    /** Legacy field for references to related cases. */
     protected List<String> legacyFoelgsakenReferanse;
 
+    /** The identifier of the administrative unit responsible for the registry entry. */
     protected String administrativEnhet;
 
+    /**
+     * The full administrative unit object responsible for the registry entry (expandable
+     * reference).
+     */
     protected ExpandableField<EnhetRequest> administrativEnhetObjekt;
 
+    /** The case this record belongs to. */
     protected ExpandableField<SaksmappeRequest> saksmappe;
 
     /**
@@ -245,6 +296,11 @@ public class JournalpostRequest extends RegistreringRequest {
      */
     public ExpandableField<EnhetRequest> getJournalenhet() {
       return journalenhet;
+    }
+
+    /** A URL-friendly unique slug for the resource. */
+    public String getSlug() {
+      return slug;
     }
 
     /** The title of the resource, with sensitive information redacted. */
@@ -290,50 +346,65 @@ public class JournalpostRequest extends RegistreringRequest {
       return avhendetTil;
     }
 
+    /** The year the registry entry was created. */
     public Integer getJournalaar() {
       return journalaar;
     }
 
+    /** The sequence number of the registry entry within the journal year. */
     public Integer getJournalsekvensnummer() {
       return journalsekvensnummer;
     }
 
+    /** The post number within the journal. */
     public Integer getJournalpostnummer() {
       return journalpostnummer;
     }
 
+    /** The type of registry entry. */
     public JournalposttypeEnum getJournalposttype() {
       return journalposttype;
     }
 
+    /** The date the registry entry was recorded. */
     public String getJournaldato() {
       return journaldato;
     }
 
+    /** The date of the document itself. */
     public String getDokumentetsDato() {
       return dokumentetsDato;
     }
 
+    /** Access control information for the registry entry. */
     public ExpandableField<SkjermingRequest> getSkjerming() {
       return skjerming;
     }
 
+    /** Legacy field for the journal post type. */
     public String getLegacyJournalposttype() {
       return legacyJournalposttype;
     }
 
+    /** Legacy field for references to related cases. */
     public List<String> getLegacyFoelgsakenReferanse() {
       return legacyFoelgsakenReferanse;
     }
 
+    /** The identifier of the administrative unit responsible for the registry entry. */
     public String getAdministrativEnhet() {
       return administrativEnhet;
     }
 
+    /**
+     * The full administrative unit object responsible for the registry entry (expandable
+     * reference).
+     */
     public ExpandableField<EnhetRequest> getAdministrativEnhetObjekt() {
       return administrativEnhetObjekt;
     }
 
+    /** The case this record belongs to. */
     public ExpandableField<SaksmappeRequest> getSaksmappe() {
       return saksmappe;
     }
@@ -376,6 +447,12 @@ public class JournalpostRequest extends RegistreringRequest {
      */
     public Builder journalenhet(String id) {
       this.journalenhet = new ExpandableField<>(id);
+      return this;
+    }
+
+    /** A URL-friendly unique slug for the resource. */
+    public Builder slug(String slug) {
+      this.slug = slug;
       return this;
     }
 
@@ -496,56 +573,67 @@ public class JournalpostRequest extends RegistreringRequest {
       return this;
     }
 
+    /** The year the registry entry was created. */
     public Builder journalaar(Integer journalaar) {
       this.journalaar = journalaar;
       return this;
     }
 
+    /** The sequence number of the registry entry within the journal year. */
     public Builder journalsekvensnummer(Integer journalsekvensnummer) {
       this.journalsekvensnummer = journalsekvensnummer;
       return this;
     }
 
+    /** The post number within the journal. */
     public Builder journalpostnummer(Integer journalpostnummer) {
       this.journalpostnummer = journalpostnummer;
       return this;
     }
 
+    /** The type of registry entry. */
     public Builder journalposttype(JournalposttypeEnum journalposttype) {
       this.journalposttype = journalposttype;
       return this;
     }
 
+    /** The date the registry entry was recorded. */
     public Builder journaldato(String journaldato) {
       this.journaldato = journaldato;
       return this;
     }
 
+    /** The date of the document itself. */
     public Builder dokumentetsDato(String dokumentetsDato) {
       this.dokumentetsDato = dokumentetsDato;
       return this;
     }
 
+    /** Access control information for the registry entry. */
     public Builder skjerming(SkjermingRequest skjerming) {
       this.skjerming = new ExpandableField<>(skjerming);
       return this;
     }
 
+    /** Access control information for the registry entry. */
     public Builder skjerming(String id) {
       this.skjerming = new ExpandableField<>(id);
       return this;
     }
 
+    /** Legacy field for the journal post type. */
     public Builder legacyJournalposttype(String legacyJournalposttype) {
       this.legacyJournalposttype = legacyJournalposttype;
       return this;
     }
 
+    /** Legacy field for references to related cases. */
     public Builder legacyFoelgsakenReferanse(List<String> legacyFoelgsakenReferanse) {
       this.legacyFoelgsakenReferanse = legacyFoelgsakenReferanse;
       return this;
     }
 
+    /** Legacy field for references to related cases. */
     public Builder addLegacyFoelgsakenReferanse(String legacyFoelgsakenReferanse) {
       if (this.legacyFoelgsakenReferanse == null) {
         this.legacyFoelgsakenReferanse = new ArrayList<>();
@@ -554,26 +642,37 @@ public class JournalpostRequest extends RegistreringRequest {
       return this;
     }
 
+    /** The identifier of the administrative unit responsible for the registry entry. */
     public Builder administrativEnhet(String administrativEnhet) {
       this.administrativEnhet = administrativEnhet;
       return this;
     }
 
+    /**
+     * The full administrative unit object responsible for the registry entry (expandable
+     * reference).
+     */
     public Builder administrativEnhetObjekt(EnhetRequest administrativEnhetObjekt) {
       this.administrativEnhetObjekt = new ExpandableField<>(administrativEnhetObjekt);
       return this;
     }
 
+    /**
+     * The full administrative unit object responsible for the registry entry (expandable
+     * reference).
+     */
     public Builder administrativEnhetObjekt(String id) {
       this.administrativEnhetObjekt = new ExpandableField<>(id);
       return this;
     }
 
+    /** The case this record belongs to. */
     public Builder saksmappe(SaksmappeRequest saksmappe) {
       this.saksmappe = new ExpandableField<>(saksmappe);
       return this;
     }
 
+    /** The case this record belongs to. */
     public Builder saksmappe(String id) {
       this.saksmappe = new ExpandableField<>(id);
       return this;
@@ -585,6 +684,7 @@ public class JournalpostRequest extends RegistreringRequest {
           this.accessibleAfter,
           this.systemId,
           this.journalenhet,
+          this.slug,
           this.offentligTittel,
           this.offentligTittelSensitiv,
           this.beskrivelse,

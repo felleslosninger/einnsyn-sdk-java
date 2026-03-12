@@ -13,7 +13,10 @@ import no.einnsyn.sdk.entities.journalpost.models.JournalpostRequest;
 import no.einnsyn.sdk.entities.klasse.models.KlasseRequest;
 import no.einnsyn.sdk.entities.mappe.models.MappeRequest;
 
-/** Saksmappe */
+/**
+ * Represents a case file, which is a folder for collecting all documents related to a specific
+ * case.
+ */
 public class SaksmappeRequest extends MappeRequest {
   protected Integer saksaar;
 
@@ -35,6 +38,7 @@ public class SaksmappeRequest extends MappeRequest {
       String accessibleAfter,
       String systemId,
       ExpandableField<EnhetRequest> journalenhet,
+      String slug,
       String offentligTittel,
       String offentligTittelSensitiv,
       String beskrivelse,
@@ -52,6 +56,7 @@ public class SaksmappeRequest extends MappeRequest {
         accessibleAfter,
         systemId,
         journalenhet,
+        slug,
         offentligTittel,
         offentligTittelSensitiv,
         beskrivelse,
@@ -119,6 +124,9 @@ public class SaksmappeRequest extends MappeRequest {
      */
     protected ExpandableField<EnhetRequest> journalenhet;
 
+    /** A URL-friendly unique slug for the resource. */
+    protected String slug;
+
     /** The title of the Mappe, with sensitive information redacted. */
     protected String offentligTittel;
 
@@ -184,6 +192,11 @@ public class SaksmappeRequest extends MappeRequest {
      */
     public ExpandableField<EnhetRequest> getJournalenhet() {
       return journalenhet;
+    }
+
+    /** A URL-friendly unique slug for the resource. */
+    public String getSlug() {
+      return slug;
     }
 
     /** The title of the Mappe, with sensitive information redacted. */
@@ -288,6 +301,12 @@ public class SaksmappeRequest extends MappeRequest {
      */
     public Builder journalenhet(String id) {
       this.journalenhet = new ExpandableField<>(id);
+      return this;
+    }
+
+    /** A URL-friendly unique slug for the resource. */
+    public Builder slug(String slug) {
+      this.slug = slug;
       return this;
     }
 
@@ -418,6 +437,7 @@ public class SaksmappeRequest extends MappeRequest {
           this.accessibleAfter,
           this.systemId,
           this.journalenhet,
+          this.slug,
           this.offentligTittel,
           this.offentligTittelSensitiv,
           this.beskrivelse,

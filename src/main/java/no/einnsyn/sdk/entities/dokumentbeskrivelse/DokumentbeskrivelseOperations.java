@@ -14,6 +14,8 @@ import no.einnsyn.sdk.common.queryparameters.models.ListParameters;
 import no.einnsyn.sdk.common.responses.models.PaginatedList;
 import no.einnsyn.sdk.entities.dokumentbeskrivelse.models.Dokumentbeskrivelse;
 import no.einnsyn.sdk.entities.dokumentbeskrivelse.models.DokumentbeskrivelseRequest;
+import no.einnsyn.sdk.entities.dokumentobjekt.models.Dokumentobjekt;
+import no.einnsyn.sdk.entities.dokumentobjekt.models.DokumentobjektRequest;
 import no.einnsyn.sdk.net.ApiRequestMethod;
 import no.einnsyn.sdk.net.ApiRequester;
 
@@ -223,6 +225,87 @@ public class DokumentbeskrivelseOperations
         url,
         null,
         bodyBuilderFunction.apply(new DokumentbeskrivelseRequest.Builder()).build(),
+        optionsBuilderFunction.apply(new EInnsynOptions.Builder()).build(),
+        type);
+  }
+
+  public Dokumentobjekt addDokumentobjekt(String id, DokumentobjektRequest body)
+      throws EInnsynException {
+    String url = "/dokumentbeskrivelse/" + id + "/dokumentobjekt";
+    ApiRequestMethod method = ApiRequestMethod.POST;
+    Type type = new TypeToken<Dokumentobjekt>() {}.getType();
+    return requester.request(method, url, null, body, null, type);
+  }
+
+  public Dokumentobjekt addDokumentobjekt(String id, String bodyId) throws EInnsynException {
+    String url = "/dokumentbeskrivelse/" + id + "/dokumentobjekt";
+    ApiRequestMethod method = ApiRequestMethod.POST;
+    Type type = new TypeToken<Dokumentobjekt>() {}.getType();
+    return requester.request(method, url, null, bodyId, null, type);
+  }
+
+  public Dokumentobjekt addDokumentobjekt(
+      String id,
+      Function<DokumentobjektRequest.Builder, DokumentobjektRequest.Builder> bodyBuilderFunction)
+      throws EInnsynException {
+    String url = "/dokumentbeskrivelse/" + id + "/dokumentobjekt";
+    ApiRequestMethod method = ApiRequestMethod.POST;
+    Type type = new TypeToken<Dokumentobjekt>() {}.getType();
+    return requester.request(
+        method,
+        url,
+        null,
+        bodyBuilderFunction.apply(new DokumentobjektRequest.Builder()).build(),
+        null,
+        type);
+  }
+
+  public Dokumentobjekt addDokumentobjekt(
+      String id, DokumentobjektRequest body, EInnsynOptions options) throws EInnsynException {
+    String url = "/dokumentbeskrivelse/" + id + "/dokumentobjekt";
+    ApiRequestMethod method = ApiRequestMethod.POST;
+    Type type = new TypeToken<Dokumentobjekt>() {}.getType();
+    return requester.request(method, url, null, body, options, type);
+  }
+
+  public Dokumentobjekt addDokumentobjekt(String id, String bodyId, EInnsynOptions options)
+      throws EInnsynException {
+    String url = "/dokumentbeskrivelse/" + id + "/dokumentobjekt";
+    ApiRequestMethod method = ApiRequestMethod.POST;
+    Type type = new TypeToken<Dokumentobjekt>() {}.getType();
+    return requester.request(method, url, null, bodyId, options, type);
+  }
+
+  public Dokumentobjekt addDokumentobjekt(
+      String id,
+      Function<DokumentobjektRequest.Builder, DokumentobjektRequest.Builder> bodyBuilderFunction,
+      Function<EInnsynOptions.Builder, EInnsynOptions.Builder> optionsBuilderFunction)
+      throws EInnsynException {
+    String url = "/dokumentbeskrivelse/" + id + "/dokumentobjekt";
+    ApiRequestMethod method = ApiRequestMethod.POST;
+    Type type = new TypeToken<Dokumentobjekt>() {}.getType();
+    return requester.request(
+        method,
+        url,
+        null,
+        bodyBuilderFunction.apply(new DokumentobjektRequest.Builder()).build(),
+        optionsBuilderFunction.apply(new EInnsynOptions.Builder()).build(),
+        type);
+  }
+
+  public Dokumentobjekt addDokumentobjekt(
+      String id,
+      String bodyId,
+      Function<EInnsynOptions.Builder, EInnsynOptions.Builder> optionsBuilderFunction)
+      throws EInnsynException {
+    String url = "/dokumentbeskrivelse/" + id + "/dokumentobjekt";
+    ApiRequestMethod method = ApiRequestMethod.POST;
+    Type type = new TypeToken<Dokumentobjekt>() {}.getType();
+    return requester.request(
+        method,
+        url,
+        null,
+        bodyId,
         optionsBuilderFunction.apply(new EInnsynOptions.Builder()).build(),
         type);
   }

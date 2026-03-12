@@ -8,10 +8,12 @@ import no.einnsyn.sdk.common.expandablefield.ExpandableField;
 import no.einnsyn.sdk.entities.arkivbase.models.ArkivBaseRequest;
 import no.einnsyn.sdk.entities.enhet.models.EnhetRequest;
 
-/** Moetedeltaker */
+/** Represents a participant in a meeting. */
 public class MoetedeltakerRequest extends ArkivBaseRequest {
+  /** The name of the meeting participant. */
   protected String moetedeltakerNavn;
 
+  /** The function or role of the participant in the meeting (e.g., 'Chairperson'). */
   protected String moetedeltakerFunksjon;
 
   public MoetedeltakerRequest(
@@ -26,10 +28,12 @@ public class MoetedeltakerRequest extends ArkivBaseRequest {
     this.moetedeltakerFunksjon = moetedeltakerFunksjon;
   }
 
+  /** The name of the meeting participant. */
   public String getMoetedeltakerNavn() {
     return moetedeltakerNavn;
   }
 
+  /** The function or role of the participant in the meeting (e.g., 'Chairperson'). */
   public String getMoetedeltakerFunksjon() {
     return moetedeltakerFunksjon;
   }
@@ -62,8 +66,10 @@ public class MoetedeltakerRequest extends ArkivBaseRequest {
      */
     protected ExpandableField<EnhetRequest> journalenhet;
 
+    /** The name of the meeting participant. */
     protected String moetedeltakerNavn;
 
+    /** The function or role of the participant in the meeting (e.g., 'Chairperson'). */
     protected String moetedeltakerFunksjon;
 
     /**
@@ -93,10 +99,12 @@ public class MoetedeltakerRequest extends ArkivBaseRequest {
       return journalenhet;
     }
 
+    /** The name of the meeting participant. */
     public String getMoetedeltakerNavn() {
       return moetedeltakerNavn;
     }
 
+    /** The function or role of the participant in the meeting (e.g., 'Chairperson'). */
     public String getMoetedeltakerFunksjon() {
       return moetedeltakerFunksjon;
     }
@@ -142,11 +150,13 @@ public class MoetedeltakerRequest extends ArkivBaseRequest {
       return this;
     }
 
+    /** The name of the meeting participant. */
     public Builder moetedeltakerNavn(String moetedeltakerNavn) {
       this.moetedeltakerNavn = moetedeltakerNavn;
       return this;
     }
 
+    /** The function or role of the participant in the meeting (e.g., 'Chairperson'). */
     public Builder moetedeltakerFunksjon(String moetedeltakerFunksjon) {
       this.moetedeltakerFunksjon = moetedeltakerFunksjon;
       return this;
