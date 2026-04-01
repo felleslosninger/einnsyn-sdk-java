@@ -14,7 +14,10 @@ import no.einnsyn.sdk.entities.dokumentbeskrivelse.models.Dokumentbeskrivelse;
 public class Dokumentobjekt extends ArkivBase {
   protected final String entity = "Dokumentobjekt";
 
-  /** A reference (URL) to the document file. */
+  /**
+   * A reference (URL) to the document file. This will be hidden from public view unless it
+   * redirects to a HTML page.
+   */
   protected String referanseDokumentfil;
 
   /** The file format of the document (e.g., 'PDF/A'). */
@@ -29,11 +32,20 @@ public class Dokumentobjekt extends ArkivBase {
   /** The document description this object belongs to. */
   protected ExpandableField<Dokumentbeskrivelse> dokumentbeskrivelse;
 
+  /**
+   * The URL to access the actual document. This will either be a binary download, or a redirect to
+   * a HTML page.
+   */
+  protected String url;
+
   public String getEntity() {
     return entity;
   }
 
-  /** A reference (URL) to the document file. */
+  /**
+   * A reference (URL) to the document file. This will be hidden from public view unless it
+   * redirects to a HTML page.
+   */
   public String getReferanseDokumentfil() {
     return referanseDokumentfil;
   }
@@ -56,5 +68,13 @@ public class Dokumentobjekt extends ArkivBase {
   /** The document description this object belongs to. */
   public ExpandableField<Dokumentbeskrivelse> getDokumentbeskrivelse() {
     return dokumentbeskrivelse;
+  }
+
+  /**
+   * The URL to access the actual document. This will either be a binary download, or a redirect to
+   * a HTML page.
+   */
+  public String getUrl() {
+    return url;
   }
 }

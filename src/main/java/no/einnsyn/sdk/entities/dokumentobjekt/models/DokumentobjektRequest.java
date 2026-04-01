@@ -14,7 +14,10 @@ import no.einnsyn.sdk.entities.enhet.models.EnhetRequest;
  * the document.
  */
 public class DokumentobjektRequest extends ArkivBaseRequest {
-  /** A reference (URL) to the document file. */
+  /**
+   * A reference (URL) to the document file. This will be hidden from public view unless it
+   * redirects to a HTML page.
+   */
   protected String referanseDokumentfil;
 
   /** The file format of the document (e.g., 'PDF/A'). */
@@ -47,7 +50,10 @@ public class DokumentobjektRequest extends ArkivBaseRequest {
     this.dokumentbeskrivelse = dokumentbeskrivelse;
   }
 
-  /** A reference (URL) to the document file. */
+  /**
+   * A reference (URL) to the document file. This will be hidden from public view unless it
+   * redirects to a HTML page.
+   */
   public String getReferanseDokumentfil() {
     return referanseDokumentfil;
   }
@@ -100,7 +106,10 @@ public class DokumentobjektRequest extends ArkivBaseRequest {
      */
     protected ExpandableField<EnhetRequest> journalenhet;
 
-    /** A reference (URL) to the document file. */
+    /**
+     * A reference (URL) to the document file. This will be hidden from public view unless it
+     * redirects to a HTML page.
+     */
     protected String referanseDokumentfil;
 
     /** The file format of the document (e.g., 'PDF/A'). */
@@ -142,7 +151,10 @@ public class DokumentobjektRequest extends ArkivBaseRequest {
       return journalenhet;
     }
 
-    /** A reference (URL) to the document file. */
+    /**
+     * A reference (URL) to the document file. This will be hidden from public view unless it
+     * redirects to a HTML page.
+     */
     public String getReferanseDokumentfil() {
       return referanseDokumentfil;
     }
@@ -208,7 +220,10 @@ public class DokumentobjektRequest extends ArkivBaseRequest {
       return this;
     }
 
-    /** A reference (URL) to the document file. */
+    /**
+     * A reference (URL) to the document file. This will be hidden from public view unless it
+     * redirects to a HTML page.
+     */
     public Builder referanseDokumentfil(String referanseDokumentfil) {
       this.referanseDokumentfil = referanseDokumentfil;
       return this;
