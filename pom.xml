@@ -5,10 +5,71 @@
   <groupId>no.einnsyn</groupId>
   <artifactId>sdk</artifactId>
   <version>1.0.3-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>eInnsyn SDK for Java</name>
+  <description>Java SDK for the eInnsyn API.</description>
+  <url>https://github.com/felleslosninger/einnsyn-sdk-java</url>
+  <inceptionYear>2025</inceptionYear>
+
+  <licenses>
+    <license>
+      <name>BSD 3-Clause License</name>
+      <url>https://opensource.org/licenses/BSD-3-Clause</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <organization>
+    <name>Digitaliseringsdirektoratet (Digdir)</name>
+    <url>https://www.digdir.no/</url>
+  </organization>
+
+  <developers>
+    <developer>
+      <id>felleslosninger</id>
+      <name>Digitaliseringsdirektoratet</name>
+      <organization>Digitaliseringsdirektoratet (Digdir)</organization>
+      <organizationUrl>https://www.digdir.no/</organizationUrl>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:git@github.com:felleslosninger/einnsyn-sdk-java.git</connection>
+    <developerConnection>scm:git:git@github.com:felleslosninger/einnsyn-sdk-java.git</developerConnection>
+    <url>https://github.com/felleslosninger/einnsyn-sdk-java</url>
+    <tag>HEAD</tag>
+  </scm>
+
+  <issueManagement>
+    <system>GitHub Issues</system>
+    <url>https://github.com/felleslosninger/einnsyn-sdk-java/issues</url>
+  </issueManagement>
 
   <properties>
     <maven.compiler.release>11</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <junit.version>6.0.3</junit.version>
+    <spotless.maven.plugin.version>3.4.0</spotless.maven.plugin.version>
+    <google.java.format.version>1.33.0</google.java.format.version>
+    <maven.surefire.plugin.version>3.5.5</maven.surefire.plugin.version>
+    <maven.source.plugin.version>3.4.0</maven.source.plugin.version>
+    <maven.javadoc.plugin.version>3.12.0</maven.javadoc.plugin.version>
+    <maven.gpg.plugin.version>3.2.8</maven.gpg.plugin.version>
+    <central.publishing.maven.plugin.version>0.10.0</central.publishing.maven.plugin.version>
   </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>${junit.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <dependencies>
     <dependency>
@@ -20,14 +81,12 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
-      <version>6.0.3</version>
       <scope>test</scope>
     </dependency>
 
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
-      <version>6.0.3</version>
       <scope>test</scope>
     </dependency>
 
@@ -38,11 +97,11 @@
       <plugin>
         <groupId>com.diffplug.spotless</groupId>
         <artifactId>spotless-maven-plugin</artifactId>
-        <version>3.4.0</version>
+        <version>${spotless.maven.plugin.version}</version>
         <configuration>
           <java>
             <googleJavaFormat>
-              <version>1.19.1</version>
+              <version>${google.java.format.version}</version>
               <style>GOOGLE</style>
             </googleJavaFormat>
           </java>
@@ -52,7 +111,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.5.5</version>
+        <version>${maven.surefire.plugin.version}</version>
       </plugin>
     </plugins>
 
@@ -64,17 +123,74 @@
     </resources>
   </build>
 
-  <distributionManagement>
-    <repository>
-      <id>github</id>
-      <url>https://maven.pkg.github.com/felleslosninger/einnsyn-sdk-java</url>
-    </repository>
-  </distributionManagement>
+  <profiles>
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>${maven.source.plugin.version}</version>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
 
-  <scm>
-    <developerConnection>scm:git:git@github.com:felleslosninger/einnsyn-sdk-java.git
-    </developerConnection>
-    <tag>sdk-1.0.2</tag>
-  </scm>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>${maven.javadoc.plugin.version}</version>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <doclint>none</doclint>
+              <quiet>true</quiet>
+            </configuration>
+          </plugin>
+
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>${maven.gpg.plugin.version}</version>
+            <configuration>
+              <gpgArguments>
+                <arg>--pinentry-mode</arg>
+                <arg>loopback</arg>
+              </gpgArguments>
+            </configuration>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+
+          <plugin>
+            <groupId>org.sonatype.central</groupId>
+            <artifactId>central-publishing-maven-plugin</artifactId>
+            <version>${central.publishing.maven.plugin.version}</version>
+            <extensions>true</extensions>
+            <configuration>
+              <publishingServerId>central</publishingServerId>
+              <autoPublish>true</autoPublish>
+              <waitUntil>published</waitUntil>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
 </project>
