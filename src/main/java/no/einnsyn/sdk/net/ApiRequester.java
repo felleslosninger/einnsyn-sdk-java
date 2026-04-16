@@ -168,8 +168,8 @@ public class ApiRequester {
       return false;
     }
 
-    // Retry GET requests, and requests without a valid response code
-    if (responseCode < 200 || (exception != null && method == ApiRequestMethod.GET)) {
+    // Retry GET requests on connection failures
+    if (exception != null && method == ApiRequestMethod.GET) {
       return true;
     }
 
@@ -189,7 +189,7 @@ public class ApiRequester {
     if (actingAs != null) {
       requestBuilder.header("ACTING-AS", actingAs);
     }
-    if (appInfo != null && appInfo.isEmpty()) {
+    if (appInfo == null || appInfo.isEmpty()) {
       requestBuilder.header("User-Agent", "eInnsyn Java Client " + EInnsynClient.VERSION);
     } else {
       requestBuilder.header(
