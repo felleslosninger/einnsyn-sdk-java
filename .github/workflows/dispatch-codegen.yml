@@ -25,16 +25,16 @@ jobs:
           repositories: |
             einnsyn-codegen
 
-      - name: Set commit message if triggered by a PR
+      - name: Build release metadata
         run: |
-          if [ "${{ github.event_name }}" == "push" ] && [[ "${{ github.event.head_commit.message }}" == *"Merge pull request"* ]]; then
+          if [ "${{ github.event_name }}" = "push" ] && [[ "${{ github.event.head_commit.message }}" == *"Merge pull request"* ]]; then
             PR_NUMBER=$(echo "${{ github.event.head_commit.message }}" | grep -oP '(?<=#)\d+')
-            PR_TITLE=$(echo "${{ github.event.head_commit.message }}" | grep -oP '(?<=: ).*')
-            echo "pr_body=Triggered from ${{ github.repository }} [#${PR_NUMBER}](https://github.com/${{ github.repository }}/pull/${PR_NUMBER}) ${PR_TITLE}" >> $GITHUB_ENV
-            echo "commit_message=Triggered from ${{ github.repository }}#${PR_NUMBER}"
+
+            echo "pr_body=Triggered from ${{ github.repository }} [#${PR_NUMBER}](https://github.com/${{ github.repository }}/pull/${PR_NUMBER})" >> "$GITHUB_ENV"
+            echo "commit_message=fix: sync codegen from ${{ github.repository }}#${PR_NUMBER}" >> "$GITHUB_ENV"
           else
-            echo "pr_body=Triggered from ${{ github.repository }}" >> $GITHUB_ENV
-            echo "commit_message=Triggered from ${{ github.repository }}" >> $GITHUB_ENV
+            echo "pr_body=Triggered from ${{ github.repository }}" >> "$GITHUB_ENV"
+            echo "commit_message=fix: sync codegen from ${{ github.repository }}" >> "$GITHUB_ENV"
           fi
 
       - name: Dispatch workflow
