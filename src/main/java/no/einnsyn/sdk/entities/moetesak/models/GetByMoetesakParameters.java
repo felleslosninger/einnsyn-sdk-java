@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.function.Function;
 
 public class GetByMoetesakParameters {
-  /** Specifies which fields in the response should be expanded. */
+  /** Specifies which fields in the response should be expanded. Maximum 100 values. */
   protected List<String> expand;
 
   protected String id;
@@ -22,7 +22,7 @@ public class GetByMoetesakParameters {
     this.moetesakId = moetesakId;
   }
 
-  /** Specifies which fields in the response should be expanded. */
+  /** Specifies which fields in the response should be expanded. Maximum 100 values. */
   public List<String> getExpand() {
     return expand;
   }
@@ -44,14 +44,14 @@ public class GetByMoetesakParameters {
   }
 
   public static class Builder {
-    /** Specifies which fields in the response should be expanded. */
+    /** Specifies which fields in the response should be expanded. Maximum 100 values. */
     protected List<String> expand;
 
     protected String id;
 
     protected String moetesakId;
 
-    /** Specifies which fields in the response should be expanded. */
+    /** Specifies which fields in the response should be expanded. Maximum 100 values. */
     public List<String> getExpand() {
       return expand;
     }
@@ -64,13 +64,13 @@ public class GetByMoetesakParameters {
       return moetesakId;
     }
 
-    /** Specifies which fields in the response should be expanded. */
+    /** Specifies which fields in the response should be expanded. Maximum 100 values. */
     public Builder expand(List<String> expand) {
       this.expand = expand;
       return this;
     }
 
-    /** Specifies which fields in the response should be expanded. */
+    /** Specifies which fields in the response should be expanded. Maximum 100 values. */
     public Builder addExpand(String expand) {
       if (this.expand == null) {
         this.expand = new ArrayList<>();

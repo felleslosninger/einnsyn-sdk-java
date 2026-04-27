@@ -110,14 +110,14 @@ public class StatisticsParameters {
   protected List<EntityEnum> entity;
 
   /**
-   * A list of resource IDs to be returned. If this parameter is used, the other parameters will be
-   * ignored.
+   * A list of resource IDs to be returned. Maximum 100 values. If this parameter is used, the other
+   * parameters will be ignored.
    */
   protected List<String> ids;
 
   /**
-   * A list of external IDs to be returned. If this parameter is used, the other parameters will be
-   * ignored.
+   * A list of external IDs to be returned. Maximum 100 values. If this parameter is used, the other
+   * parameters will be ignored.
    */
   protected List<String> externalIds;
 
@@ -384,16 +384,16 @@ public class StatisticsParameters {
   }
 
   /**
-   * A list of resource IDs to be returned. If this parameter is used, the other parameters will be
-   * ignored.
+   * A list of resource IDs to be returned. Maximum 100 values. If this parameter is used, the other
+   * parameters will be ignored.
    */
   public List<String> getIds() {
     return ids;
   }
 
   /**
-   * A list of external IDs to be returned. If this parameter is used, the other parameters will be
-   * ignored.
+   * A list of external IDs to be returned. Maximum 100 values. If this parameter is used, the other
+   * parameters will be ignored.
    */
   public List<String> getExternalIds() {
     return externalIds;
@@ -549,14 +549,14 @@ public class StatisticsParameters {
     protected List<EntityEnum> entity;
 
     /**
-     * A list of resource IDs to be returned. If this parameter is used, the other parameters will
-     * be ignored.
+     * A list of resource IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
      */
     protected List<String> ids;
 
     /**
-     * A list of external IDs to be returned. If this parameter is used, the other parameters will
-     * be ignored.
+     * A list of external IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
      */
     protected List<String> externalIds;
 
@@ -749,16 +749,16 @@ public class StatisticsParameters {
     }
 
     /**
-     * A list of resource IDs to be returned. If this parameter is used, the other parameters will
-     * be ignored.
+     * A list of resource IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
      */
     public List<String> getIds() {
       return ids;
     }
 
     /**
-     * A list of external IDs to be returned. If this parameter is used, the other parameters will
-     * be ignored.
+     * A list of external IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
      */
     public List<String> getExternalIds() {
       return externalIds;
@@ -1141,8 +1141,8 @@ public class StatisticsParameters {
     }
 
     /**
-     * A list of resource IDs to be returned. If this parameter is used, the other parameters will
-     * be ignored.
+     * A list of resource IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
      */
     public Builder ids(List<String> ids) {
       this.ids = ids;
@@ -1150,8 +1150,8 @@ public class StatisticsParameters {
     }
 
     /**
-     * A list of resource IDs to be returned. If this parameter is used, the other parameters will
-     * be ignored.
+     * A list of resource IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
      */
     public Builder addIds(String ids) {
       if (this.ids == null) {
@@ -1162,8 +1162,8 @@ public class StatisticsParameters {
     }
 
     /**
-     * A list of external IDs to be returned. If this parameter is used, the other parameters will
-     * be ignored.
+     * A list of external IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
      */
     public Builder externalIds(List<String> externalIds) {
       this.externalIds = externalIds;
@@ -1171,8 +1171,8 @@ public class StatisticsParameters {
     }
 
     /**
-     * A list of external IDs to be returned. If this parameter is used, the other parameters will
-     * be ignored.
+     * A list of external IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
      */
     public Builder addExternalIds(String externalIds) {
       if (this.externalIds == null) {
