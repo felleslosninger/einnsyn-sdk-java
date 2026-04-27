@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.function.Function;
 
 public class ListByKlassifikasjonssystemParameters {
-  /** Specifies which fields in the response should be expanded. */
+  /** Specifies which fields in the response should be expanded. Maximum 100 values. */
   protected List<String> expand;
 
   /**
@@ -33,14 +33,14 @@ public class ListByKlassifikasjonssystemParameters {
   protected String endingBefore;
 
   /**
-   * A list of resource IDs to be returned. If this parameter is used, the other parameters will be
-   * ignored.
+   * A list of resource IDs to be returned. Maximum 100 values. If this parameter is used, the other
+   * parameters will be ignored.
    */
   protected List<String> ids;
 
   /**
-   * A list of external IDs to be returned. If this parameter is used, the other parameters will be
-   * ignored.
+   * A list of external IDs to be returned. Maximum 100 values. If this parameter is used, the other
+   * parameters will be ignored.
    */
   protected List<String> externalIds;
 
@@ -75,7 +75,7 @@ public class ListByKlassifikasjonssystemParameters {
     this.klassifikasjonssystemId = klassifikasjonssystemId;
   }
 
-  /** Specifies which fields in the response should be expanded. */
+  /** Specifies which fields in the response should be expanded. Maximum 100 values. */
   public List<String> getExpand() {
     return expand;
   }
@@ -110,16 +110,16 @@ public class ListByKlassifikasjonssystemParameters {
   }
 
   /**
-   * A list of resource IDs to be returned. If this parameter is used, the other parameters will be
-   * ignored.
+   * A list of resource IDs to be returned. Maximum 100 values. If this parameter is used, the other
+   * parameters will be ignored.
    */
   public List<String> getIds() {
     return ids;
   }
 
   /**
-   * A list of external IDs to be returned. If this parameter is used, the other parameters will be
-   * ignored.
+   * A list of external IDs to be returned. Maximum 100 values. If this parameter is used, the other
+   * parameters will be ignored.
    */
   public List<String> getExternalIds() {
     return externalIds;
@@ -148,7 +148,7 @@ public class ListByKlassifikasjonssystemParameters {
   }
 
   public static class Builder {
-    /** Specifies which fields in the response should be expanded. */
+    /** Specifies which fields in the response should be expanded. Maximum 100 values. */
     protected List<String> expand;
 
     /**
@@ -173,14 +173,14 @@ public class ListByKlassifikasjonssystemParameters {
     protected String endingBefore;
 
     /**
-     * A list of resource IDs to be returned. If this parameter is used, the other parameters will
-     * be ignored.
+     * A list of resource IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
      */
     protected List<String> ids;
 
     /**
-     * A list of external IDs to be returned. If this parameter is used, the other parameters will
-     * be ignored.
+     * A list of external IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
      */
     protected List<String> externalIds;
 
@@ -191,7 +191,7 @@ public class ListByKlassifikasjonssystemParameters {
 
     protected String klassifikasjonssystemId;
 
-    /** Specifies which fields in the response should be expanded. */
+    /** Specifies which fields in the response should be expanded. Maximum 100 values. */
     public List<String> getExpand() {
       return expand;
     }
@@ -226,16 +226,16 @@ public class ListByKlassifikasjonssystemParameters {
     }
 
     /**
-     * A list of resource IDs to be returned. If this parameter is used, the other parameters will
-     * be ignored.
+     * A list of resource IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
      */
     public List<String> getIds() {
       return ids;
     }
 
     /**
-     * A list of external IDs to be returned. If this parameter is used, the other parameters will
-     * be ignored.
+     * A list of external IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
      */
     public List<String> getExternalIds() {
       return externalIds;
@@ -254,13 +254,13 @@ public class ListByKlassifikasjonssystemParameters {
       return klassifikasjonssystemId;
     }
 
-    /** Specifies which fields in the response should be expanded. */
+    /** Specifies which fields in the response should be expanded. Maximum 100 values. */
     public Builder expand(List<String> expand) {
       this.expand = expand;
       return this;
     }
 
-    /** Specifies which fields in the response should be expanded. */
+    /** Specifies which fields in the response should be expanded. Maximum 100 values. */
     public Builder addExpand(String expand) {
       if (this.expand == null) {
         this.expand = new ArrayList<>();
@@ -303,8 +303,8 @@ public class ListByKlassifikasjonssystemParameters {
     }
 
     /**
-     * A list of resource IDs to be returned. If this parameter is used, the other parameters will
-     * be ignored.
+     * A list of resource IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
      */
     public Builder ids(List<String> ids) {
       this.ids = ids;
@@ -312,8 +312,8 @@ public class ListByKlassifikasjonssystemParameters {
     }
 
     /**
-     * A list of resource IDs to be returned. If this parameter is used, the other parameters will
-     * be ignored.
+     * A list of resource IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
      */
     public Builder addIds(String ids) {
       if (this.ids == null) {
@@ -324,8 +324,8 @@ public class ListByKlassifikasjonssystemParameters {
     }
 
     /**
-     * A list of external IDs to be returned. If this parameter is used, the other parameters will
-     * be ignored.
+     * A list of external IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
      */
     public Builder externalIds(List<String> externalIds) {
       this.externalIds = externalIds;
@@ -333,8 +333,8 @@ public class ListByKlassifikasjonssystemParameters {
     }
 
     /**
-     * A list of external IDs to be returned. If this parameter is used, the other parameters will
-     * be ignored.
+     * A list of external IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
      */
     public Builder addExternalIds(String externalIds) {
       if (this.externalIds == null) {
