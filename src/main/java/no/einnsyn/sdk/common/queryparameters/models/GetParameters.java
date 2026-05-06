@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.function.Function;
 
 public class GetParameters {
-  /** Specifies which fields in the response should be expanded. */
+  /** Specifies which fields in the response should be expanded. Maximum 100 values. */
   protected List<String> expand;
 
   public GetParameters(List<String> expand) {
@@ -16,7 +16,7 @@ public class GetParameters {
     this.expand = expand;
   }
 
-  /** Specifies which fields in the response should be expanded. */
+  /** Specifies which fields in the response should be expanded. Maximum 100 values. */
   public List<String> getExpand() {
     return expand;
   }
@@ -30,21 +30,21 @@ public class GetParameters {
   }
 
   public static class Builder {
-    /** Specifies which fields in the response should be expanded. */
+    /** Specifies which fields in the response should be expanded. Maximum 100 values. */
     protected List<String> expand;
 
-    /** Specifies which fields in the response should be expanded. */
+    /** Specifies which fields in the response should be expanded. Maximum 100 values. */
     public List<String> getExpand() {
       return expand;
     }
 
-    /** Specifies which fields in the response should be expanded. */
+    /** Specifies which fields in the response should be expanded. Maximum 100 values. */
     public Builder expand(List<String> expand) {
       this.expand = expand;
       return this;
     }
 
-    /** Specifies which fields in the response should be expanded. */
+    /** Specifies which fields in the response should be expanded. Maximum 100 values. */
     public Builder addExpand(String expand) {
       if (this.expand == null) {
         this.expand = new ArrayList<>();
