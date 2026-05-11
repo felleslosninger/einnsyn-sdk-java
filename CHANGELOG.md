@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/felleslosninger/einnsyn-sdk-java/compare/1.0.3...1.0.4) (2026-05-11)
+
+
+### Dependencies
+
+* bump com.google.code.gson:gson from 2.13.2 to 2.14.0 ([06aa30d](https://github.com/felleslosninger/einnsyn-sdk-java/commit/06aa30d79f2140a22e9edd0aa81888c67f6e5848))
+
 ## [1.0.3](https://github.com/felleslosninger/einnsyn-sdk-java/compare/1.0.3...1.0.3) (2026-04-16)
 
 
