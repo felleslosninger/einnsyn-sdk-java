@@ -10,12 +10,12 @@ import no.einnsyn.sdk.EInnsynOptions;
 import no.einnsyn.sdk.common.apioperations.ApiEntityOperations;
 import no.einnsyn.sdk.common.exceptions.models.EInnsynException;
 import no.einnsyn.sdk.common.queryparameters.models.GetParameters;
-import no.einnsyn.sdk.common.queryparameters.models.ListParameters;
 import no.einnsyn.sdk.common.responses.models.PaginatedList;
 import no.einnsyn.sdk.entities.apikey.models.ApiKey;
 import no.einnsyn.sdk.entities.apikey.models.ApiKeyRequest;
 import no.einnsyn.sdk.entities.arkiv.models.Arkiv;
 import no.einnsyn.sdk.entities.enhet.models.Enhet;
+import no.einnsyn.sdk.entities.enhet.models.EnhetFilterParameters;
 import no.einnsyn.sdk.entities.enhet.models.EnhetRequest;
 import no.einnsyn.sdk.entities.enhet.models.ListByEnhetParameters;
 import no.einnsyn.sdk.entities.innsynskrav.models.Innsynskrav;
@@ -42,7 +42,7 @@ public class EnhetOperations extends ApiEntityOperations<Enhet, EnhetRequest> {
     return requester.request(method, url, null, null, options, type);
   }
 
-  public PaginatedList<Enhet> list(ListParameters queryParameters) throws EInnsynException {
+  public PaginatedList<Enhet> list(EnhetFilterParameters queryParameters) throws EInnsynException {
     String url = "/enhet";
     ApiRequestMethod method = ApiRequestMethod.GET;
     Type type = new TypeToken<PaginatedList<Enhet>>() {}.getType();
@@ -50,7 +50,8 @@ public class EnhetOperations extends ApiEntityOperations<Enhet, EnhetRequest> {
   }
 
   public PaginatedList<Enhet> list(
-      Function<ListParameters.Builder, ListParameters.Builder> queryParametersBuilderFunction)
+      Function<EnhetFilterParameters.Builder, EnhetFilterParameters.Builder>
+          queryParametersBuilderFunction)
       throws EInnsynException {
     String url = "/enhet";
     ApiRequestMethod method = ApiRequestMethod.GET;
@@ -58,13 +59,13 @@ public class EnhetOperations extends ApiEntityOperations<Enhet, EnhetRequest> {
     return requester.request(
         method,
         url,
-        queryParametersBuilderFunction.apply(new ListParameters.Builder()).build(),
+        queryParametersBuilderFunction.apply(new EnhetFilterParameters.Builder()).build(),
         null,
         null,
         type);
   }
 
-  public PaginatedList<Enhet> list(ListParameters queryParameters, EInnsynOptions options)
+  public PaginatedList<Enhet> list(EnhetFilterParameters queryParameters, EInnsynOptions options)
       throws EInnsynException {
     String url = "/enhet";
     ApiRequestMethod method = ApiRequestMethod.GET;
@@ -73,7 +74,8 @@ public class EnhetOperations extends ApiEntityOperations<Enhet, EnhetRequest> {
   }
 
   public PaginatedList<Enhet> list(
-      Function<ListParameters.Builder, ListParameters.Builder> queryParametersBuilderFunction,
+      Function<EnhetFilterParameters.Builder, EnhetFilterParameters.Builder>
+          queryParametersBuilderFunction,
       Function<EInnsynOptions.Builder, EInnsynOptions.Builder> optionsBuilderFunction)
       throws EInnsynException {
     String url = "/enhet";
@@ -82,7 +84,7 @@ public class EnhetOperations extends ApiEntityOperations<Enhet, EnhetRequest> {
     return requester.request(
         method,
         url,
-        queryParametersBuilderFunction.apply(new ListParameters.Builder()).build(),
+        queryParametersBuilderFunction.apply(new EnhetFilterParameters.Builder()).build(),
         null,
         optionsBuilderFunction.apply(new EInnsynOptions.Builder()).build(),
         type);

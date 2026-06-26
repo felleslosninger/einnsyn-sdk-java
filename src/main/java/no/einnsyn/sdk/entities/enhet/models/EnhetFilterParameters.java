@@ -1,0 +1,405 @@
+// Auto-generated from our API specification
+// https://github.com/felleslosninger/einnsyn-api-spec
+
+package no.einnsyn.sdk.entities.enhet.models;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Function;
+
+public class EnhetFilterParameters {
+  /** Specifies which fields in the response should be expanded. Maximum 100 values. */
+  protected List<String> expand;
+
+  /**
+   * A limit on the number of objects to be returned. Limit can range between 1 and 100, and the
+   * default is 10.
+   */
+  protected Integer limit;
+
+  /** The sort order of the result set. The default is ascending. */
+  protected SortOrderEnum sortOrder;
+
+  /**
+   * A cursor for use in pagination. StartingAfter is a resource ID that defines your place in the
+   * list.
+   */
+  protected String startingAfter;
+
+  /**
+   * A cursor for use in pagination. EndingBefore is a resource ID that defines your place in the
+   * list.
+   */
+  protected String endingBefore;
+
+  /**
+   * A list of resource IDs to be returned. Maximum 100 values. If this parameter is used, the other
+   * parameters will be ignored.
+   */
+  protected List<String> ids;
+
+  /**
+   * A list of external IDs to be returned. Maximum 100 values. If this parameter is used, the other
+   * parameters will be ignored.
+   */
+  protected List<String> externalIds;
+
+  /** The Journalenhet to filter the result set by. */
+  protected String journalenhet;
+
+  /**
+   * Free-text filter against navn, navnNynorsk, navnEngelsk, navnSami, orgnummer and enhetskode.
+   */
+  protected String query;
+
+  /** Filter by exact orgnummer(s). */
+  protected List<String> orgnummer;
+
+  public EnhetFilterParameters(
+      List<String> expand,
+      Integer limit,
+      SortOrderEnum sortOrder,
+      String startingAfter,
+      String endingBefore,
+      List<String> ids,
+      List<String> externalIds,
+      String journalenhet,
+      String query,
+      List<String> orgnummer) {
+    super();
+    this.expand = expand;
+    this.limit = limit;
+    this.sortOrder = sortOrder;
+    this.startingAfter = startingAfter;
+    this.endingBefore = endingBefore;
+    this.ids = ids;
+    this.externalIds = externalIds;
+    this.journalenhet = journalenhet;
+    this.query = query;
+    this.orgnummer = orgnummer;
+  }
+
+  /** Specifies which fields in the response should be expanded. Maximum 100 values. */
+  public List<String> getExpand() {
+    return expand;
+  }
+
+  /**
+   * A limit on the number of objects to be returned. Limit can range between 1 and 100, and the
+   * default is 10.
+   */
+  public Integer getLimit() {
+    return limit;
+  }
+
+  /** The sort order of the result set. The default is ascending. */
+  public SortOrderEnum getSortOrder() {
+    return sortOrder;
+  }
+
+  /**
+   * A cursor for use in pagination. StartingAfter is a resource ID that defines your place in the
+   * list.
+   */
+  public String getStartingAfter() {
+    return startingAfter;
+  }
+
+  /**
+   * A cursor for use in pagination. EndingBefore is a resource ID that defines your place in the
+   * list.
+   */
+  public String getEndingBefore() {
+    return endingBefore;
+  }
+
+  /**
+   * A list of resource IDs to be returned. Maximum 100 values. If this parameter is used, the other
+   * parameters will be ignored.
+   */
+  public List<String> getIds() {
+    return ids;
+  }
+
+  /**
+   * A list of external IDs to be returned. Maximum 100 values. If this parameter is used, the other
+   * parameters will be ignored.
+   */
+  public List<String> getExternalIds() {
+    return externalIds;
+  }
+
+  /** The Journalenhet to filter the result set by. */
+  public String getJournalenhet() {
+    return journalenhet;
+  }
+
+  /**
+   * Free-text filter against navn, navnNynorsk, navnEngelsk, navnSami, orgnummer and enhetskode.
+   */
+  public String getQuery() {
+    return query;
+  }
+
+  /** Filter by exact orgnummer(s). */
+  public List<String> getOrgnummer() {
+    return orgnummer;
+  }
+
+  public static Builder builder() {
+    return new Builder();
+  }
+
+  public static EnhetFilterParameters of(Function<Builder, Builder> builderFunction) {
+    return builderFunction.apply(new Builder()).build();
+  }
+
+  public static class Builder {
+    /** Specifies which fields in the response should be expanded. Maximum 100 values. */
+    protected List<String> expand;
+
+    /**
+     * A limit on the number of objects to be returned. Limit can range between 1 and 100, and the
+     * default is 10.
+     */
+    protected Integer limit;
+
+    /** The sort order of the result set. The default is ascending. */
+    protected SortOrderEnum sortOrder;
+
+    /**
+     * A cursor for use in pagination. StartingAfter is a resource ID that defines your place in the
+     * list.
+     */
+    protected String startingAfter;
+
+    /**
+     * A cursor for use in pagination. EndingBefore is a resource ID that defines your place in the
+     * list.
+     */
+    protected String endingBefore;
+
+    /**
+     * A list of resource IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
+     */
+    protected List<String> ids;
+
+    /**
+     * A list of external IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
+     */
+    protected List<String> externalIds;
+
+    /** The Journalenhet to filter the result set by. */
+    protected String journalenhet;
+
+    /**
+     * Free-text filter against navn, navnNynorsk, navnEngelsk, navnSami, orgnummer and enhetskode.
+     */
+    protected String query;
+
+    /** Filter by exact orgnummer(s). */
+    protected List<String> orgnummer;
+
+    /** Specifies which fields in the response should be expanded. Maximum 100 values. */
+    public List<String> getExpand() {
+      return expand;
+    }
+
+    /**
+     * A limit on the number of objects to be returned. Limit can range between 1 and 100, and the
+     * default is 10.
+     */
+    public Integer getLimit() {
+      return limit;
+    }
+
+    /** The sort order of the result set. The default is ascending. */
+    public SortOrderEnum getSortOrder() {
+      return sortOrder;
+    }
+
+    /**
+     * A cursor for use in pagination. StartingAfter is a resource ID that defines your place in the
+     * list.
+     */
+    public String getStartingAfter() {
+      return startingAfter;
+    }
+
+    /**
+     * A cursor for use in pagination. EndingBefore is a resource ID that defines your place in the
+     * list.
+     */
+    public String getEndingBefore() {
+      return endingBefore;
+    }
+
+    /**
+     * A list of resource IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
+     */
+    public List<String> getIds() {
+      return ids;
+    }
+
+    /**
+     * A list of external IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
+     */
+    public List<String> getExternalIds() {
+      return externalIds;
+    }
+
+    /** The Journalenhet to filter the result set by. */
+    public String getJournalenhet() {
+      return journalenhet;
+    }
+
+    /**
+     * Free-text filter against navn, navnNynorsk, navnEngelsk, navnSami, orgnummer and enhetskode.
+     */
+    public String getQuery() {
+      return query;
+    }
+
+    /** Filter by exact orgnummer(s). */
+    public List<String> getOrgnummer() {
+      return orgnummer;
+    }
+
+    /** Specifies which fields in the response should be expanded. Maximum 100 values. */
+    public Builder expand(List<String> expand) {
+      this.expand = expand;
+      return this;
+    }
+
+    /** Specifies which fields in the response should be expanded. Maximum 100 values. */
+    public Builder addExpand(String expand) {
+      if (this.expand == null) {
+        this.expand = new ArrayList<>();
+      }
+      this.expand.add(expand);
+      return this;
+    }
+
+    /**
+     * A limit on the number of objects to be returned. Limit can range between 1 and 100, and the
+     * default is 10.
+     */
+    public Builder limit(Integer limit) {
+      this.limit = limit;
+      return this;
+    }
+
+    /** The sort order of the result set. The default is ascending. */
+    public Builder sortOrder(SortOrderEnum sortOrder) {
+      this.sortOrder = sortOrder;
+      return this;
+    }
+
+    /**
+     * A cursor for use in pagination. StartingAfter is a resource ID that defines your place in the
+     * list.
+     */
+    public Builder startingAfter(String startingAfter) {
+      this.startingAfter = startingAfter;
+      return this;
+    }
+
+    /**
+     * A cursor for use in pagination. EndingBefore is a resource ID that defines your place in the
+     * list.
+     */
+    public Builder endingBefore(String endingBefore) {
+      this.endingBefore = endingBefore;
+      return this;
+    }
+
+    /**
+     * A list of resource IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
+     */
+    public Builder ids(List<String> ids) {
+      this.ids = ids;
+      return this;
+    }
+
+    /**
+     * A list of resource IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
+     */
+    public Builder addIds(String ids) {
+      if (this.ids == null) {
+        this.ids = new ArrayList<>();
+      }
+      this.ids.add(ids);
+      return this;
+    }
+
+    /**
+     * A list of external IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
+     */
+    public Builder externalIds(List<String> externalIds) {
+      this.externalIds = externalIds;
+      return this;
+    }
+
+    /**
+     * A list of external IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
+     */
+    public Builder addExternalIds(String externalIds) {
+      if (this.externalIds == null) {
+        this.externalIds = new ArrayList<>();
+      }
+      this.externalIds.add(externalIds);
+      return this;
+    }
+
+    /** The Journalenhet to filter the result set by. */
+    public Builder journalenhet(String journalenhet) {
+      this.journalenhet = journalenhet;
+      return this;
+    }
+
+    /**
+     * Free-text filter against navn, navnNynorsk, navnEngelsk, navnSami, orgnummer and enhetskode.
+     */
+    public Builder query(String query) {
+      this.query = query;
+      return this;
+    }
+
+    /** Filter by exact orgnummer(s). */
+    public Builder orgnummer(List<String> orgnummer) {
+      this.orgnummer = orgnummer;
+      return this;
+    }
+
+    /** Filter by exact orgnummer(s). */
+    public Builder addOrgnummer(String orgnummer) {
+      if (this.orgnummer == null) {
+        this.orgnummer = new ArrayList<>();
+      }
+      this.orgnummer.add(orgnummer);
+      return this;
+    }
+
+    public EnhetFilterParameters build() {
+      return new EnhetFilterParameters(
+          this.expand,
+          this.limit,
+          this.sortOrder,
+          this.startingAfter,
+          this.endingBefore,
+          this.ids,
+          this.externalIds,
+          this.journalenhet,
+          this.query,
+          this.orgnummer);
+    }
+  }
+}
