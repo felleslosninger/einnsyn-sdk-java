@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
-import no.einnsyn.sdk.common.search.models.SearchParameters;
+import no.einnsyn.sdk.common.search.models.SavedSearchParameters;
 import no.einnsyn.sdk.entities.lagretsoek.models.LagretSoekRequest;
 import org.junit.jupiter.api.Test;
 
@@ -18,8 +18,8 @@ class QuerystringSerializerTest {
 
   @Test
   void serializeFlattensNestedObjectsAndArrays() {
-    SearchParameters searchParameters =
-        SearchParameters.builder()
+    SavedSearchParameters searchParameters =
+        SavedSearchParameters.builder()
             .query("open")
             .addExpand("value one")
             .addExpand("value/two")
