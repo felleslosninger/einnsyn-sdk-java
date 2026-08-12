@@ -12,6 +12,8 @@ import no.einnsyn.sdk.common.exceptions.models.EInnsynException;
 import no.einnsyn.sdk.common.queryparameters.models.GetParameters;
 import no.einnsyn.sdk.common.queryparameters.models.ListParameters;
 import no.einnsyn.sdk.common.responses.models.PaginatedList;
+import no.einnsyn.sdk.entities.matrikkelnummer.models.Matrikkelnummer;
+import no.einnsyn.sdk.entities.matrikkelnummer.models.MatrikkelnummerRequest;
 import no.einnsyn.sdk.entities.moetedokument.models.Moetedokument;
 import no.einnsyn.sdk.entities.moetedokument.models.MoetedokumentRequest;
 import no.einnsyn.sdk.entities.moetemappe.models.ListByMoetemappeParameters;
@@ -222,6 +224,122 @@ public class MoetemappeOperations extends ApiEntityOperations<Moetemappe, Moetem
         url,
         null,
         bodyBuilderFunction.apply(new MoetemappeRequest.Builder()).build(),
+        optionsBuilderFunction.apply(new EInnsynOptions.Builder()).build(),
+        type);
+  }
+
+  public PaginatedList<Matrikkelnummer> listMatrikkelnummer(String id) throws EInnsynException {
+    String url = "/moetemappe/" + id + "/matrikkelnummer";
+    ApiRequestMethod method = ApiRequestMethod.GET;
+    Type type = new TypeToken<PaginatedList<Matrikkelnummer>>() {}.getType();
+    return requester.request(method, url, null, null, null, type);
+  }
+
+  public PaginatedList<Matrikkelnummer> listMatrikkelnummer(String id, EInnsynOptions options)
+      throws EInnsynException {
+    String url = "/moetemappe/" + id + "/matrikkelnummer";
+    ApiRequestMethod method = ApiRequestMethod.GET;
+    Type type = new TypeToken<PaginatedList<Matrikkelnummer>>() {}.getType();
+    return requester.request(method, url, null, null, options, type);
+  }
+
+  public PaginatedList<Matrikkelnummer> listMatrikkelnummer(
+      String id, ListByMoetemappeParameters queryParameters) throws EInnsynException {
+    String url = "/moetemappe/" + id + "/matrikkelnummer";
+    ApiRequestMethod method = ApiRequestMethod.GET;
+    Type type = new TypeToken<PaginatedList<Matrikkelnummer>>() {}.getType();
+    return requester.request(method, url, queryParameters, null, null, type);
+  }
+
+  public PaginatedList<Matrikkelnummer> listMatrikkelnummer(
+      String id,
+      Function<ListByMoetemappeParameters.Builder, ListByMoetemappeParameters.Builder>
+          queryParametersBuilderFunction)
+      throws EInnsynException {
+    String url = "/moetemappe/" + id + "/matrikkelnummer";
+    ApiRequestMethod method = ApiRequestMethod.GET;
+    Type type = new TypeToken<PaginatedList<Matrikkelnummer>>() {}.getType();
+    return requester.request(
+        method,
+        url,
+        queryParametersBuilderFunction.apply(new ListByMoetemappeParameters.Builder()).build(),
+        null,
+        null,
+        type);
+  }
+
+  public PaginatedList<Matrikkelnummer> listMatrikkelnummer(
+      String id, ListByMoetemappeParameters queryParameters, EInnsynOptions options)
+      throws EInnsynException {
+    String url = "/moetemappe/" + id + "/matrikkelnummer";
+    ApiRequestMethod method = ApiRequestMethod.GET;
+    Type type = new TypeToken<PaginatedList<Matrikkelnummer>>() {}.getType();
+    return requester.request(method, url, queryParameters, null, options, type);
+  }
+
+  public PaginatedList<Matrikkelnummer> listMatrikkelnummer(
+      String id,
+      Function<ListByMoetemappeParameters.Builder, ListByMoetemappeParameters.Builder>
+          queryParametersBuilderFunction,
+      Function<EInnsynOptions.Builder, EInnsynOptions.Builder> optionsBuilderFunction)
+      throws EInnsynException {
+    String url = "/moetemappe/" + id + "/matrikkelnummer";
+    ApiRequestMethod method = ApiRequestMethod.GET;
+    Type type = new TypeToken<PaginatedList<Matrikkelnummer>>() {}.getType();
+    return requester.request(
+        method,
+        url,
+        queryParametersBuilderFunction.apply(new ListByMoetemappeParameters.Builder()).build(),
+        null,
+        optionsBuilderFunction.apply(new EInnsynOptions.Builder()).build(),
+        type);
+  }
+
+  public Matrikkelnummer addMatrikkelnummer(String id, MatrikkelnummerRequest body)
+      throws EInnsynException {
+    String url = "/moetemappe/" + id + "/matrikkelnummer";
+    ApiRequestMethod method = ApiRequestMethod.POST;
+    Type type = new TypeToken<Matrikkelnummer>() {}.getType();
+    return requester.request(method, url, null, body, null, type);
+  }
+
+  public Matrikkelnummer addMatrikkelnummer(
+      String id,
+      Function<MatrikkelnummerRequest.Builder, MatrikkelnummerRequest.Builder> bodyBuilderFunction)
+      throws EInnsynException {
+    String url = "/moetemappe/" + id + "/matrikkelnummer";
+    ApiRequestMethod method = ApiRequestMethod.POST;
+    Type type = new TypeToken<Matrikkelnummer>() {}.getType();
+    return requester.request(
+        method,
+        url,
+        null,
+        bodyBuilderFunction.apply(new MatrikkelnummerRequest.Builder()).build(),
+        null,
+        type);
+  }
+
+  public Matrikkelnummer addMatrikkelnummer(
+      String id, MatrikkelnummerRequest body, EInnsynOptions options) throws EInnsynException {
+    String url = "/moetemappe/" + id + "/matrikkelnummer";
+    ApiRequestMethod method = ApiRequestMethod.POST;
+    Type type = new TypeToken<Matrikkelnummer>() {}.getType();
+    return requester.request(method, url, null, body, options, type);
+  }
+
+  public Matrikkelnummer addMatrikkelnummer(
+      String id,
+      Function<MatrikkelnummerRequest.Builder, MatrikkelnummerRequest.Builder> bodyBuilderFunction,
+      Function<EInnsynOptions.Builder, EInnsynOptions.Builder> optionsBuilderFunction)
+      throws EInnsynException {
+    String url = "/moetemappe/" + id + "/matrikkelnummer";
+    ApiRequestMethod method = ApiRequestMethod.POST;
+    Type type = new TypeToken<Matrikkelnummer>() {}.getType();
+    return requester.request(
+        method,
+        url,
+        null,
+        bodyBuilderFunction.apply(new MatrikkelnummerRequest.Builder()).build(),
         optionsBuilderFunction.apply(new EInnsynOptions.Builder()).build(),
         type);
   }

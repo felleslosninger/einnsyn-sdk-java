@@ -3,10 +3,15 @@
 
 package no.einnsyn.sdk.entities.mappe.models;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import no.einnsyn.sdk.common.expandablefield.ExpandableField;
 import no.einnsyn.sdk.entities.arkivbase.models.ArkivBaseRequest;
 import no.einnsyn.sdk.entities.enhet.models.EnhetRequest;
 import no.einnsyn.sdk.entities.klasse.models.KlasseRequest;
+import no.einnsyn.sdk.entities.matrikkelnummer.models.MatrikkelnummerRequest;
 
 /**
  * An abstract base model for case files (Saksmappe) and meeting records (Moetemappe). It contains
@@ -41,6 +46,9 @@ public class MappeRequest extends ArkivBaseRequest {
   /** An optional Klasse for this Mappe. */
   protected ExpandableField<KlasseRequest> klasse;
 
+  /** Property identifiers (matrikkelnummer) associated with this Mappe. */
+  protected List<ExpandableField<MatrikkelnummerRequest>> matrikkelnummer;
+
   public MappeRequest(
       String externalId,
       String accessibleAfter,
@@ -53,7 +61,8 @@ public class MappeRequest extends ArkivBaseRequest {
       String noekkelord,
       String publisertDato,
       String oppdatertDato,
-      ExpandableField<KlasseRequest> klasse) {
+      ExpandableField<KlasseRequest> klasse,
+      List<ExpandableField<MatrikkelnummerRequest>> matrikkelnummer) {
     super(externalId, accessibleAfter, systemId, journalenhet);
     this.slug = slug;
     this.offentligTittel = offentligTittel;
@@ -63,6 +72,7 @@ public class MappeRequest extends ArkivBaseRequest {
     this.publisertDato = publisertDato;
     this.oppdatertDato = oppdatertDato;
     this.klasse = klasse;
+    this.matrikkelnummer = matrikkelnummer;
   }
 
   /** A URL-friendly unique slug for the resource. */
@@ -107,6 +117,11 @@ public class MappeRequest extends ArkivBaseRequest {
   /** An optional Klasse for this Mappe. */
   public ExpandableField<KlasseRequest> getKlasse() {
     return klasse;
+  }
+
+  /** Property identifiers (matrikkelnummer) associated with this Mappe. */
+  public List<ExpandableField<MatrikkelnummerRequest>> getMatrikkelnummer() {
+    return matrikkelnummer;
   }
 
   public static class Builder {
@@ -156,6 +171,9 @@ public class MappeRequest extends ArkivBaseRequest {
 
     /** An optional Klasse for this Mappe. */
     protected ExpandableField<KlasseRequest> klasse;
+
+    /** Property identifiers (matrikkelnummer) associated with this Mappe. */
+    protected List<ExpandableField<MatrikkelnummerRequest>> matrikkelnummer;
 
     /**
      * An external ID for the resource. This is similar to "systemId", but will be used for legacy
@@ -226,6 +244,11 @@ public class MappeRequest extends ArkivBaseRequest {
     /** An optional Klasse for this Mappe. */
     public ExpandableField<KlasseRequest> getKlasse() {
       return klasse;
+    }
+
+    /** Property identifiers (matrikkelnummer) associated with this Mappe. */
+    public List<ExpandableField<MatrikkelnummerRequest>> getMatrikkelnummer() {
+      return matrikkelnummer;
     }
 
     /**
@@ -327,6 +350,43 @@ public class MappeRequest extends ArkivBaseRequest {
       return this;
     }
 
+    /** Property identifiers (matrikkelnummer) associated with this Mappe. */
+    public Builder matrikkelnummer(List<MatrikkelnummerRequest> matrikkelnummer) {
+      this.matrikkelnummer =
+          matrikkelnummer.stream().map(ExpandableField::new).collect(Collectors.toList());
+      return this;
+    }
+
+    /** Property identifiers (matrikkelnummer) associated with this Mappe. */
+    public Builder addMatrikkelnummer(MatrikkelnummerRequest matrikkelnummer) {
+      if (this.matrikkelnummer == null) {
+        this.matrikkelnummer = new ArrayList<>();
+      }
+      this.matrikkelnummer.add(new ExpandableField<MatrikkelnummerRequest>(matrikkelnummer));
+      return this;
+    }
+
+    /** Property identifiers (matrikkelnummer) associated with this Mappe. */
+    public Builder addMatrikkelnummer(
+        Function<MatrikkelnummerRequest.Builder, MatrikkelnummerRequest.Builder> builderFunction) {
+      if (this.matrikkelnummer == null) {
+        this.matrikkelnummer = new ArrayList<>();
+      }
+      this.matrikkelnummer.add(
+          new ExpandableField<>(
+              builderFunction.apply(new MatrikkelnummerRequest.Builder()).build()));
+      return this;
+    }
+
+    /** Property identifiers (matrikkelnummer) associated with this Mappe. */
+    public Builder addMatrikkelnummer(String id) {
+      if (this.matrikkelnummer == null) {
+        this.matrikkelnummer = new ArrayList<>();
+      }
+      this.matrikkelnummer.add(new ExpandableField<>(id));
+      return this;
+    }
+
     public MappeRequest build() {
       return new MappeRequest(
           this.externalId,
@@ -340,7 +400,8 @@ public class MappeRequest extends ArkivBaseRequest {
           this.noekkelord,
           this.publisertDato,
           this.oppdatertDato,
-          this.klasse);
+          this.klasse,
+          this.matrikkelnummer);
     }
   }
 }

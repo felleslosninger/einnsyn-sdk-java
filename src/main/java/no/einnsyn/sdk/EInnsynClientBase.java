@@ -23,6 +23,7 @@ import no.einnsyn.sdk.entities.klassifikasjonssystem.KlassifikasjonssystemOperat
 import no.einnsyn.sdk.entities.korrespondansepart.KorrespondansepartOperations;
 import no.einnsyn.sdk.entities.lagretsak.LagretSakOperations;
 import no.einnsyn.sdk.entities.lagretsoek.LagretSoekOperations;
+import no.einnsyn.sdk.entities.matrikkelnummer.MatrikkelnummerOperations;
 import no.einnsyn.sdk.entities.moetedeltaker.MoetedeltakerOperations;
 import no.einnsyn.sdk.entities.moetedokument.MoetedokumentOperations;
 import no.einnsyn.sdk.entities.moetemappe.MoetemappeOperations;
@@ -89,6 +90,10 @@ public class EInnsynClientBase {
 
   public KorrespondansepartOperations korrespondansepart() {
     return new KorrespondansepartOperations(this.requester);
+  }
+
+  public MatrikkelnummerOperations matrikkelnummer() {
+    return new MatrikkelnummerOperations(this.requester);
   }
 
   public MoetedeltakerOperations moetedeltaker() {

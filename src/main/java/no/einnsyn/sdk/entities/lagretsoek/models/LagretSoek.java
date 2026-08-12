@@ -4,7 +4,7 @@
 package no.einnsyn.sdk.entities.lagretsoek.models;
 
 import no.einnsyn.sdk.common.expandablefield.ExpandableField;
-import no.einnsyn.sdk.common.search.models.SearchParameters;
+import no.einnsyn.sdk.common.search.models.SavedSearchParameters;
 import no.einnsyn.sdk.entities.base.models.Base;
 import no.einnsyn.sdk.entities.bruker.models.Bruker;
 
@@ -24,7 +24,7 @@ public class LagretSoek extends Base {
   protected Boolean subscribe;
 
   /** The parameters of the saved search. */
-  protected SearchParameters searchParameters;
+  protected SavedSearchParameters searchParameters;
 
   /** A legacy field for storing the raw query string. */
   protected String legacyQuery;
@@ -51,7 +51,7 @@ public class LagretSoek extends Base {
   }
 
   /** The parameters of the saved search. */
-  public SearchParameters getSearchParameters() {
+  public SavedSearchParameters getSearchParameters() {
     return searchParameters;
   }
 

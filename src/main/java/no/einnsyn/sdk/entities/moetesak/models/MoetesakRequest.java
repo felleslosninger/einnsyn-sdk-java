@@ -11,6 +11,7 @@ import no.einnsyn.sdk.common.expandablefield.ExpandableField;
 import no.einnsyn.sdk.entities.dokumentbeskrivelse.models.DokumentbeskrivelseRequest;
 import no.einnsyn.sdk.entities.enhet.models.EnhetRequest;
 import no.einnsyn.sdk.entities.korrespondansepart.models.KorrespondansepartRequest;
+import no.einnsyn.sdk.entities.matrikkelnummer.models.MatrikkelnummerRequest;
 import no.einnsyn.sdk.entities.moetemappe.models.MoetemappeRequest;
 import no.einnsyn.sdk.entities.moetesaksbeskrivelse.models.MoetesaksbeskrivelseRequest;
 import no.einnsyn.sdk.entities.registrering.models.RegistreringRequest;
@@ -65,6 +66,7 @@ public class MoetesakRequest extends RegistreringRequest {
       String oppdatertDato,
       List<ExpandableField<KorrespondansepartRequest>> korrespondansepart,
       List<ExpandableField<DokumentbeskrivelseRequest>> dokumentbeskrivelse,
+      List<ExpandableField<MatrikkelnummerRequest>> matrikkelnummer,
       ExpandableField<EnhetRequest> avhendetTil,
       MoetesakstypeEnum moetesakstype,
       Integer moetesaksaar,
@@ -90,6 +92,7 @@ public class MoetesakRequest extends RegistreringRequest {
         oppdatertDato,
         korrespondansepart,
         dokumentbeskrivelse,
+        matrikkelnummer,
         avhendetTil);
     this.moetesakstype = moetesakstype;
     this.moetesaksaar = moetesaksaar;
@@ -214,6 +217,9 @@ public class MoetesakRequest extends RegistreringRequest {
 
     protected List<ExpandableField<DokumentbeskrivelseRequest>> dokumentbeskrivelse;
 
+    /** Property identifiers (matrikkelnummer) associated with this Registrering. */
+    protected List<ExpandableField<MatrikkelnummerRequest>> matrikkelnummer;
+
     /** The administrative unit that has been handed the responsibility for this resource. */
     protected ExpandableField<EnhetRequest> avhendetTil;
 
@@ -318,6 +324,11 @@ public class MoetesakRequest extends RegistreringRequest {
 
     public List<ExpandableField<DokumentbeskrivelseRequest>> getDokumentbeskrivelse() {
       return dokumentbeskrivelse;
+    }
+
+    /** Property identifiers (matrikkelnummer) associated with this Registrering. */
+    public List<ExpandableField<MatrikkelnummerRequest>> getMatrikkelnummer() {
+      return matrikkelnummer;
     }
 
     /** The administrative unit that has been handed the responsibility for this resource. */
@@ -532,6 +543,43 @@ public class MoetesakRequest extends RegistreringRequest {
       return this;
     }
 
+    /** Property identifiers (matrikkelnummer) associated with this Registrering. */
+    public Builder matrikkelnummer(List<MatrikkelnummerRequest> matrikkelnummer) {
+      this.matrikkelnummer =
+          matrikkelnummer.stream().map(ExpandableField::new).collect(Collectors.toList());
+      return this;
+    }
+
+    /** Property identifiers (matrikkelnummer) associated with this Registrering. */
+    public Builder addMatrikkelnummer(MatrikkelnummerRequest matrikkelnummer) {
+      if (this.matrikkelnummer == null) {
+        this.matrikkelnummer = new ArrayList<>();
+      }
+      this.matrikkelnummer.add(new ExpandableField<MatrikkelnummerRequest>(matrikkelnummer));
+      return this;
+    }
+
+    /** Property identifiers (matrikkelnummer) associated with this Registrering. */
+    public Builder addMatrikkelnummer(
+        Function<MatrikkelnummerRequest.Builder, MatrikkelnummerRequest.Builder> builderFunction) {
+      if (this.matrikkelnummer == null) {
+        this.matrikkelnummer = new ArrayList<>();
+      }
+      this.matrikkelnummer.add(
+          new ExpandableField<>(
+              builderFunction.apply(new MatrikkelnummerRequest.Builder()).build()));
+      return this;
+    }
+
+    /** Property identifiers (matrikkelnummer) associated with this Registrering. */
+    public Builder addMatrikkelnummer(String id) {
+      if (this.matrikkelnummer == null) {
+        this.matrikkelnummer = new ArrayList<>();
+      }
+      this.matrikkelnummer.add(new ExpandableField<>(id));
+      return this;
+    }
+
     /** The administrative unit that has been handed the responsibility for this resource. */
     public Builder avhendetTil(EnhetRequest avhendetTil) {
       this.avhendetTil = new ExpandableField<>(avhendetTil);
@@ -648,6 +696,7 @@ public class MoetesakRequest extends RegistreringRequest {
           this.oppdatertDato,
           this.korrespondansepart,
           this.dokumentbeskrivelse,
+          this.matrikkelnummer,
           this.avhendetTil,
           this.moetesakstype,
           this.moetesaksaar,

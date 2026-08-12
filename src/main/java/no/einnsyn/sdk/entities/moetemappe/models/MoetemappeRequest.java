@@ -11,6 +11,7 @@ import no.einnsyn.sdk.common.expandablefield.ExpandableField;
 import no.einnsyn.sdk.entities.enhet.models.EnhetRequest;
 import no.einnsyn.sdk.entities.klasse.models.KlasseRequest;
 import no.einnsyn.sdk.entities.mappe.models.MappeRequest;
+import no.einnsyn.sdk.entities.matrikkelnummer.models.MatrikkelnummerRequest;
 import no.einnsyn.sdk.entities.moetedokument.models.MoetedokumentRequest;
 import no.einnsyn.sdk.entities.moetesak.models.MoetesakRequest;
 
@@ -56,6 +57,7 @@ public class MoetemappeRequest extends MappeRequest {
       String publisertDato,
       String oppdatertDato,
       ExpandableField<KlasseRequest> klasse,
+      List<ExpandableField<MatrikkelnummerRequest>> matrikkelnummer,
       String moetenummer,
       String utvalg,
       String moetedato,
@@ -77,7 +79,8 @@ public class MoetemappeRequest extends MappeRequest {
         noekkelord,
         publisertDato,
         oppdatertDato,
-        klasse);
+        klasse,
+        matrikkelnummer);
     this.moetenummer = moetenummer;
     this.utvalg = utvalg;
     this.moetedato = moetedato;
@@ -190,6 +193,9 @@ public class MoetemappeRequest extends MappeRequest {
     /** An optional Klasse for this Mappe. */
     protected ExpandableField<KlasseRequest> klasse;
 
+    /** Property identifiers (matrikkelnummer) associated with this Mappe. */
+    protected List<ExpandableField<MatrikkelnummerRequest>> matrikkelnummer;
+
     /** A unique number or identifier for the meeting. */
     protected String moetenummer;
 
@@ -286,6 +292,11 @@ public class MoetemappeRequest extends MappeRequest {
     /** An optional Klasse for this Mappe. */
     public ExpandableField<KlasseRequest> getKlasse() {
       return klasse;
+    }
+
+    /** Property identifiers (matrikkelnummer) associated with this Mappe. */
+    public List<ExpandableField<MatrikkelnummerRequest>> getMatrikkelnummer() {
+      return matrikkelnummer;
     }
 
     /** A unique number or identifier for the meeting. */
@@ -432,6 +443,43 @@ public class MoetemappeRequest extends MappeRequest {
       return this;
     }
 
+    /** Property identifiers (matrikkelnummer) associated with this Mappe. */
+    public Builder matrikkelnummer(List<MatrikkelnummerRequest> matrikkelnummer) {
+      this.matrikkelnummer =
+          matrikkelnummer.stream().map(ExpandableField::new).collect(Collectors.toList());
+      return this;
+    }
+
+    /** Property identifiers (matrikkelnummer) associated with this Mappe. */
+    public Builder addMatrikkelnummer(MatrikkelnummerRequest matrikkelnummer) {
+      if (this.matrikkelnummer == null) {
+        this.matrikkelnummer = new ArrayList<>();
+      }
+      this.matrikkelnummer.add(new ExpandableField<MatrikkelnummerRequest>(matrikkelnummer));
+      return this;
+    }
+
+    /** Property identifiers (matrikkelnummer) associated with this Mappe. */
+    public Builder addMatrikkelnummer(
+        Function<MatrikkelnummerRequest.Builder, MatrikkelnummerRequest.Builder> builderFunction) {
+      if (this.matrikkelnummer == null) {
+        this.matrikkelnummer = new ArrayList<>();
+      }
+      this.matrikkelnummer.add(
+          new ExpandableField<>(
+              builderFunction.apply(new MatrikkelnummerRequest.Builder()).build()));
+      return this;
+    }
+
+    /** Property identifiers (matrikkelnummer) associated with this Mappe. */
+    public Builder addMatrikkelnummer(String id) {
+      if (this.matrikkelnummer == null) {
+        this.matrikkelnummer = new ArrayList<>();
+      }
+      this.matrikkelnummer.add(new ExpandableField<>(id));
+      return this;
+    }
+
     /** A unique number or identifier for the meeting. */
     public Builder moetenummer(String moetenummer) {
       this.moetenummer = moetenummer;
@@ -571,6 +619,7 @@ public class MoetemappeRequest extends MappeRequest {
           this.publisertDato,
           this.oppdatertDato,
           this.klasse,
+          this.matrikkelnummer,
           this.moetenummer,
           this.utvalg,
           this.moetedato,

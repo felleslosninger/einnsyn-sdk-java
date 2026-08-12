@@ -3,10 +3,12 @@
 
 package no.einnsyn.sdk.entities.mappe.models;
 
+import java.util.List;
 import no.einnsyn.sdk.common.expandablefield.ExpandableField;
 import no.einnsyn.sdk.entities.arkivbase.models.ArkivBase;
 import no.einnsyn.sdk.entities.arkivdel.models.Arkivdel;
 import no.einnsyn.sdk.entities.klasse.models.Klasse;
+import no.einnsyn.sdk.entities.matrikkelnummer.models.Matrikkelnummer;
 import no.einnsyn.sdk.entities.moetemappe.models.Moetemappe;
 import no.einnsyn.sdk.entities.saksmappe.models.Saksmappe;
 
@@ -54,6 +56,9 @@ public class Mappe extends ArkivBase {
    * Arkivdel.
    */
   protected ExpandableField<Arkivdel> arkivdel;
+
+  /** Property identifiers (matrikkelnummer) associated with this Mappe. */
+  protected List<ExpandableField<Matrikkelnummer>> matrikkelnummer;
 
   /** A URL-friendly unique slug for the resource. */
   public String getSlug() {
@@ -115,5 +120,10 @@ public class Mappe extends ArkivBase {
    */
   public ExpandableField<Arkivdel> getArkivdel() {
     return arkivdel;
+  }
+
+  /** Property identifiers (matrikkelnummer) associated with this Mappe. */
+  public List<ExpandableField<Matrikkelnummer>> getMatrikkelnummer() {
+    return matrikkelnummer;
   }
 }

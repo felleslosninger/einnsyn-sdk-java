@@ -19,6 +19,8 @@ import no.einnsyn.sdk.entities.journalpost.models.JournalpostRequest;
 import no.einnsyn.sdk.entities.journalpost.models.ListByJournalpostParameters;
 import no.einnsyn.sdk.entities.korrespondansepart.models.Korrespondansepart;
 import no.einnsyn.sdk.entities.korrespondansepart.models.KorrespondansepartRequest;
+import no.einnsyn.sdk.entities.matrikkelnummer.models.Matrikkelnummer;
+import no.einnsyn.sdk.entities.matrikkelnummer.models.MatrikkelnummerRequest;
 import no.einnsyn.sdk.entities.skjerming.models.Skjerming;
 import no.einnsyn.sdk.entities.skjerming.models.SkjermingRequest;
 import no.einnsyn.sdk.net.ApiRequestMethod;
@@ -529,6 +531,122 @@ public class JournalpostOperations extends ApiEntityOperations<Journalpost, Jour
         url,
         null,
         bodyBuilderFunction.apply(new KorrespondansepartRequest.Builder()).build(),
+        optionsBuilderFunction.apply(new EInnsynOptions.Builder()).build(),
+        type);
+  }
+
+  public PaginatedList<Matrikkelnummer> listMatrikkelnummer(String id) throws EInnsynException {
+    String url = "/journalpost/" + id + "/matrikkelnummer";
+    ApiRequestMethod method = ApiRequestMethod.GET;
+    Type type = new TypeToken<PaginatedList<Matrikkelnummer>>() {}.getType();
+    return requester.request(method, url, null, null, null, type);
+  }
+
+  public PaginatedList<Matrikkelnummer> listMatrikkelnummer(String id, EInnsynOptions options)
+      throws EInnsynException {
+    String url = "/journalpost/" + id + "/matrikkelnummer";
+    ApiRequestMethod method = ApiRequestMethod.GET;
+    Type type = new TypeToken<PaginatedList<Matrikkelnummer>>() {}.getType();
+    return requester.request(method, url, null, null, options, type);
+  }
+
+  public PaginatedList<Matrikkelnummer> listMatrikkelnummer(
+      String id, ListByJournalpostParameters queryParameters) throws EInnsynException {
+    String url = "/journalpost/" + id + "/matrikkelnummer";
+    ApiRequestMethod method = ApiRequestMethod.GET;
+    Type type = new TypeToken<PaginatedList<Matrikkelnummer>>() {}.getType();
+    return requester.request(method, url, queryParameters, null, null, type);
+  }
+
+  public PaginatedList<Matrikkelnummer> listMatrikkelnummer(
+      String id,
+      Function<ListByJournalpostParameters.Builder, ListByJournalpostParameters.Builder>
+          queryParametersBuilderFunction)
+      throws EInnsynException {
+    String url = "/journalpost/" + id + "/matrikkelnummer";
+    ApiRequestMethod method = ApiRequestMethod.GET;
+    Type type = new TypeToken<PaginatedList<Matrikkelnummer>>() {}.getType();
+    return requester.request(
+        method,
+        url,
+        queryParametersBuilderFunction.apply(new ListByJournalpostParameters.Builder()).build(),
+        null,
+        null,
+        type);
+  }
+
+  public PaginatedList<Matrikkelnummer> listMatrikkelnummer(
+      String id, ListByJournalpostParameters queryParameters, EInnsynOptions options)
+      throws EInnsynException {
+    String url = "/journalpost/" + id + "/matrikkelnummer";
+    ApiRequestMethod method = ApiRequestMethod.GET;
+    Type type = new TypeToken<PaginatedList<Matrikkelnummer>>() {}.getType();
+    return requester.request(method, url, queryParameters, null, options, type);
+  }
+
+  public PaginatedList<Matrikkelnummer> listMatrikkelnummer(
+      String id,
+      Function<ListByJournalpostParameters.Builder, ListByJournalpostParameters.Builder>
+          queryParametersBuilderFunction,
+      Function<EInnsynOptions.Builder, EInnsynOptions.Builder> optionsBuilderFunction)
+      throws EInnsynException {
+    String url = "/journalpost/" + id + "/matrikkelnummer";
+    ApiRequestMethod method = ApiRequestMethod.GET;
+    Type type = new TypeToken<PaginatedList<Matrikkelnummer>>() {}.getType();
+    return requester.request(
+        method,
+        url,
+        queryParametersBuilderFunction.apply(new ListByJournalpostParameters.Builder()).build(),
+        null,
+        optionsBuilderFunction.apply(new EInnsynOptions.Builder()).build(),
+        type);
+  }
+
+  public Matrikkelnummer addMatrikkelnummer(String id, MatrikkelnummerRequest body)
+      throws EInnsynException {
+    String url = "/journalpost/" + id + "/matrikkelnummer";
+    ApiRequestMethod method = ApiRequestMethod.POST;
+    Type type = new TypeToken<Matrikkelnummer>() {}.getType();
+    return requester.request(method, url, null, body, null, type);
+  }
+
+  public Matrikkelnummer addMatrikkelnummer(
+      String id,
+      Function<MatrikkelnummerRequest.Builder, MatrikkelnummerRequest.Builder> bodyBuilderFunction)
+      throws EInnsynException {
+    String url = "/journalpost/" + id + "/matrikkelnummer";
+    ApiRequestMethod method = ApiRequestMethod.POST;
+    Type type = new TypeToken<Matrikkelnummer>() {}.getType();
+    return requester.request(
+        method,
+        url,
+        null,
+        bodyBuilderFunction.apply(new MatrikkelnummerRequest.Builder()).build(),
+        null,
+        type);
+  }
+
+  public Matrikkelnummer addMatrikkelnummer(
+      String id, MatrikkelnummerRequest body, EInnsynOptions options) throws EInnsynException {
+    String url = "/journalpost/" + id + "/matrikkelnummer";
+    ApiRequestMethod method = ApiRequestMethod.POST;
+    Type type = new TypeToken<Matrikkelnummer>() {}.getType();
+    return requester.request(method, url, null, body, options, type);
+  }
+
+  public Matrikkelnummer addMatrikkelnummer(
+      String id,
+      Function<MatrikkelnummerRequest.Builder, MatrikkelnummerRequest.Builder> bodyBuilderFunction,
+      Function<EInnsynOptions.Builder, EInnsynOptions.Builder> optionsBuilderFunction)
+      throws EInnsynException {
+    String url = "/journalpost/" + id + "/matrikkelnummer";
+    ApiRequestMethod method = ApiRequestMethod.POST;
+    Type type = new TypeToken<Matrikkelnummer>() {}.getType();
+    return requester.request(
+        method,
+        url,
+        null,
+        bodyBuilderFunction.apply(new MatrikkelnummerRequest.Builder()).build(),
         optionsBuilderFunction.apply(new EInnsynOptions.Builder()).build(),
         type);
   }
