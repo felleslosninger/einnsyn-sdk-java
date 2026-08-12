@@ -12,6 +12,7 @@ import no.einnsyn.sdk.entities.arkivbase.models.ArkivBaseRequest;
 import no.einnsyn.sdk.entities.dokumentbeskrivelse.models.DokumentbeskrivelseRequest;
 import no.einnsyn.sdk.entities.enhet.models.EnhetRequest;
 import no.einnsyn.sdk.entities.korrespondansepart.models.KorrespondansepartRequest;
+import no.einnsyn.sdk.entities.matrikkelnummer.models.MatrikkelnummerRequest;
 
 /**
  * An abstract base model for registry entries, such as journal entries (Journalpost) and
@@ -45,6 +46,9 @@ public class RegistreringRequest extends ArkivBaseRequest {
 
   protected List<ExpandableField<DokumentbeskrivelseRequest>> dokumentbeskrivelse;
 
+  /** Property identifiers (matrikkelnummer) associated with this Registrering. */
+  protected List<ExpandableField<MatrikkelnummerRequest>> matrikkelnummer;
+
   /** The administrative unit that has been handed the responsibility for this resource. */
   protected ExpandableField<EnhetRequest> avhendetTil;
 
@@ -61,6 +65,7 @@ public class RegistreringRequest extends ArkivBaseRequest {
       String oppdatertDato,
       List<ExpandableField<KorrespondansepartRequest>> korrespondansepart,
       List<ExpandableField<DokumentbeskrivelseRequest>> dokumentbeskrivelse,
+      List<ExpandableField<MatrikkelnummerRequest>> matrikkelnummer,
       ExpandableField<EnhetRequest> avhendetTil) {
     super(externalId, accessibleAfter, systemId, journalenhet);
     this.slug = slug;
@@ -71,6 +76,7 @@ public class RegistreringRequest extends ArkivBaseRequest {
     this.oppdatertDato = oppdatertDato;
     this.korrespondansepart = korrespondansepart;
     this.dokumentbeskrivelse = dokumentbeskrivelse;
+    this.matrikkelnummer = matrikkelnummer;
     this.avhendetTil = avhendetTil;
   }
 
@@ -115,6 +121,11 @@ public class RegistreringRequest extends ArkivBaseRequest {
 
   public List<ExpandableField<DokumentbeskrivelseRequest>> getDokumentbeskrivelse() {
     return dokumentbeskrivelse;
+  }
+
+  /** Property identifiers (matrikkelnummer) associated with this Registrering. */
+  public List<ExpandableField<MatrikkelnummerRequest>> getMatrikkelnummer() {
+    return matrikkelnummer;
   }
 
   /** The administrative unit that has been handed the responsibility for this resource. */
@@ -168,6 +179,9 @@ public class RegistreringRequest extends ArkivBaseRequest {
     protected List<ExpandableField<KorrespondansepartRequest>> korrespondansepart;
 
     protected List<ExpandableField<DokumentbeskrivelseRequest>> dokumentbeskrivelse;
+
+    /** Property identifiers (matrikkelnummer) associated with this Registrering. */
+    protected List<ExpandableField<MatrikkelnummerRequest>> matrikkelnummer;
 
     /** The administrative unit that has been handed the responsibility for this resource. */
     protected ExpandableField<EnhetRequest> avhendetTil;
@@ -240,6 +254,11 @@ public class RegistreringRequest extends ArkivBaseRequest {
 
     public List<ExpandableField<DokumentbeskrivelseRequest>> getDokumentbeskrivelse() {
       return dokumentbeskrivelse;
+    }
+
+    /** Property identifiers (matrikkelnummer) associated with this Registrering. */
+    public List<ExpandableField<MatrikkelnummerRequest>> getMatrikkelnummer() {
+      return matrikkelnummer;
     }
 
     /** The administrative unit that has been handed the responsibility for this resource. */
@@ -399,6 +418,43 @@ public class RegistreringRequest extends ArkivBaseRequest {
       return this;
     }
 
+    /** Property identifiers (matrikkelnummer) associated with this Registrering. */
+    public Builder matrikkelnummer(List<MatrikkelnummerRequest> matrikkelnummer) {
+      this.matrikkelnummer =
+          matrikkelnummer.stream().map(ExpandableField::new).collect(Collectors.toList());
+      return this;
+    }
+
+    /** Property identifiers (matrikkelnummer) associated with this Registrering. */
+    public Builder addMatrikkelnummer(MatrikkelnummerRequest matrikkelnummer) {
+      if (this.matrikkelnummer == null) {
+        this.matrikkelnummer = new ArrayList<>();
+      }
+      this.matrikkelnummer.add(new ExpandableField<MatrikkelnummerRequest>(matrikkelnummer));
+      return this;
+    }
+
+    /** Property identifiers (matrikkelnummer) associated with this Registrering. */
+    public Builder addMatrikkelnummer(
+        Function<MatrikkelnummerRequest.Builder, MatrikkelnummerRequest.Builder> builderFunction) {
+      if (this.matrikkelnummer == null) {
+        this.matrikkelnummer = new ArrayList<>();
+      }
+      this.matrikkelnummer.add(
+          new ExpandableField<>(
+              builderFunction.apply(new MatrikkelnummerRequest.Builder()).build()));
+      return this;
+    }
+
+    /** Property identifiers (matrikkelnummer) associated with this Registrering. */
+    public Builder addMatrikkelnummer(String id) {
+      if (this.matrikkelnummer == null) {
+        this.matrikkelnummer = new ArrayList<>();
+      }
+      this.matrikkelnummer.add(new ExpandableField<>(id));
+      return this;
+    }
+
     /** The administrative unit that has been handed the responsibility for this resource. */
     public Builder avhendetTil(EnhetRequest avhendetTil) {
       this.avhendetTil = new ExpandableField<>(avhendetTil);
@@ -425,6 +481,7 @@ public class RegistreringRequest extends ArkivBaseRequest {
           this.oppdatertDato,
           this.korrespondansepart,
           this.dokumentbeskrivelse,
+          this.matrikkelnummer,
           this.avhendetTil);
     }
   }

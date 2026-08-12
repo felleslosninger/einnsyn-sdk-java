@@ -12,6 +12,7 @@ import no.einnsyn.sdk.entities.enhet.models.EnhetRequest;
 import no.einnsyn.sdk.entities.journalpost.models.JournalpostRequest;
 import no.einnsyn.sdk.entities.klasse.models.KlasseRequest;
 import no.einnsyn.sdk.entities.mappe.models.MappeRequest;
+import no.einnsyn.sdk.entities.matrikkelnummer.models.MatrikkelnummerRequest;
 
 /**
  * Represents a case file, which is a folder for collecting all documents related to a specific
@@ -46,6 +47,7 @@ public class SaksmappeRequest extends MappeRequest {
       String publisertDato,
       String oppdatertDato,
       ExpandableField<KlasseRequest> klasse,
+      List<ExpandableField<MatrikkelnummerRequest>> matrikkelnummer,
       Integer saksaar,
       Integer sakssekvensnummer,
       String saksdato,
@@ -63,7 +65,8 @@ public class SaksmappeRequest extends MappeRequest {
         noekkelord,
         publisertDato,
         oppdatertDato,
-        klasse);
+        klasse,
+        matrikkelnummer);
     this.saksaar = saksaar;
     this.sakssekvensnummer = sakssekvensnummer;
     this.saksdato = saksdato;
@@ -152,6 +155,9 @@ public class SaksmappeRequest extends MappeRequest {
     /** An optional Klasse for this Mappe. */
     protected ExpandableField<KlasseRequest> klasse;
 
+    /** Property identifiers (matrikkelnummer) associated with this Mappe. */
+    protected List<ExpandableField<MatrikkelnummerRequest>> matrikkelnummer;
+
     protected Integer saksaar;
 
     protected Integer sakssekvensnummer;
@@ -236,6 +242,11 @@ public class SaksmappeRequest extends MappeRequest {
     /** An optional Klasse for this Mappe. */
     public ExpandableField<KlasseRequest> getKlasse() {
       return klasse;
+    }
+
+    /** Property identifiers (matrikkelnummer) associated with this Mappe. */
+    public List<ExpandableField<MatrikkelnummerRequest>> getMatrikkelnummer() {
+      return matrikkelnummer;
     }
 
     public Integer getSaksaar() {
@@ -362,6 +373,43 @@ public class SaksmappeRequest extends MappeRequest {
       return this;
     }
 
+    /** Property identifiers (matrikkelnummer) associated with this Mappe. */
+    public Builder matrikkelnummer(List<MatrikkelnummerRequest> matrikkelnummer) {
+      this.matrikkelnummer =
+          matrikkelnummer.stream().map(ExpandableField::new).collect(Collectors.toList());
+      return this;
+    }
+
+    /** Property identifiers (matrikkelnummer) associated with this Mappe. */
+    public Builder addMatrikkelnummer(MatrikkelnummerRequest matrikkelnummer) {
+      if (this.matrikkelnummer == null) {
+        this.matrikkelnummer = new ArrayList<>();
+      }
+      this.matrikkelnummer.add(new ExpandableField<MatrikkelnummerRequest>(matrikkelnummer));
+      return this;
+    }
+
+    /** Property identifiers (matrikkelnummer) associated with this Mappe. */
+    public Builder addMatrikkelnummer(
+        Function<MatrikkelnummerRequest.Builder, MatrikkelnummerRequest.Builder> builderFunction) {
+      if (this.matrikkelnummer == null) {
+        this.matrikkelnummer = new ArrayList<>();
+      }
+      this.matrikkelnummer.add(
+          new ExpandableField<>(
+              builderFunction.apply(new MatrikkelnummerRequest.Builder()).build()));
+      return this;
+    }
+
+    /** Property identifiers (matrikkelnummer) associated with this Mappe. */
+    public Builder addMatrikkelnummer(String id) {
+      if (this.matrikkelnummer == null) {
+        this.matrikkelnummer = new ArrayList<>();
+      }
+      this.matrikkelnummer.add(new ExpandableField<>(id));
+      return this;
+    }
+
     public Builder saksaar(Integer saksaar) {
       this.saksaar = saksaar;
       return this;
@@ -445,6 +493,7 @@ public class SaksmappeRequest extends MappeRequest {
           this.publisertDato,
           this.oppdatertDato,
           this.klasse,
+          this.matrikkelnummer,
           this.saksaar,
           this.sakssekvensnummer,
           this.saksdato,

@@ -21,6 +21,7 @@ import no.einnsyn.sdk.entities.klassifikasjonssystem.models.Klassifikasjonssyste
 import no.einnsyn.sdk.entities.korrespondansepart.models.Korrespondansepart;
 import no.einnsyn.sdk.entities.lagretsak.models.LagretSak;
 import no.einnsyn.sdk.entities.lagretsoek.models.LagretSoek;
+import no.einnsyn.sdk.entities.matrikkelnummer.models.Matrikkelnummer;
 import no.einnsyn.sdk.entities.moetedeltaker.models.Moetedeltaker;
 import no.einnsyn.sdk.entities.moetedokument.models.Moetedokument;
 import no.einnsyn.sdk.entities.moetemappe.models.Moetemappe;
@@ -71,6 +72,8 @@ public class EntityClassMapper {
         return LagretSak.class;
       case "LagretSoek":
         return LagretSoek.class;
+      case "Matrikkelnummer":
+        return Matrikkelnummer.class;
       case "Moetedeltaker":
         return Moetedeltaker.class;
       case "Moetedokument":

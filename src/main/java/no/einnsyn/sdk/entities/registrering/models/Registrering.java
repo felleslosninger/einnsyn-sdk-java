@@ -9,6 +9,7 @@ import no.einnsyn.sdk.entities.arkivbase.models.ArkivBase;
 import no.einnsyn.sdk.entities.dokumentbeskrivelse.models.Dokumentbeskrivelse;
 import no.einnsyn.sdk.entities.enhet.models.Enhet;
 import no.einnsyn.sdk.entities.korrespondansepart.models.Korrespondansepart;
+import no.einnsyn.sdk.entities.matrikkelnummer.models.Matrikkelnummer;
 
 /**
  * An abstract base model for registry entries, such as journal entries (Journalpost) and
@@ -41,6 +42,9 @@ public class Registrering extends ArkivBase {
   protected List<ExpandableField<Korrespondansepart>> korrespondansepart;
 
   protected List<ExpandableField<Dokumentbeskrivelse>> dokumentbeskrivelse;
+
+  /** Property identifiers (matrikkelnummer) associated with this Registrering. */
+  protected List<ExpandableField<Matrikkelnummer>> matrikkelnummer;
 
   /** The administrative unit that has been handed the responsibility for this resource. */
   protected ExpandableField<Enhet> avhendetTil;
@@ -86,6 +90,11 @@ public class Registrering extends ArkivBase {
 
   public List<ExpandableField<Dokumentbeskrivelse>> getDokumentbeskrivelse() {
     return dokumentbeskrivelse;
+  }
+
+  /** Property identifiers (matrikkelnummer) associated with this Registrering. */
+  public List<ExpandableField<Matrikkelnummer>> getMatrikkelnummer() {
+    return matrikkelnummer;
   }
 
   /** The administrative unit that has been handed the responsibility for this resource. */

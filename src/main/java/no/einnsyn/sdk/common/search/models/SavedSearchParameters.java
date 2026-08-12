@@ -1,0 +1,1360 @@
+// Auto-generated from our API specification
+// https://github.com/felleslosninger/einnsyn-api-spec
+
+package no.einnsyn.sdk.common.search.models;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Function;
+
+public class SavedSearchParameters {
+  /** Specifies which fields in the response should be expanded. */
+  protected List<String> expand;
+
+  /**
+   * A limit on the number of objects to be returned. Limit can range between 1 and 100, and the
+   * default is 25.
+   */
+  protected Integer limit;
+
+  /** The sort order of the result set. The default is ascending. */
+  protected SortOrderEnum sortOrder;
+
+  /**
+   * A cursor for use in pagination. This is a list of size two, the value of the sortBy property
+   * and the unique id.
+   */
+  protected List<String> startingAfter;
+
+  /**
+   * A cursor for use in pagination. This is a list of size two, the value of the sortBy property
+   * and the unique id.
+   */
+  protected List<String> endingBefore;
+
+  /** The field to sort results by. The default is "score". */
+  protected SortByEnum sortBy;
+
+  /**
+   * A query string to filter by. Quotes can be used to search for exact matches or phrases. Words
+   * can be excluded by prefixing them with a minus sign.
+   */
+  protected String query;
+
+  /** A list of enhet IDs to filter by. This will also match subenhets. */
+  protected List<String> administrativEnhet;
+
+  /** A list of enhet IDs to filter by. This will only match the specified enhets, not subenhets. */
+  protected List<String> administrativEnhetExact;
+
+  /** A list of enhet IDs to exclude from the result set. This will also exclude subenhets. */
+  protected List<String> excludeAdministrativEnhet;
+
+  /**
+   * A list of enhet IDs to exclude from the result set. This will only exclude the specified
+   * enhets, not subenhets.
+   */
+  protected List<String> excludeAdministrativEnhetExact;
+
+  /** Filter by title. This is a free text search. */
+  protected List<String> tittel;
+
+  /** Filter by sender/recipient name. This is a free text search. */
+  protected List<String> korrespondansepartNavn;
+
+  /** Filter by legal basis for exemption. This is a free text search. */
+  protected List<String> skjermingshjemmel;
+
+  /** Filter by the published date of the document. */
+  protected String publisertDatoFrom;
+
+  /** Filter by the published date of the document. */
+  protected String publisertDatoTo;
+
+  /** Filter by the updated date of the document. */
+  protected String oppdatertDatoFrom;
+
+  /** Filter by the updated date of the document. */
+  protected String oppdatertDatoTo;
+
+  /** Filter by journal date. */
+  protected String journaldatoFrom;
+
+  /** Filter by journal date. */
+  protected String journaldatoTo;
+
+  /** Filter by document date. */
+  protected String dokumentetsDatoFrom;
+
+  /** Filter by document date. */
+  protected String dokumentetsDatoTo;
+
+  /** Filter by the date of a meeting. */
+  protected String moetedatoFrom;
+
+  /** Filter by the date of a meeting. */
+  protected String moetedatoTo;
+
+  /**
+   * Filter by the legacy "standardDato". This is the default date for each entity type. For
+   * instance, for Moetemappe this would be "moetedato", for Journalpost this would be
+   * "journaldato".
+   */
+  protected String standardDatoFrom;
+
+  /**
+   * Filter by the legacy "standardDato". This is the default date for each entity type. For
+   * instance, for Moetemappe this would be "moetedato", for Journalpost this would be
+   * "journaldato".
+   */
+  protected String standardDatoTo;
+
+  /** Filter by saksaar */
+  protected List<String> saksaar;
+
+  /** Filter by sakssekvensnummer */
+  protected List<String> sakssekvensnummer;
+
+  /** Filter by saksnummer */
+  protected List<String> saksnummer;
+
+  /** Filter by journalpostnummer */
+  protected List<String> journalpostnummer;
+
+  /** Filter by journalsekvensnummer */
+  protected List<String> journalsekvensnummer;
+
+  /** Filter by moetesaksaar */
+  protected List<String> moetesaksaar;
+
+  /** Filter by moetesakssekvensnummer */
+  protected List<String> moetesakssekvensnummer;
+
+  /** Filter by journalposttype */
+  protected List<JournalposttypeEnum> journalposttype;
+
+  /** Filter by the entity type. */
+  protected List<EntityEnum> entity;
+
+  /**
+   * A list of resource IDs to be returned. Maximum 100 values. If this parameter is used, the other
+   * parameters will be ignored.
+   */
+  protected List<String> ids;
+
+  /**
+   * A list of external IDs to be returned. Maximum 100 values. If this parameter is used, the other
+   * parameters will be ignored.
+   */
+  protected List<String> externalIds;
+
+  /** The Journalenhet to filter the result set by. */
+  protected String journalenhet;
+
+  /** Match documents with (or without) fulltext. */
+  protected Boolean fulltext;
+
+  public SavedSearchParameters(
+      List<String> expand,
+      Integer limit,
+      SortOrderEnum sortOrder,
+      List<String> startingAfter,
+      List<String> endingBefore,
+      SortByEnum sortBy,
+      String query,
+      List<String> administrativEnhet,
+      List<String> administrativEnhetExact,
+      List<String> excludeAdministrativEnhet,
+      List<String> excludeAdministrativEnhetExact,
+      List<String> tittel,
+      List<String> korrespondansepartNavn,
+      List<String> skjermingshjemmel,
+      String publisertDatoFrom,
+      String publisertDatoTo,
+      String oppdatertDatoFrom,
+      String oppdatertDatoTo,
+      String journaldatoFrom,
+      String journaldatoTo,
+      String dokumentetsDatoFrom,
+      String dokumentetsDatoTo,
+      String moetedatoFrom,
+      String moetedatoTo,
+      String standardDatoFrom,
+      String standardDatoTo,
+      List<String> saksaar,
+      List<String> sakssekvensnummer,
+      List<String> saksnummer,
+      List<String> journalpostnummer,
+      List<String> journalsekvensnummer,
+      List<String> moetesaksaar,
+      List<String> moetesakssekvensnummer,
+      List<JournalposttypeEnum> journalposttype,
+      List<EntityEnum> entity,
+      List<String> ids,
+      List<String> externalIds,
+      String journalenhet,
+      Boolean fulltext) {
+    super();
+    this.expand = expand;
+    this.limit = limit;
+    this.sortOrder = sortOrder;
+    this.startingAfter = startingAfter;
+    this.endingBefore = endingBefore;
+    this.sortBy = sortBy;
+    this.query = query;
+    this.administrativEnhet = administrativEnhet;
+    this.administrativEnhetExact = administrativEnhetExact;
+    this.excludeAdministrativEnhet = excludeAdministrativEnhet;
+    this.excludeAdministrativEnhetExact = excludeAdministrativEnhetExact;
+    this.tittel = tittel;
+    this.korrespondansepartNavn = korrespondansepartNavn;
+    this.skjermingshjemmel = skjermingshjemmel;
+    this.publisertDatoFrom = publisertDatoFrom;
+    this.publisertDatoTo = publisertDatoTo;
+    this.oppdatertDatoFrom = oppdatertDatoFrom;
+    this.oppdatertDatoTo = oppdatertDatoTo;
+    this.journaldatoFrom = journaldatoFrom;
+    this.journaldatoTo = journaldatoTo;
+    this.dokumentetsDatoFrom = dokumentetsDatoFrom;
+    this.dokumentetsDatoTo = dokumentetsDatoTo;
+    this.moetedatoFrom = moetedatoFrom;
+    this.moetedatoTo = moetedatoTo;
+    this.standardDatoFrom = standardDatoFrom;
+    this.standardDatoTo = standardDatoTo;
+    this.saksaar = saksaar;
+    this.sakssekvensnummer = sakssekvensnummer;
+    this.saksnummer = saksnummer;
+    this.journalpostnummer = journalpostnummer;
+    this.journalsekvensnummer = journalsekvensnummer;
+    this.moetesaksaar = moetesaksaar;
+    this.moetesakssekvensnummer = moetesakssekvensnummer;
+    this.journalposttype = journalposttype;
+    this.entity = entity;
+    this.ids = ids;
+    this.externalIds = externalIds;
+    this.journalenhet = journalenhet;
+    this.fulltext = fulltext;
+  }
+
+  /** Specifies which fields in the response should be expanded. */
+  public List<String> getExpand() {
+    return expand;
+  }
+
+  /**
+   * A limit on the number of objects to be returned. Limit can range between 1 and 100, and the
+   * default is 25.
+   */
+  public Integer getLimit() {
+    return limit;
+  }
+
+  /** The sort order of the result set. The default is ascending. */
+  public SortOrderEnum getSortOrder() {
+    return sortOrder;
+  }
+
+  /**
+   * A cursor for use in pagination. This is a list of size two, the value of the sortBy property
+   * and the unique id.
+   */
+  public List<String> getStartingAfter() {
+    return startingAfter;
+  }
+
+  /**
+   * A cursor for use in pagination. This is a list of size two, the value of the sortBy property
+   * and the unique id.
+   */
+  public List<String> getEndingBefore() {
+    return endingBefore;
+  }
+
+  /** The field to sort results by. The default is "score". */
+  public SortByEnum getSortBy() {
+    return sortBy;
+  }
+
+  /**
+   * A query string to filter by. Quotes can be used to search for exact matches or phrases. Words
+   * can be excluded by prefixing them with a minus sign.
+   */
+  public String getQuery() {
+    return query;
+  }
+
+  /** A list of enhet IDs to filter by. This will also match subenhets. */
+  public List<String> getAdministrativEnhet() {
+    return administrativEnhet;
+  }
+
+  /** A list of enhet IDs to filter by. This will only match the specified enhets, not subenhets. */
+  public List<String> getAdministrativEnhetExact() {
+    return administrativEnhetExact;
+  }
+
+  /** A list of enhet IDs to exclude from the result set. This will also exclude subenhets. */
+  public List<String> getExcludeAdministrativEnhet() {
+    return excludeAdministrativEnhet;
+  }
+
+  /**
+   * A list of enhet IDs to exclude from the result set. This will only exclude the specified
+   * enhets, not subenhets.
+   */
+  public List<String> getExcludeAdministrativEnhetExact() {
+    return excludeAdministrativEnhetExact;
+  }
+
+  /** Filter by title. This is a free text search. */
+  public List<String> getTittel() {
+    return tittel;
+  }
+
+  /** Filter by sender/recipient name. This is a free text search. */
+  public List<String> getKorrespondansepartNavn() {
+    return korrespondansepartNavn;
+  }
+
+  /** Filter by legal basis for exemption. This is a free text search. */
+  public List<String> getSkjermingshjemmel() {
+    return skjermingshjemmel;
+  }
+
+  /** Filter by the published date of the document. */
+  public String getPublisertDatoFrom() {
+    return publisertDatoFrom;
+  }
+
+  /** Filter by the published date of the document. */
+  public String getPublisertDatoTo() {
+    return publisertDatoTo;
+  }
+
+  /** Filter by the updated date of the document. */
+  public String getOppdatertDatoFrom() {
+    return oppdatertDatoFrom;
+  }
+
+  /** Filter by the updated date of the document. */
+  public String getOppdatertDatoTo() {
+    return oppdatertDatoTo;
+  }
+
+  /** Filter by journal date. */
+  public String getJournaldatoFrom() {
+    return journaldatoFrom;
+  }
+
+  /** Filter by journal date. */
+  public String getJournaldatoTo() {
+    return journaldatoTo;
+  }
+
+  /** Filter by document date. */
+  public String getDokumentetsDatoFrom() {
+    return dokumentetsDatoFrom;
+  }
+
+  /** Filter by document date. */
+  public String getDokumentetsDatoTo() {
+    return dokumentetsDatoTo;
+  }
+
+  /** Filter by the date of a meeting. */
+  public String getMoetedatoFrom() {
+    return moetedatoFrom;
+  }
+
+  /** Filter by the date of a meeting. */
+  public String getMoetedatoTo() {
+    return moetedatoTo;
+  }
+
+  /**
+   * Filter by the legacy "standardDato". This is the default date for each entity type. For
+   * instance, for Moetemappe this would be "moetedato", for Journalpost this would be
+   * "journaldato".
+   */
+  public String getStandardDatoFrom() {
+    return standardDatoFrom;
+  }
+
+  /**
+   * Filter by the legacy "standardDato". This is the default date for each entity type. For
+   * instance, for Moetemappe this would be "moetedato", for Journalpost this would be
+   * "journaldato".
+   */
+  public String getStandardDatoTo() {
+    return standardDatoTo;
+  }
+
+  /** Filter by saksaar */
+  public List<String> getSaksaar() {
+    return saksaar;
+  }
+
+  /** Filter by sakssekvensnummer */
+  public List<String> getSakssekvensnummer() {
+    return sakssekvensnummer;
+  }
+
+  /** Filter by saksnummer */
+  public List<String> getSaksnummer() {
+    return saksnummer;
+  }
+
+  /** Filter by journalpostnummer */
+  public List<String> getJournalpostnummer() {
+    return journalpostnummer;
+  }
+
+  /** Filter by journalsekvensnummer */
+  public List<String> getJournalsekvensnummer() {
+    return journalsekvensnummer;
+  }
+
+  /** Filter by moetesaksaar */
+  public List<String> getMoetesaksaar() {
+    return moetesaksaar;
+  }
+
+  /** Filter by moetesakssekvensnummer */
+  public List<String> getMoetesakssekvensnummer() {
+    return moetesakssekvensnummer;
+  }
+
+  /** Filter by journalposttype */
+  public List<JournalposttypeEnum> getJournalposttype() {
+    return journalposttype;
+  }
+
+  /** Filter by the entity type. */
+  public List<EntityEnum> getEntity() {
+    return entity;
+  }
+
+  /**
+   * A list of resource IDs to be returned. Maximum 100 values. If this parameter is used, the other
+   * parameters will be ignored.
+   */
+  public List<String> getIds() {
+    return ids;
+  }
+
+  /**
+   * A list of external IDs to be returned. Maximum 100 values. If this parameter is used, the other
+   * parameters will be ignored.
+   */
+  public List<String> getExternalIds() {
+    return externalIds;
+  }
+
+  /** The Journalenhet to filter the result set by. */
+  public String getJournalenhet() {
+    return journalenhet;
+  }
+
+  /** Match documents with (or without) fulltext. */
+  public Boolean getFulltext() {
+    return fulltext;
+  }
+
+  public static Builder builder() {
+    return new Builder();
+  }
+
+  public static SavedSearchParameters of(Function<Builder, Builder> builderFunction) {
+    return builderFunction.apply(new Builder()).build();
+  }
+
+  public static class Builder {
+    /** Specifies which fields in the response should be expanded. */
+    protected List<String> expand;
+
+    /**
+     * A limit on the number of objects to be returned. Limit can range between 1 and 100, and the
+     * default is 25.
+     */
+    protected Integer limit;
+
+    /** The sort order of the result set. The default is ascending. */
+    protected SortOrderEnum sortOrder;
+
+    /**
+     * A cursor for use in pagination. This is a list of size two, the value of the sortBy property
+     * and the unique id.
+     */
+    protected List<String> startingAfter;
+
+    /**
+     * A cursor for use in pagination. This is a list of size two, the value of the sortBy property
+     * and the unique id.
+     */
+    protected List<String> endingBefore;
+
+    /** The field to sort results by. The default is "score". */
+    protected SortByEnum sortBy;
+
+    /**
+     * A query string to filter by. Quotes can be used to search for exact matches or phrases. Words
+     * can be excluded by prefixing them with a minus sign.
+     */
+    protected String query;
+
+    /** A list of enhet IDs to filter by. This will also match subenhets. */
+    protected List<String> administrativEnhet;
+
+    /**
+     * A list of enhet IDs to filter by. This will only match the specified enhets, not subenhets.
+     */
+    protected List<String> administrativEnhetExact;
+
+    /** A list of enhet IDs to exclude from the result set. This will also exclude subenhets. */
+    protected List<String> excludeAdministrativEnhet;
+
+    /**
+     * A list of enhet IDs to exclude from the result set. This will only exclude the specified
+     * enhets, not subenhets.
+     */
+    protected List<String> excludeAdministrativEnhetExact;
+
+    /** Filter by title. This is a free text search. */
+    protected List<String> tittel;
+
+    /** Filter by sender/recipient name. This is a free text search. */
+    protected List<String> korrespondansepartNavn;
+
+    /** Filter by legal basis for exemption. This is a free text search. */
+    protected List<String> skjermingshjemmel;
+
+    /** Filter by the published date of the document. */
+    protected String publisertDatoFrom;
+
+    /** Filter by the published date of the document. */
+    protected String publisertDatoTo;
+
+    /** Filter by the updated date of the document. */
+    protected String oppdatertDatoFrom;
+
+    /** Filter by the updated date of the document. */
+    protected String oppdatertDatoTo;
+
+    /** Filter by journal date. */
+    protected String journaldatoFrom;
+
+    /** Filter by journal date. */
+    protected String journaldatoTo;
+
+    /** Filter by document date. */
+    protected String dokumentetsDatoFrom;
+
+    /** Filter by document date. */
+    protected String dokumentetsDatoTo;
+
+    /** Filter by the date of a meeting. */
+    protected String moetedatoFrom;
+
+    /** Filter by the date of a meeting. */
+    protected String moetedatoTo;
+
+    /**
+     * Filter by the legacy "standardDato". This is the default date for each entity type. For
+     * instance, for Moetemappe this would be "moetedato", for Journalpost this would be
+     * "journaldato".
+     */
+    protected String standardDatoFrom;
+
+    /**
+     * Filter by the legacy "standardDato". This is the default date for each entity type. For
+     * instance, for Moetemappe this would be "moetedato", for Journalpost this would be
+     * "journaldato".
+     */
+    protected String standardDatoTo;
+
+    /** Filter by saksaar */
+    protected List<String> saksaar;
+
+    /** Filter by sakssekvensnummer */
+    protected List<String> sakssekvensnummer;
+
+    /** Filter by saksnummer */
+    protected List<String> saksnummer;
+
+    /** Filter by journalpostnummer */
+    protected List<String> journalpostnummer;
+
+    /** Filter by journalsekvensnummer */
+    protected List<String> journalsekvensnummer;
+
+    /** Filter by moetesaksaar */
+    protected List<String> moetesaksaar;
+
+    /** Filter by moetesakssekvensnummer */
+    protected List<String> moetesakssekvensnummer;
+
+    /** Filter by journalposttype */
+    protected List<JournalposttypeEnum> journalposttype;
+
+    /** Filter by the entity type. */
+    protected List<EntityEnum> entity;
+
+    /**
+     * A list of resource IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
+     */
+    protected List<String> ids;
+
+    /**
+     * A list of external IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
+     */
+    protected List<String> externalIds;
+
+    /** The Journalenhet to filter the result set by. */
+    protected String journalenhet;
+
+    /** Match documents with (or without) fulltext. */
+    protected Boolean fulltext;
+
+    /** Specifies which fields in the response should be expanded. */
+    public List<String> getExpand() {
+      return expand;
+    }
+
+    /**
+     * A limit on the number of objects to be returned. Limit can range between 1 and 100, and the
+     * default is 25.
+     */
+    public Integer getLimit() {
+      return limit;
+    }
+
+    /** The sort order of the result set. The default is ascending. */
+    public SortOrderEnum getSortOrder() {
+      return sortOrder;
+    }
+
+    /**
+     * A cursor for use in pagination. This is a list of size two, the value of the sortBy property
+     * and the unique id.
+     */
+    public List<String> getStartingAfter() {
+      return startingAfter;
+    }
+
+    /**
+     * A cursor for use in pagination. This is a list of size two, the value of the sortBy property
+     * and the unique id.
+     */
+    public List<String> getEndingBefore() {
+      return endingBefore;
+    }
+
+    /** The field to sort results by. The default is "score". */
+    public SortByEnum getSortBy() {
+      return sortBy;
+    }
+
+    /**
+     * A query string to filter by. Quotes can be used to search for exact matches or phrases. Words
+     * can be excluded by prefixing them with a minus sign.
+     */
+    public String getQuery() {
+      return query;
+    }
+
+    /** A list of enhet IDs to filter by. This will also match subenhets. */
+    public List<String> getAdministrativEnhet() {
+      return administrativEnhet;
+    }
+
+    /**
+     * A list of enhet IDs to filter by. This will only match the specified enhets, not subenhets.
+     */
+    public List<String> getAdministrativEnhetExact() {
+      return administrativEnhetExact;
+    }
+
+    /** A list of enhet IDs to exclude from the result set. This will also exclude subenhets. */
+    public List<String> getExcludeAdministrativEnhet() {
+      return excludeAdministrativEnhet;
+    }
+
+    /**
+     * A list of enhet IDs to exclude from the result set. This will only exclude the specified
+     * enhets, not subenhets.
+     */
+    public List<String> getExcludeAdministrativEnhetExact() {
+      return excludeAdministrativEnhetExact;
+    }
+
+    /** Filter by title. This is a free text search. */
+    public List<String> getTittel() {
+      return tittel;
+    }
+
+    /** Filter by sender/recipient name. This is a free text search. */
+    public List<String> getKorrespondansepartNavn() {
+      return korrespondansepartNavn;
+    }
+
+    /** Filter by legal basis for exemption. This is a free text search. */
+    public List<String> getSkjermingshjemmel() {
+      return skjermingshjemmel;
+    }
+
+    /** Filter by the published date of the document. */
+    public String getPublisertDatoFrom() {
+      return publisertDatoFrom;
+    }
+
+    /** Filter by the published date of the document. */
+    public String getPublisertDatoTo() {
+      return publisertDatoTo;
+    }
+
+    /** Filter by the updated date of the document. */
+    public String getOppdatertDatoFrom() {
+      return oppdatertDatoFrom;
+    }
+
+    /** Filter by the updated date of the document. */
+    public String getOppdatertDatoTo() {
+      return oppdatertDatoTo;
+    }
+
+    /** Filter by journal date. */
+    public String getJournaldatoFrom() {
+      return journaldatoFrom;
+    }
+
+    /** Filter by journal date. */
+    public String getJournaldatoTo() {
+      return journaldatoTo;
+    }
+
+    /** Filter by document date. */
+    public String getDokumentetsDatoFrom() {
+      return dokumentetsDatoFrom;
+    }
+
+    /** Filter by document date. */
+    public String getDokumentetsDatoTo() {
+      return dokumentetsDatoTo;
+    }
+
+    /** Filter by the date of a meeting. */
+    public String getMoetedatoFrom() {
+      return moetedatoFrom;
+    }
+
+    /** Filter by the date of a meeting. */
+    public String getMoetedatoTo() {
+      return moetedatoTo;
+    }
+
+    /**
+     * Filter by the legacy "standardDato". This is the default date for each entity type. For
+     * instance, for Moetemappe this would be "moetedato", for Journalpost this would be
+     * "journaldato".
+     */
+    public String getStandardDatoFrom() {
+      return standardDatoFrom;
+    }
+
+    /**
+     * Filter by the legacy "standardDato". This is the default date for each entity type. For
+     * instance, for Moetemappe this would be "moetedato", for Journalpost this would be
+     * "journaldato".
+     */
+    public String getStandardDatoTo() {
+      return standardDatoTo;
+    }
+
+    /** Filter by saksaar */
+    public List<String> getSaksaar() {
+      return saksaar;
+    }
+
+    /** Filter by sakssekvensnummer */
+    public List<String> getSakssekvensnummer() {
+      return sakssekvensnummer;
+    }
+
+    /** Filter by saksnummer */
+    public List<String> getSaksnummer() {
+      return saksnummer;
+    }
+
+    /** Filter by journalpostnummer */
+    public List<String> getJournalpostnummer() {
+      return journalpostnummer;
+    }
+
+    /** Filter by journalsekvensnummer */
+    public List<String> getJournalsekvensnummer() {
+      return journalsekvensnummer;
+    }
+
+    /** Filter by moetesaksaar */
+    public List<String> getMoetesaksaar() {
+      return moetesaksaar;
+    }
+
+    /** Filter by moetesakssekvensnummer */
+    public List<String> getMoetesakssekvensnummer() {
+      return moetesakssekvensnummer;
+    }
+
+    /** Filter by journalposttype */
+    public List<JournalposttypeEnum> getJournalposttype() {
+      return journalposttype;
+    }
+
+    /** Filter by the entity type. */
+    public List<EntityEnum> getEntity() {
+      return entity;
+    }
+
+    /**
+     * A list of resource IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
+     */
+    public List<String> getIds() {
+      return ids;
+    }
+
+    /**
+     * A list of external IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
+     */
+    public List<String> getExternalIds() {
+      return externalIds;
+    }
+
+    /** The Journalenhet to filter the result set by. */
+    public String getJournalenhet() {
+      return journalenhet;
+    }
+
+    /** Match documents with (or without) fulltext. */
+    public Boolean getFulltext() {
+      return fulltext;
+    }
+
+    /** Specifies which fields in the response should be expanded. */
+    public Builder expand(List<String> expand) {
+      this.expand = expand;
+      return this;
+    }
+
+    /** Specifies which fields in the response should be expanded. */
+    public Builder addExpand(String expand) {
+      if (this.expand == null) {
+        this.expand = new ArrayList<>();
+      }
+      this.expand.add(expand);
+      return this;
+    }
+
+    /**
+     * A limit on the number of objects to be returned. Limit can range between 1 and 100, and the
+     * default is 25.
+     */
+    public Builder limit(Integer limit) {
+      this.limit = limit;
+      return this;
+    }
+
+    /** The sort order of the result set. The default is ascending. */
+    public Builder sortOrder(SortOrderEnum sortOrder) {
+      this.sortOrder = sortOrder;
+      return this;
+    }
+
+    /**
+     * A cursor for use in pagination. This is a list of size two, the value of the sortBy property
+     * and the unique id.
+     */
+    public Builder startingAfter(List<String> startingAfter) {
+      this.startingAfter = startingAfter;
+      return this;
+    }
+
+    /**
+     * A cursor for use in pagination. This is a list of size two, the value of the sortBy property
+     * and the unique id.
+     */
+    public Builder addStartingAfter(String startingAfter) {
+      if (this.startingAfter == null) {
+        this.startingAfter = new ArrayList<>();
+      }
+      this.startingAfter.add(startingAfter);
+      return this;
+    }
+
+    /**
+     * A cursor for use in pagination. This is a list of size two, the value of the sortBy property
+     * and the unique id.
+     */
+    public Builder endingBefore(List<String> endingBefore) {
+      this.endingBefore = endingBefore;
+      return this;
+    }
+
+    /**
+     * A cursor for use in pagination. This is a list of size two, the value of the sortBy property
+     * and the unique id.
+     */
+    public Builder addEndingBefore(String endingBefore) {
+      if (this.endingBefore == null) {
+        this.endingBefore = new ArrayList<>();
+      }
+      this.endingBefore.add(endingBefore);
+      return this;
+    }
+
+    /** The field to sort results by. The default is "score". */
+    public Builder sortBy(SortByEnum sortBy) {
+      this.sortBy = sortBy;
+      return this;
+    }
+
+    /**
+     * A query string to filter by. Quotes can be used to search for exact matches or phrases. Words
+     * can be excluded by prefixing them with a minus sign.
+     */
+    public Builder query(String query) {
+      this.query = query;
+      return this;
+    }
+
+    /** A list of enhet IDs to filter by. This will also match subenhets. */
+    public Builder administrativEnhet(List<String> administrativEnhet) {
+      this.administrativEnhet = administrativEnhet;
+      return this;
+    }
+
+    /** A list of enhet IDs to filter by. This will also match subenhets. */
+    public Builder addAdministrativEnhet(String administrativEnhet) {
+      if (this.administrativEnhet == null) {
+        this.administrativEnhet = new ArrayList<>();
+      }
+      this.administrativEnhet.add(administrativEnhet);
+      return this;
+    }
+
+    /**
+     * A list of enhet IDs to filter by. This will only match the specified enhets, not subenhets.
+     */
+    public Builder administrativEnhetExact(List<String> administrativEnhetExact) {
+      this.administrativEnhetExact = administrativEnhetExact;
+      return this;
+    }
+
+    /**
+     * A list of enhet IDs to filter by. This will only match the specified enhets, not subenhets.
+     */
+    public Builder addAdministrativEnhetExact(String administrativEnhetExact) {
+      if (this.administrativEnhetExact == null) {
+        this.administrativEnhetExact = new ArrayList<>();
+      }
+      this.administrativEnhetExact.add(administrativEnhetExact);
+      return this;
+    }
+
+    /** A list of enhet IDs to exclude from the result set. This will also exclude subenhets. */
+    public Builder excludeAdministrativEnhet(List<String> excludeAdministrativEnhet) {
+      this.excludeAdministrativEnhet = excludeAdministrativEnhet;
+      return this;
+    }
+
+    /** A list of enhet IDs to exclude from the result set. This will also exclude subenhets. */
+    public Builder addExcludeAdministrativEnhet(String excludeAdministrativEnhet) {
+      if (this.excludeAdministrativEnhet == null) {
+        this.excludeAdministrativEnhet = new ArrayList<>();
+      }
+      this.excludeAdministrativEnhet.add(excludeAdministrativEnhet);
+      return this;
+    }
+
+    /**
+     * A list of enhet IDs to exclude from the result set. This will only exclude the specified
+     * enhets, not subenhets.
+     */
+    public Builder excludeAdministrativEnhetExact(List<String> excludeAdministrativEnhetExact) {
+      this.excludeAdministrativEnhetExact = excludeAdministrativEnhetExact;
+      return this;
+    }
+
+    /**
+     * A list of enhet IDs to exclude from the result set. This will only exclude the specified
+     * enhets, not subenhets.
+     */
+    public Builder addExcludeAdministrativEnhetExact(String excludeAdministrativEnhetExact) {
+      if (this.excludeAdministrativEnhetExact == null) {
+        this.excludeAdministrativEnhetExact = new ArrayList<>();
+      }
+      this.excludeAdministrativEnhetExact.add(excludeAdministrativEnhetExact);
+      return this;
+    }
+
+    /** Filter by title. This is a free text search. */
+    public Builder tittel(List<String> tittel) {
+      this.tittel = tittel;
+      return this;
+    }
+
+    /** Filter by title. This is a free text search. */
+    public Builder addTittel(String tittel) {
+      if (this.tittel == null) {
+        this.tittel = new ArrayList<>();
+      }
+      this.tittel.add(tittel);
+      return this;
+    }
+
+    /** Filter by sender/recipient name. This is a free text search. */
+    public Builder korrespondansepartNavn(List<String> korrespondansepartNavn) {
+      this.korrespondansepartNavn = korrespondansepartNavn;
+      return this;
+    }
+
+    /** Filter by sender/recipient name. This is a free text search. */
+    public Builder addKorrespondansepartNavn(String korrespondansepartNavn) {
+      if (this.korrespondansepartNavn == null) {
+        this.korrespondansepartNavn = new ArrayList<>();
+      }
+      this.korrespondansepartNavn.add(korrespondansepartNavn);
+      return this;
+    }
+
+    /** Filter by legal basis for exemption. This is a free text search. */
+    public Builder skjermingshjemmel(List<String> skjermingshjemmel) {
+      this.skjermingshjemmel = skjermingshjemmel;
+      return this;
+    }
+
+    /** Filter by legal basis for exemption. This is a free text search. */
+    public Builder addSkjermingshjemmel(String skjermingshjemmel) {
+      if (this.skjermingshjemmel == null) {
+        this.skjermingshjemmel = new ArrayList<>();
+      }
+      this.skjermingshjemmel.add(skjermingshjemmel);
+      return this;
+    }
+
+    /** Filter by the published date of the document. */
+    public Builder publisertDatoFrom(String publisertDatoFrom) {
+      this.publisertDatoFrom = publisertDatoFrom;
+      return this;
+    }
+
+    /** Filter by the published date of the document. */
+    public Builder publisertDatoTo(String publisertDatoTo) {
+      this.publisertDatoTo = publisertDatoTo;
+      return this;
+    }
+
+    /** Filter by the updated date of the document. */
+    public Builder oppdatertDatoFrom(String oppdatertDatoFrom) {
+      this.oppdatertDatoFrom = oppdatertDatoFrom;
+      return this;
+    }
+
+    /** Filter by the updated date of the document. */
+    public Builder oppdatertDatoTo(String oppdatertDatoTo) {
+      this.oppdatertDatoTo = oppdatertDatoTo;
+      return this;
+    }
+
+    /** Filter by journal date. */
+    public Builder journaldatoFrom(String journaldatoFrom) {
+      this.journaldatoFrom = journaldatoFrom;
+      return this;
+    }
+
+    /** Filter by journal date. */
+    public Builder journaldatoTo(String journaldatoTo) {
+      this.journaldatoTo = journaldatoTo;
+      return this;
+    }
+
+    /** Filter by document date. */
+    public Builder dokumentetsDatoFrom(String dokumentetsDatoFrom) {
+      this.dokumentetsDatoFrom = dokumentetsDatoFrom;
+      return this;
+    }
+
+    /** Filter by document date. */
+    public Builder dokumentetsDatoTo(String dokumentetsDatoTo) {
+      this.dokumentetsDatoTo = dokumentetsDatoTo;
+      return this;
+    }
+
+    /** Filter by the date of a meeting. */
+    public Builder moetedatoFrom(String moetedatoFrom) {
+      this.moetedatoFrom = moetedatoFrom;
+      return this;
+    }
+
+    /** Filter by the date of a meeting. */
+    public Builder moetedatoTo(String moetedatoTo) {
+      this.moetedatoTo = moetedatoTo;
+      return this;
+    }
+
+    /**
+     * Filter by the legacy "standardDato". This is the default date for each entity type. For
+     * instance, for Moetemappe this would be "moetedato", for Journalpost this would be
+     * "journaldato".
+     */
+    public Builder standardDatoFrom(String standardDatoFrom) {
+      this.standardDatoFrom = standardDatoFrom;
+      return this;
+    }
+
+    /**
+     * Filter by the legacy "standardDato". This is the default date for each entity type. For
+     * instance, for Moetemappe this would be "moetedato", for Journalpost this would be
+     * "journaldato".
+     */
+    public Builder standardDatoTo(String standardDatoTo) {
+      this.standardDatoTo = standardDatoTo;
+      return this;
+    }
+
+    /** Filter by saksaar */
+    public Builder saksaar(List<String> saksaar) {
+      this.saksaar = saksaar;
+      return this;
+    }
+
+    /** Filter by saksaar */
+    public Builder addSaksaar(String saksaar) {
+      if (this.saksaar == null) {
+        this.saksaar = new ArrayList<>();
+      }
+      this.saksaar.add(saksaar);
+      return this;
+    }
+
+    /** Filter by sakssekvensnummer */
+    public Builder sakssekvensnummer(List<String> sakssekvensnummer) {
+      this.sakssekvensnummer = sakssekvensnummer;
+      return this;
+    }
+
+    /** Filter by sakssekvensnummer */
+    public Builder addSakssekvensnummer(String sakssekvensnummer) {
+      if (this.sakssekvensnummer == null) {
+        this.sakssekvensnummer = new ArrayList<>();
+      }
+      this.sakssekvensnummer.add(sakssekvensnummer);
+      return this;
+    }
+
+    /** Filter by saksnummer */
+    public Builder saksnummer(List<String> saksnummer) {
+      this.saksnummer = saksnummer;
+      return this;
+    }
+
+    /** Filter by saksnummer */
+    public Builder addSaksnummer(String saksnummer) {
+      if (this.saksnummer == null) {
+        this.saksnummer = new ArrayList<>();
+      }
+      this.saksnummer.add(saksnummer);
+      return this;
+    }
+
+    /** Filter by journalpostnummer */
+    public Builder journalpostnummer(List<String> journalpostnummer) {
+      this.journalpostnummer = journalpostnummer;
+      return this;
+    }
+
+    /** Filter by journalpostnummer */
+    public Builder addJournalpostnummer(String journalpostnummer) {
+      if (this.journalpostnummer == null) {
+        this.journalpostnummer = new ArrayList<>();
+      }
+      this.journalpostnummer.add(journalpostnummer);
+      return this;
+    }
+
+    /** Filter by journalsekvensnummer */
+    public Builder journalsekvensnummer(List<String> journalsekvensnummer) {
+      this.journalsekvensnummer = journalsekvensnummer;
+      return this;
+    }
+
+    /** Filter by journalsekvensnummer */
+    public Builder addJournalsekvensnummer(String journalsekvensnummer) {
+      if (this.journalsekvensnummer == null) {
+        this.journalsekvensnummer = new ArrayList<>();
+      }
+      this.journalsekvensnummer.add(journalsekvensnummer);
+      return this;
+    }
+
+    /** Filter by moetesaksaar */
+    public Builder moetesaksaar(List<String> moetesaksaar) {
+      this.moetesaksaar = moetesaksaar;
+      return this;
+    }
+
+    /** Filter by moetesaksaar */
+    public Builder addMoetesaksaar(String moetesaksaar) {
+      if (this.moetesaksaar == null) {
+        this.moetesaksaar = new ArrayList<>();
+      }
+      this.moetesaksaar.add(moetesaksaar);
+      return this;
+    }
+
+    /** Filter by moetesakssekvensnummer */
+    public Builder moetesakssekvensnummer(List<String> moetesakssekvensnummer) {
+      this.moetesakssekvensnummer = moetesakssekvensnummer;
+      return this;
+    }
+
+    /** Filter by moetesakssekvensnummer */
+    public Builder addMoetesakssekvensnummer(String moetesakssekvensnummer) {
+      if (this.moetesakssekvensnummer == null) {
+        this.moetesakssekvensnummer = new ArrayList<>();
+      }
+      this.moetesakssekvensnummer.add(moetesakssekvensnummer);
+      return this;
+    }
+
+    /** Filter by journalposttype */
+    public Builder journalposttype(List<JournalposttypeEnum> journalposttype) {
+      this.journalposttype = journalposttype;
+      return this;
+    }
+
+    /** Filter by journalposttype */
+    public Builder addJournalposttype(JournalposttypeEnum journalposttype) {
+      if (this.journalposttype == null) {
+        this.journalposttype = new ArrayList<>();
+      }
+      this.journalposttype.add(journalposttype);
+      return this;
+    }
+
+    /** Filter by the entity type. */
+    public Builder entity(List<EntityEnum> entity) {
+      this.entity = entity;
+      return this;
+    }
+
+    /** Filter by the entity type. */
+    public Builder addEntity(EntityEnum entity) {
+      if (this.entity == null) {
+        this.entity = new ArrayList<>();
+      }
+      this.entity.add(entity);
+      return this;
+    }
+
+    /**
+     * A list of resource IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
+     */
+    public Builder ids(List<String> ids) {
+      this.ids = ids;
+      return this;
+    }
+
+    /**
+     * A list of resource IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
+     */
+    public Builder addIds(String ids) {
+      if (this.ids == null) {
+        this.ids = new ArrayList<>();
+      }
+      this.ids.add(ids);
+      return this;
+    }
+
+    /**
+     * A list of external IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
+     */
+    public Builder externalIds(List<String> externalIds) {
+      this.externalIds = externalIds;
+      return this;
+    }
+
+    /**
+     * A list of external IDs to be returned. Maximum 100 values. If this parameter is used, the
+     * other parameters will be ignored.
+     */
+    public Builder addExternalIds(String externalIds) {
+      if (this.externalIds == null) {
+        this.externalIds = new ArrayList<>();
+      }
+      this.externalIds.add(externalIds);
+      return this;
+    }
+
+    /** The Journalenhet to filter the result set by. */
+    public Builder journalenhet(String journalenhet) {
+      this.journalenhet = journalenhet;
+      return this;
+    }
+
+    /** Match documents with (or without) fulltext. */
+    public Builder fulltext(Boolean fulltext) {
+      this.fulltext = fulltext;
+      return this;
+    }
+
+    public SavedSearchParameters build() {
+      return new SavedSearchParameters(
+          this.expand,
+          this.limit,
+          this.sortOrder,
+          this.startingAfter,
+          this.endingBefore,
+          this.sortBy,
+          this.query,
+          this.administrativEnhet,
+          this.administrativEnhetExact,
+          this.excludeAdministrativEnhet,
+          this.excludeAdministrativEnhetExact,
+          this.tittel,
+          this.korrespondansepartNavn,
+          this.skjermingshjemmel,
+          this.publisertDatoFrom,
+          this.publisertDatoTo,
+          this.oppdatertDatoFrom,
+          this.oppdatertDatoTo,
+          this.journaldatoFrom,
+          this.journaldatoTo,
+          this.dokumentetsDatoFrom,
+          this.dokumentetsDatoTo,
+          this.moetedatoFrom,
+          this.moetedatoTo,
+          this.standardDatoFrom,
+          this.standardDatoTo,
+          this.saksaar,
+          this.sakssekvensnummer,
+          this.saksnummer,
+          this.journalpostnummer,
+          this.journalsekvensnummer,
+          this.moetesaksaar,
+          this.moetesakssekvensnummer,
+          this.journalposttype,
+          this.entity,
+          this.ids,
+          this.externalIds,
+          this.journalenhet,
+          this.fulltext);
+    }
+  }
+}

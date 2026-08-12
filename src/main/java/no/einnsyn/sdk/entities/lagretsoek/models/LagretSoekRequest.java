@@ -5,7 +5,7 @@ package no.einnsyn.sdk.entities.lagretsoek.models;
 
 import java.util.function.Function;
 import no.einnsyn.sdk.common.expandablefield.ExpandableField;
-import no.einnsyn.sdk.common.search.models.SearchParameters;
+import no.einnsyn.sdk.common.search.models.SavedSearchParameters;
 import no.einnsyn.sdk.entities.base.models.BaseRequest;
 import no.einnsyn.sdk.entities.bruker.models.BrukerRequest;
 
@@ -23,7 +23,7 @@ public class LagretSoekRequest extends BaseRequest {
   protected Boolean subscribe;
 
   /** The parameters of the saved search. */
-  protected SearchParameters searchParameters;
+  protected SavedSearchParameters searchParameters;
 
   /** A legacy field for storing the raw query string. */
   protected String legacyQuery;
@@ -34,7 +34,7 @@ public class LagretSoekRequest extends BaseRequest {
       ExpandableField<BrukerRequest> bruker,
       String label,
       Boolean subscribe,
-      SearchParameters searchParameters,
+      SavedSearchParameters searchParameters,
       String legacyQuery) {
     super(externalId, accessibleAfter);
     this.bruker = bruker;
@@ -62,7 +62,7 @@ public class LagretSoekRequest extends BaseRequest {
   }
 
   /** The parameters of the saved search. */
-  public SearchParameters getSearchParameters() {
+  public SavedSearchParameters getSearchParameters() {
     return searchParameters;
   }
 
@@ -102,7 +102,7 @@ public class LagretSoekRequest extends BaseRequest {
     protected Boolean subscribe;
 
     /** The parameters of the saved search. */
-    protected SearchParameters searchParameters;
+    protected SavedSearchParameters searchParameters;
 
     /** A legacy field for storing the raw query string. */
     protected String legacyQuery;
@@ -139,7 +139,7 @@ public class LagretSoekRequest extends BaseRequest {
     }
 
     /** The parameters of the saved search. */
-    public SearchParameters getSearchParameters() {
+    public SavedSearchParameters getSearchParameters() {
       return searchParameters;
     }
 
@@ -191,7 +191,7 @@ public class LagretSoekRequest extends BaseRequest {
     }
 
     /** The parameters of the saved search. */
-    public Builder searchParameters(SearchParameters searchParameters) {
+    public Builder searchParameters(SavedSearchParameters searchParameters) {
       this.searchParameters = searchParameters;
       return this;
     }
