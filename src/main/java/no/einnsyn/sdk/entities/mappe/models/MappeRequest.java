@@ -128,13 +128,24 @@ public class MappeRequest extends ArkivBaseRequest {
     /**
      * An external ID for the resource. This is similar to "systemId", but will be used for legacy
      * IRIs that were used in earlier eInnsyn versions.
+     *
+     * <p>For most entities the externalId is unique, and can be used in place of the eInnsynId when
+     * looking up a single object. It is *not* unique for Arkiv, Arkivdel, Klasse and
+     * Korrespondansepart, and can not be used to look those up. For those entities, a value given
+     * in the `externalIds` list parameter may also match more than one object.
      */
     protected String externalId;
 
     /** This object should not be accessible to the public before the given dateTime. */
     protected String accessibleAfter;
 
-    /** The unique identifier for the resource, given by the user's system. */
+    /**
+     * An identifier for the resource, given by the user's system.
+     *
+     * <p>For most entities the systemId is unique, and can be used in place of the eInnsynId when
+     * looking up a single object. It is *not* unique for Arkiv, Arkivdel and Klasse, and can not be
+     * used to look those up.
+     */
     protected String systemId;
 
     /**
@@ -178,6 +189,11 @@ public class MappeRequest extends ArkivBaseRequest {
     /**
      * An external ID for the resource. This is similar to "systemId", but will be used for legacy
      * IRIs that were used in earlier eInnsyn versions.
+     *
+     * <p>For most entities the externalId is unique, and can be used in place of the eInnsynId when
+     * looking up a single object. It is *not* unique for Arkiv, Arkivdel, Klasse and
+     * Korrespondansepart, and can not be used to look those up. For those entities, a value given
+     * in the `externalIds` list parameter may also match more than one object.
      */
     public String getExternalId() {
       return externalId;
@@ -188,7 +204,13 @@ public class MappeRequest extends ArkivBaseRequest {
       return accessibleAfter;
     }
 
-    /** The unique identifier for the resource, given by the user's system. */
+    /**
+     * An identifier for the resource, given by the user's system.
+     *
+     * <p>For most entities the systemId is unique, and can be used in place of the eInnsynId when
+     * looking up a single object. It is *not* unique for Arkiv, Arkivdel and Klasse, and can not be
+     * used to look those up.
+     */
     public String getSystemId() {
       return systemId;
     }
@@ -254,6 +276,11 @@ public class MappeRequest extends ArkivBaseRequest {
     /**
      * An external ID for the resource. This is similar to "systemId", but will be used for legacy
      * IRIs that were used in earlier eInnsyn versions.
+     *
+     * <p>For most entities the externalId is unique, and can be used in place of the eInnsynId when
+     * looking up a single object. It is *not* unique for Arkiv, Arkivdel, Klasse and
+     * Korrespondansepart, and can not be used to look those up. For those entities, a value given
+     * in the `externalIds` list parameter may also match more than one object.
      */
     public Builder externalId(String externalId) {
       this.externalId = externalId;
@@ -266,7 +293,13 @@ public class MappeRequest extends ArkivBaseRequest {
       return this;
     }
 
-    /** The unique identifier for the resource, given by the user's system. */
+    /**
+     * An identifier for the resource, given by the user's system.
+     *
+     * <p>For most entities the systemId is unique, and can be used in place of the eInnsynId when
+     * looking up a single object. It is *not* unique for Arkiv, Arkivdel and Klasse, and can not be
+     * used to look those up.
+     */
     public Builder systemId(String systemId) {
       this.systemId = systemId;
       return this;

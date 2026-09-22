@@ -50,6 +50,11 @@ public class BrukerRequest extends BaseRequest {
     /**
      * An external ID for the resource. This is similar to "systemId", but will be used for legacy
      * IRIs that were used in earlier eInnsyn versions.
+     *
+     * <p>For most entities the externalId is unique, and can be used in place of the eInnsynId when
+     * looking up a single object. It is *not* unique for Arkiv, Arkivdel, Klasse and
+     * Korrespondansepart, and can not be used to look those up. For those entities, a value given
+     * in the `externalIds` list parameter may also match more than one object.
      */
     protected String externalId;
 
@@ -65,6 +70,11 @@ public class BrukerRequest extends BaseRequest {
     /**
      * An external ID for the resource. This is similar to "systemId", but will be used for legacy
      * IRIs that were used in earlier eInnsyn versions.
+     *
+     * <p>For most entities the externalId is unique, and can be used in place of the eInnsynId when
+     * looking up a single object. It is *not* unique for Arkiv, Arkivdel, Klasse and
+     * Korrespondansepart, and can not be used to look those up. For those entities, a value given
+     * in the `externalIds` list parameter may also match more than one object.
      */
     public String getExternalId() {
       return externalId;
@@ -90,6 +100,11 @@ public class BrukerRequest extends BaseRequest {
     /**
      * An external ID for the resource. This is similar to "systemId", but will be used for legacy
      * IRIs that were used in earlier eInnsyn versions.
+     *
+     * <p>For most entities the externalId is unique, and can be used in place of the eInnsynId when
+     * looking up a single object. It is *not* unique for Arkiv, Arkivdel, Klasse and
+     * Korrespondansepart, and can not be used to look those up. For those entities, a value given
+     * in the `externalIds` list parameter may also match more than one object.
      */
     public Builder externalId(String externalId) {
       this.externalId = externalId;
