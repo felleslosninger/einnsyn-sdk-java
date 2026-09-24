@@ -31,7 +31,10 @@ public class EnhetRequest extends BaseRequest {
   /** The name of the unit in Sami. */
   protected String navnSami;
 
-  /** The 9-digit organization number from the Brønnøysund Register Centre. */
+  /**
+   * The 9-digit organization number from the Brønnøysund Register Centre. Only admins can change it
+   * after creation.
+   */
   protected String orgnummer;
 
   /** An internal code or identifier for the unit. */
@@ -49,7 +52,10 @@ public class EnhetRequest extends BaseRequest {
   /** The dedicated email address for receiving Freedom of Information (FOI) requests. */
   protected String innsynskravEpost;
 
-  /** The type of the organizational unit. */
+  /**
+   * The type of the organizational unit. Only admins can create top nodes, that is `DUMMYENHET`
+   * units whose ancestors are all `DUMMYENHET`.
+   */
   protected EnhetstypeEnum enhetstype;
 
   /** The date when the unit was officially dissolved or became inactive. */
@@ -57,6 +63,13 @@ public class EnhetRequest extends BaseRequest {
 
   /** If true, this unit should be hidden from public view. */
   protected Boolean skjult;
+
+  /**
+   * Whether an admin has verified this unit. Unverified units are listed only for admins, can be
+   * fetched by id or orgnummer by admins and the unit itself, and cannot publish data or create API
+   * keys. Only admins can read or set this field.
+   */
+  protected Boolean verified;
 
   /** If true, this unit is configured to use the eFormidling platform for digital communication. */
   protected Boolean eFormidling;
@@ -102,6 +115,7 @@ public class EnhetRequest extends BaseRequest {
       EnhetstypeEnum enhetstype,
       String avsluttetDato,
       Boolean skjult,
+      Boolean verified,
       Boolean eFormidling,
       Boolean teknisk,
       Boolean skalKonvertereId,
@@ -126,6 +140,7 @@ public class EnhetRequest extends BaseRequest {
     this.enhetstype = enhetstype;
     this.avsluttetDato = avsluttetDato;
     this.skjult = skjult;
+    this.verified = verified;
     this.eFormidling = eFormidling;
     this.teknisk = teknisk;
     this.skalKonvertereId = skalKonvertereId;
@@ -162,7 +177,10 @@ public class EnhetRequest extends BaseRequest {
     return navnSami;
   }
 
-  /** The 9-digit organization number from the Brønnøysund Register Centre. */
+  /**
+   * The 9-digit organization number from the Brønnøysund Register Centre. Only admins can change it
+   * after creation.
+   */
   public String getOrgnummer() {
     return orgnummer;
   }
@@ -192,7 +210,10 @@ public class EnhetRequest extends BaseRequest {
     return innsynskravEpost;
   }
 
-  /** The type of the organizational unit. */
+  /**
+   * The type of the organizational unit. Only admins can create top nodes, that is `DUMMYENHET`
+   * units whose ancestors are all `DUMMYENHET`.
+   */
   public EnhetstypeEnum getEnhetstype() {
     return enhetstype;
   }
@@ -205,6 +226,15 @@ public class EnhetRequest extends BaseRequest {
   /** If true, this unit should be hidden from public view. */
   public Boolean getSkjult() {
     return skjult;
+  }
+
+  /**
+   * Whether an admin has verified this unit. Unverified units are listed only for admins, can be
+   * fetched by id or orgnummer by admins and the unit itself, and cannot publish data or create API
+   * keys. Only admins can read or set this field.
+   */
+  public Boolean getVerified() {
+    return verified;
   }
 
   /** If true, this unit is configured to use the eFormidling platform for digital communication. */
@@ -290,7 +320,10 @@ public class EnhetRequest extends BaseRequest {
     /** The name of the unit in Sami. */
     protected String navnSami;
 
-    /** The 9-digit organization number from the Brønnøysund Register Centre. */
+    /**
+     * The 9-digit organization number from the Brønnøysund Register Centre. Only admins can change
+     * it after creation.
+     */
     protected String orgnummer;
 
     /** An internal code or identifier for the unit. */
@@ -308,7 +341,10 @@ public class EnhetRequest extends BaseRequest {
     /** The dedicated email address for receiving Freedom of Information (FOI) requests. */
     protected String innsynskravEpost;
 
-    /** The type of the organizational unit. */
+    /**
+     * The type of the organizational unit. Only admins can create top nodes, that is `DUMMYENHET`
+     * units whose ancestors are all `DUMMYENHET`.
+     */
     protected EnhetstypeEnum enhetstype;
 
     /** The date when the unit was officially dissolved or became inactive. */
@@ -316,6 +352,13 @@ public class EnhetRequest extends BaseRequest {
 
     /** If true, this unit should be hidden from public view. */
     protected Boolean skjult;
+
+    /**
+     * Whether an admin has verified this unit. Unverified units are listed only for admins, can be
+     * fetched by id or orgnummer by admins and the unit itself, and cannot publish data or create
+     * API keys. Only admins can read or set this field.
+     */
+    protected Boolean verified;
 
     /**
      * If true, this unit is configured to use the eFormidling platform for digital communication.
@@ -391,7 +434,10 @@ public class EnhetRequest extends BaseRequest {
       return navnSami;
     }
 
-    /** The 9-digit organization number from the Brønnøysund Register Centre. */
+    /**
+     * The 9-digit organization number from the Brønnøysund Register Centre. Only admins can change
+     * it after creation.
+     */
     public String getOrgnummer() {
       return orgnummer;
     }
@@ -421,7 +467,10 @@ public class EnhetRequest extends BaseRequest {
       return innsynskravEpost;
     }
 
-    /** The type of the organizational unit. */
+    /**
+     * The type of the organizational unit. Only admins can create top nodes, that is `DUMMYENHET`
+     * units whose ancestors are all `DUMMYENHET`.
+     */
     public EnhetstypeEnum getEnhetstype() {
       return enhetstype;
     }
@@ -434,6 +483,15 @@ public class EnhetRequest extends BaseRequest {
     /** If true, this unit should be hidden from public view. */
     public Boolean getSkjult() {
       return skjult;
+    }
+
+    /**
+     * Whether an admin has verified this unit. Unverified units are listed only for admins, can be
+     * fetched by id or orgnummer by admins and the unit itself, and cannot publish data or create
+     * API keys. Only admins can read or set this field.
+     */
+    public Boolean getVerified() {
+      return verified;
     }
 
     /**
@@ -535,7 +593,10 @@ public class EnhetRequest extends BaseRequest {
       return this;
     }
 
-    /** The 9-digit organization number from the Brønnøysund Register Centre. */
+    /**
+     * The 9-digit organization number from the Brønnøysund Register Centre. Only admins can change
+     * it after creation.
+     */
     public Builder orgnummer(String orgnummer) {
       this.orgnummer = orgnummer;
       return this;
@@ -571,7 +632,10 @@ public class EnhetRequest extends BaseRequest {
       return this;
     }
 
-    /** The type of the organizational unit. */
+    /**
+     * The type of the organizational unit. Only admins can create top nodes, that is `DUMMYENHET`
+     * units whose ancestors are all `DUMMYENHET`.
+     */
     public Builder enhetstype(EnhetstypeEnum enhetstype) {
       this.enhetstype = enhetstype;
       return this;
@@ -586,6 +650,16 @@ public class EnhetRequest extends BaseRequest {
     /** If true, this unit should be hidden from public view. */
     public Builder skjult(Boolean skjult) {
       this.skjult = skjult;
+      return this;
+    }
+
+    /**
+     * Whether an admin has verified this unit. Unverified units are listed only for admins, can be
+     * fetched by id or orgnummer by admins and the unit itself, and cannot publish data or create
+     * API keys. Only admins can read or set this field.
+     */
+    public Builder verified(Boolean verified) {
+      this.verified = verified;
       return this;
     }
 
@@ -706,6 +780,7 @@ public class EnhetRequest extends BaseRequest {
           this.enhetstype,
           this.avsluttetDato,
           this.skjult,
+          this.verified,
           this.eFormidling,
           this.teknisk,
           this.skalKonvertereId,
