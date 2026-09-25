@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/felleslosninger/einnsyn-sdk-java/compare/1.0.4...1.1.0) (2026-09-25)
+
+
+### Features
+
+* sync generated code ([536ef1f](https://github.com/felleslosninger/einnsyn-sdk-java/commit/536ef1f5319ae73d1afde8660c6e6a3685d455b4))
+
 ## [1.0.4](https://github.com/felleslosninger/einnsyn-sdk-java/compare/1.0.3...1.0.4) (2026-08-26)
 
 
