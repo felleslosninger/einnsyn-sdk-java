@@ -30,7 +30,10 @@ public class Enhet extends Base {
   /** The name of the unit in Sami. */
   protected String navnSami;
 
-  /** The 9-digit organization number from the Brønnøysund Register Centre. */
+  /**
+   * The 9-digit organization number from the Brønnøysund Register Centre. Only admins can change it
+   * after creation.
+   */
   protected String orgnummer;
 
   /** An internal code or identifier for the unit. */
@@ -48,7 +51,10 @@ public class Enhet extends Base {
   /** The dedicated email address for receiving Freedom of Information (FOI) requests. */
   protected String innsynskravEpost;
 
-  /** The type of the organizational unit. */
+  /**
+   * The type of the organizational unit. Only admins can create top nodes, that is `DUMMYENHET`
+   * units whose ancestors are all `DUMMYENHET`.
+   */
   protected EnhetstypeEnum enhetstype;
 
   /** The date when the unit was officially dissolved or became inactive. */
@@ -56,6 +62,13 @@ public class Enhet extends Base {
 
   /** If true, this unit should be hidden from public view. */
   protected Boolean skjult;
+
+  /**
+   * Whether an admin has verified this unit. Unverified units are listed only for admins, can be
+   * fetched by id or orgnummer by admins and the unit itself, and cannot publish data or create API
+   * keys. Only admins can read or set this field.
+   */
+  protected Boolean verified;
 
   /** If true, this unit is configured to use the eFormidling platform for digital communication. */
   protected Boolean eFormidling;
@@ -113,7 +126,10 @@ public class Enhet extends Base {
     return navnSami;
   }
 
-  /** The 9-digit organization number from the Brønnøysund Register Centre. */
+  /**
+   * The 9-digit organization number from the Brønnøysund Register Centre. Only admins can change it
+   * after creation.
+   */
   public String getOrgnummer() {
     return orgnummer;
   }
@@ -143,7 +159,10 @@ public class Enhet extends Base {
     return innsynskravEpost;
   }
 
-  /** The type of the organizational unit. */
+  /**
+   * The type of the organizational unit. Only admins can create top nodes, that is `DUMMYENHET`
+   * units whose ancestors are all `DUMMYENHET`.
+   */
   public EnhetstypeEnum getEnhetstype() {
     return enhetstype;
   }
@@ -156,6 +175,15 @@ public class Enhet extends Base {
   /** If true, this unit should be hidden from public view. */
   public Boolean getSkjult() {
     return skjult;
+  }
+
+  /**
+   * Whether an admin has verified this unit. Unverified units are listed only for admins, can be
+   * fetched by id or orgnummer by admins and the unit itself, and cannot publish data or create API
+   * keys. Only admins can read or set this field.
+   */
+  public Boolean getVerified() {
+    return verified;
   }
 
   /** If true, this unit is configured to use the eFormidling platform for digital communication. */
