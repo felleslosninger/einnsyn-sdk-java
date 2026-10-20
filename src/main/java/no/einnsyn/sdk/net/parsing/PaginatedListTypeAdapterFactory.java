@@ -65,6 +65,8 @@ public class PaginatedListTypeAdapterFactory implements TypeAdapterFactory {
             result.setNext(in.nextString());
           } else if (name.equals("previous")) {
             result.setPrevious(in.nextString());
+          } else if (name.equals("total")) {
+            result.setTotal(gson.fromJson(in, PaginatedList.Total.class));
           } else {
             in.skipValue();
           }

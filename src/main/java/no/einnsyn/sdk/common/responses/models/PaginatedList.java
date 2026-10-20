@@ -39,7 +39,51 @@ public class PaginatedList<T extends Base> extends Resource {
     this.previous = previous;
   }
 
+  /** The total number of matching items. Only returned by the search endpoint. */
+  private Total total;
+
+  /** The total number of matching items. Only returned by the search endpoint. */
+  public Total getTotal() {
+    return total;
+  }
+
+  public void setTotal(Total total) {
+    this.total = total;
+  }
+
   public Iterator<T> iterator() {
     return new PaginatedListIterator<>(this, this.getRequester());
+  }
+
+  public static class Total {
+    /** The number of matching items. A lower bound when {@code capped} is true. */
+    private Long value;
+
+    /**
+     * True if counting stopped at {@code value}, meaning there are at least {@code value} matching
+     * items.
+     */
+    private Boolean capped;
+
+    /** The number of matching items. A lower bound when {@code capped} is true. */
+    public Long getValue() {
+      return value;
+    }
+
+    public void setValue(Long value) {
+      this.value = value;
+    }
+
+    /**
+     * True if counting stopped at {@code value}, meaning there are at least {@code value} matching
+     * items.
+     */
+    public Boolean getCapped() {
+      return capped;
+    }
+
+    public void setCapped(Boolean capped) {
+      this.capped = capped;
+    }
   }
 }
