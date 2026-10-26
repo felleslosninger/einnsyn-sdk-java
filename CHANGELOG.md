@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/felleslosninger/einnsyn-sdk-java/compare/1.1.0...1.2.0) (2026-10-26)
+
+
+### Features
+
+* add optional `total`-property to paginated lists (EIN-5053) ([7483fc8](https://github.com/felleslosninger/einnsyn-sdk-java/commit/7483fc821abbdcbf8545d115148777127f7dd91b))
+* add optional `total`-property to paginated lists (EIN-5053) ([a80f822](https://github.com/felleslosninger/einnsyn-sdk-java/commit/a80f82273815300bad410216b9e8ac5b3fff4060))
+
 ## [1.1.0](https://github.com/felleslosninger/einnsyn-sdk-java/compare/1.0.4...1.1.0) (2026-09-25)
 
 
