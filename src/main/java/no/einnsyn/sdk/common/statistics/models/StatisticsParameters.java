@@ -29,6 +29,12 @@ public class StatisticsParameters {
    */
   protected List<String> excludeAdministrativEnhetExact;
 
+  /** A list of Saksmappe IDs. Matches the Journalposts that belong to them. */
+  protected List<String> saksmappe;
+
+  /** A list of Moetemappe IDs. Matches the Moetesaker that belong to them. */
+  protected List<String> moetemappe;
+
   /** Filter by title. This is a free text search. */
   protected List<String> tittel;
 
@@ -154,6 +160,8 @@ public class StatisticsParameters {
       List<String> administrativEnhetExact,
       List<String> excludeAdministrativEnhet,
       List<String> excludeAdministrativEnhetExact,
+      List<String> saksmappe,
+      List<String> moetemappe,
       List<String> tittel,
       List<String> korrespondansepartNavn,
       List<String> skjermingshjemmel,
@@ -191,6 +199,8 @@ public class StatisticsParameters {
     this.administrativEnhetExact = administrativEnhetExact;
     this.excludeAdministrativEnhet = excludeAdministrativEnhet;
     this.excludeAdministrativEnhetExact = excludeAdministrativEnhetExact;
+    this.saksmappe = saksmappe;
+    this.moetemappe = moetemappe;
     this.tittel = tittel;
     this.korrespondansepartNavn = korrespondansepartNavn;
     this.skjermingshjemmel = skjermingshjemmel;
@@ -253,6 +263,16 @@ public class StatisticsParameters {
    */
   public List<String> getExcludeAdministrativEnhetExact() {
     return excludeAdministrativEnhetExact;
+  }
+
+  /** A list of Saksmappe IDs. Matches the Journalposts that belong to them. */
+  public List<String> getSaksmappe() {
+    return saksmappe;
+  }
+
+  /** A list of Moetemappe IDs. Matches the Moetesaker that belong to them. */
+  public List<String> getMoetemappe() {
+    return moetemappe;
   }
 
   /** Filter by title. This is a free text search. */
@@ -468,6 +488,12 @@ public class StatisticsParameters {
      */
     protected List<String> excludeAdministrativEnhetExact;
 
+    /** A list of Saksmappe IDs. Matches the Journalposts that belong to them. */
+    protected List<String> saksmappe;
+
+    /** A list of Moetemappe IDs. Matches the Moetesaker that belong to them. */
+    protected List<String> moetemappe;
+
     /** Filter by title. This is a free text search. */
     protected List<String> tittel;
 
@@ -618,6 +644,16 @@ public class StatisticsParameters {
      */
     public List<String> getExcludeAdministrativEnhetExact() {
       return excludeAdministrativEnhetExact;
+    }
+
+    /** A list of Saksmappe IDs. Matches the Journalposts that belong to them. */
+    public List<String> getSaksmappe() {
+      return saksmappe;
+    }
+
+    /** A list of Moetemappe IDs. Matches the Moetesaker that belong to them. */
+    public List<String> getMoetemappe() {
+      return moetemappe;
     }
 
     /** Filter by title. This is a free text search. */
@@ -877,6 +913,36 @@ public class StatisticsParameters {
         this.excludeAdministrativEnhetExact = new ArrayList<>();
       }
       this.excludeAdministrativEnhetExact.add(excludeAdministrativEnhetExact);
+      return this;
+    }
+
+    /** A list of Saksmappe IDs. Matches the Journalposts that belong to them. */
+    public Builder saksmappe(List<String> saksmappe) {
+      this.saksmappe = saksmappe;
+      return this;
+    }
+
+    /** A list of Saksmappe IDs. Matches the Journalposts that belong to them. */
+    public Builder addSaksmappe(String saksmappe) {
+      if (this.saksmappe == null) {
+        this.saksmappe = new ArrayList<>();
+      }
+      this.saksmappe.add(saksmappe);
+      return this;
+    }
+
+    /** A list of Moetemappe IDs. Matches the Moetesaker that belong to them. */
+    public Builder moetemappe(List<String> moetemappe) {
+      this.moetemappe = moetemappe;
+      return this;
+    }
+
+    /** A list of Moetemappe IDs. Matches the Moetesaker that belong to them. */
+    public Builder addMoetemappe(String moetemappe) {
+      if (this.moetemappe == null) {
+        this.moetemappe = new ArrayList<>();
+      }
+      this.moetemappe.add(moetemappe);
       return this;
     }
 
@@ -1231,6 +1297,8 @@ public class StatisticsParameters {
           this.administrativEnhetExact,
           this.excludeAdministrativEnhet,
           this.excludeAdministrativEnhetExact,
+          this.saksmappe,
+          this.moetemappe,
           this.tittel,
           this.korrespondansepartNavn,
           this.skjermingshjemmel,
