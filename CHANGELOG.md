@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.2.0](https://github.com/felleslosninger/einnsyn-sdk-java/compare/1.1.0...1.2.0) (2026-11-05)
+
+
+### Features
+
+* add optional `total`-property to paginated lists (EIN-5053) ([7483fc8](https://github.com/felleslosninger/einnsyn-sdk-java/commit/7483fc821abbdcbf8545d115148777127f7dd91b))
+* add optional `total`-property to paginated lists (EIN-5053) ([a80f822](https://github.com/felleslosninger/einnsyn-sdk-java/commit/a80f82273815300bad410216b9e8ac5b3fff4060))
+
+
+### Bug Fixes
+
+* **codegen:** sync einnsyn-sdk-java [#110](https://github.com/felleslosninger/einnsyn-sdk-java/issues/110) ([9c3fb78](https://github.com/felleslosninger/einnsyn-sdk-java/commit/9c3fb78cc13897ffeada2ab5d5c62bc1ec052b07))
+* **codegen:** sync einnsyn-sdk-java [#110](https://github.com/felleslosninger/einnsyn-sdk-java/issues/110) ([7aeef22](https://github.com/felleslosninger/einnsyn-sdk-java/commit/7aeef22adb52695877677be65ed3ab798188defd))
+
+
+### Dependencies
+
+* bump com.google.code.gson:gson from 2.14.0 to 2.15.0 ([03f58d6](https://github.com/felleslosninger/einnsyn-sdk-java/commit/03f58d6197b5ec0eba5f805cab47ee5987c58d34))
+
+
+### Documentation
+
+* **codegen:** sync einnsyn-api-spec [#74](https://github.com/felleslosninger/einnsyn-sdk-java/issues/74) ([727ad93](https://github.com/felleslosninger/einnsyn-sdk-java/commit/727ad93da53e8e9baaebb4c7d1d882c8cb2ec499))
+* **codegen:** sync einnsyn-api-spec [#74](https://github.com/felleslosninger/einnsyn-sdk-java/issues/74) ([eaf2ce7](https://github.com/felleslosninger/einnsyn-sdk-java/commit/eaf2ce7fe13f91f2f9085b663d96bc99fcd5463f))
+
 ## [1.1.0](https://github.com/felleslosninger/einnsyn-sdk-java/compare/1.0.4...1.1.0) (2026-09-25)
 
 
