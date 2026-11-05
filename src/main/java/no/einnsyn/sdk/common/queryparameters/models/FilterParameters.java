@@ -29,10 +29,10 @@ public class FilterParameters {
    */
   protected List<String> excludeAdministrativEnhetExact;
 
-  /** A list of Saksmappe IDs. Matches the Journalposts that belong to them. */
+  /** A list of Saksmappe IDs. Matches the Saksmapper and the Journalposts that belong to them. */
   protected List<String> saksmappe;
 
-  /** A list of Moetemappe IDs. Matches the Moetesaker that belong to them. */
+  /** A list of Moetemappe IDs. Matches the Moetemapper and the Moetesaker that belong to them. */
   protected List<String> moetemappe;
 
   /** Filter by title. This is a free text search. */
@@ -238,12 +238,12 @@ public class FilterParameters {
     return excludeAdministrativEnhetExact;
   }
 
-  /** A list of Saksmappe IDs. Matches the Journalposts that belong to them. */
+  /** A list of Saksmappe IDs. Matches the Saksmapper and the Journalposts that belong to them. */
   public List<String> getSaksmappe() {
     return saksmappe;
   }
 
-  /** A list of Moetemappe IDs. Matches the Moetesaker that belong to them. */
+  /** A list of Moetemappe IDs. Matches the Moetemapper and the Moetesaker that belong to them. */
   public List<String> getMoetemappe() {
     return moetemappe;
   }
@@ -434,10 +434,10 @@ public class FilterParameters {
      */
     protected List<String> excludeAdministrativEnhetExact;
 
-    /** A list of Saksmappe IDs. Matches the Journalposts that belong to them. */
+    /** A list of Saksmappe IDs. Matches the Saksmapper and the Journalposts that belong to them. */
     protected List<String> saksmappe;
 
-    /** A list of Moetemappe IDs. Matches the Moetesaker that belong to them. */
+    /** A list of Moetemappe IDs. Matches the Moetemapper and the Moetesaker that belong to them. */
     protected List<String> moetemappe;
 
     /** Filter by title. This is a free text search. */
@@ -571,12 +571,12 @@ public class FilterParameters {
       return excludeAdministrativEnhetExact;
     }
 
-    /** A list of Saksmappe IDs. Matches the Journalposts that belong to them. */
+    /** A list of Saksmappe IDs. Matches the Saksmapper and the Journalposts that belong to them. */
     public List<String> getSaksmappe() {
       return saksmappe;
     }
 
-    /** A list of Moetemappe IDs. Matches the Moetesaker that belong to them. */
+    /** A list of Moetemappe IDs. Matches the Moetemapper and the Moetesaker that belong to them. */
     public List<String> getMoetemappe() {
       return moetemappe;
     }
@@ -814,13 +814,13 @@ public class FilterParameters {
       return this;
     }
 
-    /** A list of Saksmappe IDs. Matches the Journalposts that belong to them. */
+    /** A list of Saksmappe IDs. Matches the Saksmapper and the Journalposts that belong to them. */
     public Builder saksmappe(List<String> saksmappe) {
       this.saksmappe = saksmappe;
       return this;
     }
 
-    /** A list of Saksmappe IDs. Matches the Journalposts that belong to them. */
+    /** A list of Saksmappe IDs. Matches the Saksmapper and the Journalposts that belong to them. */
     public Builder addSaksmappe(String saksmappe) {
       if (this.saksmappe == null) {
         this.saksmappe = new ArrayList<>();
@@ -829,13 +829,13 @@ public class FilterParameters {
       return this;
     }
 
-    /** A list of Moetemappe IDs. Matches the Moetesaker that belong to them. */
+    /** A list of Moetemappe IDs. Matches the Moetemapper and the Moetesaker that belong to them. */
     public Builder moetemappe(List<String> moetemappe) {
       this.moetemappe = moetemappe;
       return this;
     }
 
-    /** A list of Moetemappe IDs. Matches the Moetesaker that belong to them. */
+    /** A list of Moetemappe IDs. Matches the Moetemapper and the Moetesaker that belong to them. */
     public Builder addMoetemappe(String moetemappe) {
       if (this.moetemappe == null) {
         this.moetemappe = new ArrayList<>();
