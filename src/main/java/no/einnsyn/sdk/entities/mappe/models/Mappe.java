@@ -8,6 +8,7 @@ import no.einnsyn.sdk.common.expandablefield.ExpandableField;
 import no.einnsyn.sdk.entities.arkivbase.models.ArkivBase;
 import no.einnsyn.sdk.entities.arkivdel.models.Arkivdel;
 import no.einnsyn.sdk.entities.klasse.models.Klasse;
+import no.einnsyn.sdk.entities.lagretsak.models.LagretSak;
 import no.einnsyn.sdk.entities.matrikkelnummer.models.Matrikkelnummer;
 import no.einnsyn.sdk.entities.moetemappe.models.Moetemappe;
 import no.einnsyn.sdk.entities.saksmappe.models.Saksmappe;
@@ -59,6 +60,12 @@ public class Mappe extends ArkivBase {
 
   /** Property identifiers (matrikkelnummer) associated with this Mappe. */
   protected List<ExpandableField<Matrikkelnummer>> matrikkelnummer;
+
+  /**
+   * The authenticated user's LagretSak for this Mappe, if they have saved it. Only set for
+   * logged-in users.
+   */
+  protected ExpandableField<LagretSak> lagretSak;
 
   /** A URL-friendly unique slug for the resource. */
   public String getSlug() {
@@ -125,5 +132,13 @@ public class Mappe extends ArkivBase {
   /** Property identifiers (matrikkelnummer) associated with this Mappe. */
   public List<ExpandableField<Matrikkelnummer>> getMatrikkelnummer() {
     return matrikkelnummer;
+  }
+
+  /**
+   * The authenticated user's LagretSak for this Mappe, if they have saved it. Only set for
+   * logged-in users.
+   */
+  public ExpandableField<LagretSak> getLagretSak() {
+    return lagretSak;
   }
 }
