@@ -6,6 +6,7 @@ package no.einnsyn.sdk.entities.journalpost.models;
 import java.util.List;
 import no.einnsyn.sdk.common.expandablefield.ExpandableField;
 import no.einnsyn.sdk.entities.enhet.models.Enhet;
+import no.einnsyn.sdk.entities.innsynskrav.models.Innsynskrav;
 import no.einnsyn.sdk.entities.registrering.models.Registrering;
 import no.einnsyn.sdk.entities.saksmappe.models.Saksmappe;
 import no.einnsyn.sdk.entities.skjerming.models.Skjerming;
@@ -54,6 +55,11 @@ public class Journalpost extends Registrering {
 
   /** The case this record belongs to. */
   protected ExpandableField<Saksmappe> saksmappe;
+
+  /**
+   * The authenticated user's own requests for access to this record. Only set for logged-in users.
+   */
+  protected List<ExpandableField<Innsynskrav>> innsynskrav;
 
   public String getEntity() {
     return entity;
@@ -119,5 +125,12 @@ public class Journalpost extends Registrering {
   /** The case this record belongs to. */
   public ExpandableField<Saksmappe> getSaksmappe() {
     return saksmappe;
+  }
+
+  /**
+   * The authenticated user's own requests for access to this record. Only set for logged-in users.
+   */
+  public List<ExpandableField<Innsynskrav>> getInnsynskrav() {
+    return innsynskrav;
   }
 }
